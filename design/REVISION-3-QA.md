@@ -23,4 +23,4 @@ The live site opens its organization sign-in page. A fresh authenticated workspa
 A separate local-only capture harness was prepared using the unmodified current HomeBoard component and fictional data. Browser URL policy blocked opening the local capture file; no workaround was attempted and it is not included in the public repository. No production app, database, account preferences or scientific records were changed.
 
 ## Deployment boundary
-Only the existing GitHub review branch and owner-private review Site are updated. Main and production szkl.com remain unchanged.
+The GitHub review branch and local review are updated. The owner-private hosted Site is still on the previous revision: the bundled Sites publishing helper became unavailable after source opening and could not be found in the installed plugin directories. Main and production szkl.com remain unchanged.
