@@ -1,0 +1,61 @@
+{
+  "brand": "szkl",
+  "productName": "SZKL Physical AI",
+  "productArchetype": "knowledge-institution",
+  "primaryUser": "Professional collaborators, customers and conference contacts",
+  "repeatedJob": "Understand the company and identify a concrete pilot or person to contact",
+  "dominantProductObject": "Capture-understand-act application loop",
+  "signatureComposition": "Editorial thesis, evidence-led product index, full-width application viewer and personal one-page profiles",
+  "primaryAction": "Discuss a real-world workflow",
+  "applicationArchitecture": {
+    "shellMode": "document",
+    "canonicalFrameId": "szkl.s2-light-editorial",
+    "pattern": "Public editorial document with in-place application switcher",
+    "visiblePanes": [
+      "Navigation",
+      "Company or profile document"
+    ],
+    "primarySpaceTarget": "Full reading width up to 1200px; text paired with media at desktop",
+    "paneContracts": [],
+    "responsiveTransformation": {
+      "wide": "Centered 1200px content; side-by-side thesis and visual evidence",
+      "expanded": "Two-column editorial composition",
+      "medium": "Reduced gaps; flexible product tabs; paired product media",
+      "compact": "Single document column; wrapped navigation; vertically ordered workflow and images"
+    }
+  },
+  "evidenceStates": [
+    "Product-design visualization",
+    "Software prototype screenshot",
+    "Company-material photograph",
+    "Application concept",
+    "Team biography from existing company collateral"
+  ],
+  "permissionStates": [
+    "Public marketing copy",
+    "No customer records or credentials exposed",
+    "Local review pending publication scope"
+  ],
+  "requiredViewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "approvedAssetDirectory": "public/brand",
+  "tokenFile": "tokens/szkl.tokens.json",
+  "logoAssetId": "szkl.wordmark.dark",
+  "logoAsset": "public/brand/szkl-logo-black.png",
+  "logoBackground": "white",
+  "webIconSet": "public/brand/web/szkl",
+  "specialConstraints": [
+    "Document scroll is intentional for public site and one-page bios",
+    "No unverified valuation, customer logos or quantified performance",
+    "User's physical AI thesis supersedes older knowledge-only positioning",
+    "Preserve official logos and Pulse English lockup",
+    "Profile titles provisional from existing materials pending user update"
+  ]
+}
