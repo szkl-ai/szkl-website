@@ -1,6 +1,6 @@
 # SZKL — AI for the physical world
 
-English and Simplified Chinese company website with separate Michael Liu and Ethan (Yixin) Zhang profile pages. The positioning follows a practical loop: **capture real-world data, understand it, act on it**.
+English and Simplified Chinese company website with separate Michael Liu, Ethan (Yixin) Zhang, PhD, and Louis Zhang, PhD, profile pages. The positioning follows a practical loop: **capture real-world data, understand it, act on it**.
 
 ## Review status
 
@@ -9,6 +9,7 @@ This branch is for debugging and owner approval. **Do not merge into `main` or d
 - [Private review site](https://szkl-physical-ai-review.mike944718.chatgpt.site/?lang=en) — requires ChatGPT sign-in.
 - [Michael profile](https://szkl-physical-ai-review.mike944718.chatgpt.site/people/michael/?lang=en)
 - [Ethan profile](https://szkl-physical-ai-review.mike944718.chatgpt.site/people/ethan/?lang=en)
+- [Louis profile](https://szkl-physical-ai-review.mike944718.chatgpt.site/people/louis/?lang=en)
 - Use `?lang=zh` for Chinese; use `?lang=en&application=rallo#applications` for an application deep link.
 
 The review site is a separate hosting project. This repository deliberately retains the existing production `.openai/hosting.json` identity and Cloudflare worker configuration. **Pushing this branch does not authorize a production deployment.** Do not publish this checkout using the production hosting identity during review.
@@ -54,3 +55,6 @@ These settings update built profile metadata, vCard URLs and robots directives. 
 See `design/QA-REPORT.md` and screenshots under `design/qa/`. English and Chinese were reviewed at desktop, tablet and mobile sizes. Product tabs, language persistence, image dialogs, profile links, copy-link actions and contact download were exercised in the browser.
 
 Before approving public launch, confirm Ethan's profile, replace any available social placeholders, review product maturity claims, and select the final public origin. The current review site's content is the reference for the visual implementation; GitHub-specific changes preserve the production build wiring and add configurable build metadata.
+
+## Method-first revision
+The opening now explains Capture → Compute → Act, with SZKL advantages in hardware/supply-chain, model/data engineering and workflow delivery before the use cases. Product images retain their full framing. Ethan and Louis have owner-confirmed PhD designations. See `design/REVISION-2-QA.md`, `design/content-sources.md` and screenshots in `design/qa-v2/`.

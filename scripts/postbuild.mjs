@@ -18,7 +18,7 @@ for (const directory of directories) {
   const html = (await readFile(join(directory, 'index.html'), 'utf8'))
     .replace(/(<meta name="robots" content=")[^"]*("\s*\/?\s*>)/, `$1${robots}$2`);
   await writeFile(join(directory, 'index.html'), html);
-  for (const [id, name] of [['michael', 'Michael Liu'], ['ethan', 'Ethan Zhang']]) {
+  for (const [id, name] of [['michael', 'Michael Liu'], ['ethan', 'Ethan Zhang, PhD'], ['louis', 'Louis Zhang, PhD']]) {
     const title = `${name} | SZKL`;
     const profile = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
       .replace('</head>', `<meta property="og:title" content="${title}"/><meta property="og:type" content="profile"/><meta property="og:url" content="${origin}/people/${id}/"/><meta property="og:image" content="${origin}/media/${id}.jpg"/></head>`);

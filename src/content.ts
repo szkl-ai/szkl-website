@@ -3,11 +3,11 @@ export type Text = {en:string;zh:string};
 export const tx = (en:string,zh:string):Text => ({en,zh});
 export const copy = {
  skip:tx('Skip to content','跳转到正文'),
- home:tx('Home','首页'), applications:tx('Applications','应用场景'), approach:tx('Our approach','我们的方法'), people:tx('People','团队'), contact:tx('Let’s connect','联系我们'),
+ home:tx('Home','首页'), applications:tx('Use cases','应用案例'), approach:tx('Why SZKL','为什么选择 SZKL'), people:tx('People','团队'), contact:tx('Let’s connect','联系我们'),
  company:tx('Shenzhen Knowledge Labs','Shenzhen Knowledge Labs'),
  eyebrow:tx('Shenzhen · Hardware + intelligence + action','深圳 · 硬件 × 智能 × 行动'),
  heroTitle:tx('AI for the physical world.','让 AI 理解真实世界，推动下一步行动。'),
- heroLead:tx('We build systems that capture what happens in the real world, understand what it means, and turn it into a useful next step.','我们构建面向真实世界的 AI 系统：采集现场发生的事，理解其中的意义，并将洞察转化为有用的下一步。'),
+ heroLead:tx('SZKL builds physical AI systems: capture real-world data, compute what it means, and turn understanding into useful action.','SZKL 构建真实世界 AI 系统：采集现场数据，计算并理解其意义，将理解转化为有用的行动。'),
  heroSub:tx('From a conversation to a court. From a lab bench to a production line.','从一段对话到一片球场，从实验台到生产线。'),
  explore:tx('Explore our applications','探索应用场景'),
  discuss:tx('Bring us a real-world problem','和我们聊聊真实问题'),
@@ -21,10 +21,10 @@ export const copy = {
  {title:tx('Act','行动'),sub:tx('Help someone take the next step.','帮助人们决定下一步。'),body:tx('A next experiment. A follow-up task. A movement to review. The application turns understanding into a decision, a recommendation or an approved workflow.','下一轮实验、待办事项、需要复盘的动作。应用将理解转化为决策、建议或经过授权的工作流程。'),items:tx('Recommend · Review · Execute · Learn','建议 · 审核 · 执行 · 学习')}
  ],
  feedback:tx('Every reviewed outcome can inform the next cycle.','每一次经过验证的结果，都能为下一轮提供依据。'),
- appsTitle:tx('One thesis. Different worlds.','同一理念，深入不同场景。'),
- appsLead:tx('Purpose-built applications for the places where real-world data can change what happens next.','围绕具体场景构建应用，让真实世界的数据影响接下来的行动。'),
+ appsTitle:tx('The method, in the real world.','将方法，带入真实场景。'),
+ appsLead:tx('Voice, movement, experiments and enterprise operations. Each application brings the same capture–compute–act method to a different user need.','从语音、运动到实验与企业运营，用同一套采集、计算、行动的方法，服务不同的用户需求。'),
  appsLabel:tx('Applications in development','正在构建的应用'),
- capture:tx('What we capture','采集什么'), understand:tx('What we understand','理解什么'), act:tx('What it enables','带来什么行动'),
+ capture:tx('Capture','采集'), understand:tx('Compute','计算'), act:tx('Act','行动'),
  status:tx('Where we are','当前阶段'), gallery:tx('Inside the product','走近产品'), expand:tx('Open image','查看大图'), close:tx('Close image','关闭大图'),
  imageNote:tx('Concept visual','概念示意'),
  edgeTitle:tx('The advantage is in what happens next.','竞争力，来自数据之后的行动。'),
@@ -47,7 +47,7 @@ export const copy = {
  {title:tx('Keep people in control','让人保持控制权'),body:tx('Use review and explicit approval where actions affect experiments, work or other people.','当行动影响实验、业务或他人时，设置必要的审核与明确授权。')}
  ],
  teamTitle:tx('Meet the people building it.','认识背后的团队。'),
- teamLead:tx('Product direction and AI engineering, working from the same real-world problems.','产品与 AI 工程，从同一个真实问题出发。'),
+ teamLead:tx('Product, AI models and experimental systems—built by people who connect the disciplines.','连接产品、AI 模型与实验系统，让跨领域能力共同落地。'),
  bioLink:tx('View one-page profile','查看个人介绍'),
  contactTitle:tx('What could your real-world data make possible?','你的真实世界数据，还能创造什么？'),
  contactBody:tx('We’re looking for customers, domain experts and technical partners with a meaningful workflow to improve. Start with the place, the data and the decision that matters.','我们希望与客户、领域专家和技术伙伴一起，改进真正重要的工作流程。从具体场景、已有数据，以及关键决策开始聊起。'),
@@ -78,7 +78,7 @@ export const products=[
  title:tx('See the game. Find the next improvement.','看清比赛，找到下一步提升。'),
  intro:tx('Court cameras and computer vision turn match footage into moments players can revisit, coaches can discuss and communities can share.','球场相机与计算机视觉，将比赛视频转化为球员可回看、教练可讨论、社群可分享的精彩片段。'),
  input:tx('Court footage from fixed cameras or uploaded match videos.','固定相机采集的球场视频，或上传的比赛录像。'),
- model:tx('Rally segmentation, player tracking and movement context. Tracking quality is being validated on real footage.','识别回合、跟踪球员并理解动作上下文；跟踪质量正在真实视频中验证。'),
+ model:tx('The current prototype combines YOLO11s-pose for player pose with TrackNetV3 for shuttle observations, plus court and temporal context. Results are being evaluated on real footage.','当前原型结合 YOLO11s-pose 球员姿态模型与 TrackNetV3 羽毛球观测模型，并纳入球场和时序信息，正通过真实视频评估结果。'),
  action:tx('Review rallies, create highlights and discuss movement with a coach. Community, leaderboards and matchmaking extend the product direction.','复盘回合、制作集锦，并与教练讨论动作。社群、排行榜和匹配约球属于产品拓展方向。'),
  stage:tx('Working software and club pilot development. Automated scoring and technique recommendations remain under validation.','软件原型与球馆试点持续推进；自动计分及动作建议仍在验证中。'),
  image:'sports-concept.png',imageAlt:tx('Concept of a fixed camera observing a badminton court','固定相机采集羽毛球场视频的安装概念图'),
@@ -129,14 +129,25 @@ export const people=[
  contactLabel:tx('Email Michael','联系 Michael'),
  short:tx('Founder and CEO of Pheno. Building SZKL’s product direction across hardware and applied AI.','Pheno 创始人兼 CEO，推动 SZKL 硬件与应用 AI 产品方向。')
  },
- {id:'ethan',name:'Ethan Zhang',chinese:'Yixin Zhang',image:'ethan.jpg',role:tx('AI engineering · Models & systems','AI 工程 · 模型与系统'),
+ {id:'ethan',name:'Ethan Zhang, PhD',chinese:'Yixin Zhang · 博士',image:'ethan.jpg',role:tx('AI engineering · Models & systems','AI 工程 · 模型与系统'),
  headline:tx('Making real-world data useful.','让真实世界的数据发挥作用。'),
  lead:tx('Connecting data science, domain understanding and engineering to build practical AI systems.','连接数据科学、领域理解与工程能力，构建可实际应用的 AI 系统。'),
- bio:tx('Ethan (Yixin) Zhang works across AI models and engineering, with data science experience in China and Canada spanning forecasting, recommendation and geospatial intelligence.','Ethan（Yixin）Zhang 从事 AI 模型与工程工作，在中国与加拿大拥有数据科学经验，涉及预测、推荐与地理空间智能。'),
+ bio:tx('Ethan (Yixin) Zhang, PhD, works across AI models and engineering, with data science experience in China and Canada spanning forecasting, recommendation and geospatial intelligence.','Ethan（Yixin）Zhang 博士从事 AI 模型与工程工作，在中国与加拿大拥有数据科学经验，涉及预测、推荐与地理空间智能。'),
  background:tx('His background includes the University of Alberta and Beihang University, and work bringing data science into operational systems. His current focus is connecting models with the data, evaluation and engineering needed for practical applications.','他的背景包括阿尔伯塔大学、北京航空航天大学的学习经历，以及将数据科学用于业务系统的实践。目前关注模型与数据、评估及工程能力的结合，推动 AI 的实际应用。'),
  focus:[tx('Vision and domain-specific models','视觉与领域模型'),tx('Structured data and prediction','结构化数据与预测'),tx('AI systems in operational workflows','实际业务流程中的 AI 系统')],
  connect:tx('Teams with real data, clear evaluation questions and a domain problem to solve together—from experiments to movement and enterprise operations.','欢迎拥有真实数据、明确评估目标和领域问题的团队交流，共同探索实验、运动与企业运营中的应用。'),
  email:'',linkedin:'',contactLabel:tx('Connect through the team','通过团队联系'),
- short:tx('Data science and AI engineering, connecting models to practical applications.','连接模型与实际应用的数据科学及 AI 工程。')
+ short:tx('Data scientist and AI engineer with experience in forecasting, recommendation and model deployment.','具备预测、推荐与模型部署经验的数据科学家及 AI 工程师。')
+ },
+ {id:'louis',name:'Louis Zhang, PhD',chinese:'张博士',image:'louis.jpg',role:tx('Hardware & experimental systems','硬件与实验系统'),
+ headline:tx('Connecting the instrument to the intelligence.','连接仪器与智能。'),
+ lead:tx('A physicist and systems designer working at the intersection of experimental platforms, data capture and applied AI.','在实验平台、数据采集与应用 AI 交叉领域开展工作的物理学博士及系统设计者。'),
+ bio:tx('Louis holds a PhD in physics from Missouri University of Science and Technology and has worked on research projects supported by the US National Science Foundation. At Pheno, he has helped design AI-enabled high-throughput materials development platforms.','Louis 毕业于美国密苏里科技大学，获物理学博士学位，曾参与美国国家科学基金会支持的科研项目。在 Pheno，他参与设计了 AI 高通量材料开发平台。'),
+ background:tx('His work brings experimental equipment, data collection and system design into the same workflow. At SZKL, that perspective connects what a system needs to observe with the hardware and engineering needed to capture it.','他的工作将实验设备、数据采集与系统设计融入同一工作流程。在 SZKL，这种经验将系统需要观察的内容，与实现采集所需的硬件和工程能力连接起来。'),
+ focus:[tx('Experimental systems and instrumentation','实验系统与仪器'),tx('Hardware and data-capture integration','硬件与数据采集集成'),tx('AI-enabled scientific workflows','AI 支持的科研工作流程')],
+ connect:tx('Hardware partners, instrument teams and researchers building reliable data capture into real experimental and operational environments.','欢迎硬件伙伴、仪器团队及研究人员交流，共同在真实实验与业务环境中构建可靠的数据采集能力。'),
+ email:'',linkedin:'',contactLabel:tx('Connect through the team','通过团队联系'),
+ short:tx('Physics PhD and experimental-platform designer, connecting hardware, data capture and AI.','物理学博士、实验平台设计者，连接硬件、数据采集与 AI。')
  }
+
 ];
