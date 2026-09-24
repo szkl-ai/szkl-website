@@ -6,12 +6,15 @@
   const view=new RalloTracking.View({storageKey:'szkl-rallo-public-demo-v4',video:v,canvas:$('demo-overlay'),mapCanvas:$('demo-map'),playerSelect:$('demo-player-filter'),heatPanel:$('demo-heat-panel'),heatNote:$('demo-heat-note'),status:$('demo-status'),getJob:()=>data.job,toggles:{players:$('demo-players'),pose:$('demo-pose'),shuttle:$('demo-shuttle'),heatmap:$('demo-heat'),courtmap:{checked:true,disabled:false,addEventListener(){}}}});
   ['demo-players','demo-pose','demo-shuttle','demo-heat'].forEach(id=>$(id).checked=true);
   view.toggles.courtmap.checked=true;
-  view.setData(data.tracking,t('真实追踪预览 · 二维估算。切换图层，对比观看。','Real tracking preview · 2D estimates. Toggle a layer to compare.'));
+  view.setData(data.tracking,t('正在加载示例视频…','Loading the sample video…'));
   const activate=()=>document.querySelectorAll('[data-rally]').forEach(b=>{const s=data.job.segments[+b.dataset.rally];const active=v.currentTime>=s.t_start&&v.currentTime<s.t_end;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
-  document.querySelectorAll('[data-rally]').forEach(b=>{b.disabled=false;b.onclick=()=>{v.currentTime=data.job.segments[+b.dataset.rally].t_start;v.play().catch(()=>{});};});
+  document.querySelectorAll('[data-rally]').forEach(b=>{b.onclick=()=>{v.currentTime=data.job.segments[+b.dataset.rally].t_start;v.play().catch(()=>{});};});
   v.addEventListener('timeupdate',activate);
   const initialFrame=()=>{v.currentTime=1.15;activate();};
   if(v.readyState>=1)initialFrame();else v.addEventListener('loadedmetadata',initialFrame,{once:true});
+  const enablePlayback=()=>{document.querySelectorAll('[data-rally]').forEach(b=>b.disabled=false);$('demo-status').textContent=t('真实追踪预览 · 二维估算。切换图层，对比观看。','Real tracking preview · 2D estimates. Toggle a layer to compare.');};
+  if(v.readyState>=3)enablePlayback();else v.addEventListener('canplay',enablePlayback,{once:true});
+  v.addEventListener('error',()=>{$('demo-status').textContent=t('视频加载失败，请刷新重试。','The video could not load. Please refresh to try again.');});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)v.pause();});
  }catch(error){$('demo-status').textContent=t('演示暂时无法加载，请刷新重试。','The demo could not load. Please refresh to try again.');}
 })();
