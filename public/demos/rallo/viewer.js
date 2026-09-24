@@ -8,7 +8,7 @@
   view.toggles.courtmap.checked=true;
   view.setData(data.tracking,t('真实追踪预览 · 二维估算。切换图层，对比观看。','Real tracking preview · 2D estimates. Toggle a layer to compare.'));
   const activate=()=>document.querySelectorAll('[data-rally]').forEach(b=>{const s=data.job.segments[+b.dataset.rally];const active=v.currentTime>=s.t_start&&v.currentTime<s.t_end;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
-  document.querySelectorAll('[data-rally]').forEach(b=>b.onclick=()=>{v.currentTime=data.job.segments[+b.dataset.rally].t_start;v.play().catch(()=>{});});
+  document.querySelectorAll('[data-rally]').forEach(b=>{b.disabled=false;b.onclick=()=>{v.currentTime=data.job.segments[+b.dataset.rally].t_start;v.play().catch(()=>{});};});
   v.addEventListener('timeupdate',activate);
   const initialFrame=()=>{v.currentTime=1.15;activate();};
   if(v.readyState>=1)initialFrame();else v.addEventListener('loadedmetadata',initialFrame,{once:true});
