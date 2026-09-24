@@ -10,5 +10,6 @@
   "factory-concept.jpg": "Existing Pulse industrial AI presentation v2; workshop concept illustration.",
   "sports-concept.png": "AI-generated sports capture hardware concept, September 2026; not a deployed installation.",
   "lab-concept.png": "AI-generated glovebox capture concept, September 2026; not a deployed installation.",
-  "louis.jpg": "Existing Pulse industrial AI team presentation v2; Louis portrait. Bio corroborated by Pheno BP July 2026, team slide."
+  "louis.jpg": "Existing Pulse industrial AI team presentation v2; Louis portrait. Bio corroborated by Pheno BP July 2026, team slide.",
+  "phenolab-designer-preview.png": "Existing Pheno Lab Data Platform mockups/01-experiment-designer.png, exact copy. Static Designer v0.1 preview with example experiment text corroborated by prisma/seed.ts. Not presented as the current deployed interface. Official Pheno logo preserved. Current authenticated capture is pending user sign-in."
 }
