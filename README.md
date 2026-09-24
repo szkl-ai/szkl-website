@@ -62,3 +62,10 @@ The opening now explains Capture → Compute → Act, with SZKL advantages in ha
 
 ## Phenolab revision
 The laboratory use case links directly to https://lab.szkl.com and uses the official Pheno logo. A fresh authenticated application screenshot is pending sign-in; the current image is labelled as an existing design preview in both languages. See design/REVISION-3-QA.md.
+
+## Application evidence revision 4
+- RALLO: real public tracking demo with playable rallies, joint/player/shuttle layers and a court heatmap.
+- Phenolab: experiment designer recreation, camera-equipped glovebox, robotic-hand R&D concept and illustrative capture annotations.
+- Pheno: employee/RFID, equipment and knowledge workbenches; agent preparation and human review are a separate concept.
+- Focused views: `?showcase=phenolab`, `?showcase=capture`, `?showcase=operations` and `?showcase=rallo`. Add `&lang=zh` for Chinese.
+- No personal HR records, private uploads or actual laboratory records are included.

@@ -29,7 +29,11 @@
     "Software prototype screenshot",
     "Company-material photograph",
     "Application concept",
-    "Team biography from existing company collateral"
+    "Team biography from existing company collateral",
+    "Real recorded public tracking demo with functional overlay controls",
+    "Recreated Pheno workspace using fictional data",
+    "Generated glovebox and dexterous robot hardware concepts",
+    "Illustrative capture annotations, not model predictions"
   ],
   "permissionStates": [
     "Public marketing copy",
@@ -60,6 +64,9 @@
     "No product collage or cropped product images in the opening",
     "Model families described at company level; named model examples scoped to verified use cases",
     "Ethan and Louis PhD designations confirmed by owner; no invented degree institution for Ethan",
-    "Phenolab uses the exact official Pheno logo on a white plate, with product name separate; its application links to lab.szkl.com. SZKL remains the site owner brand."
+    "Phenolab uses the exact official Pheno logo on a white plate, with product name separate; its application links to lab.szkl.com. SZKL remains the site owner brand.",
+    "Pheno workbench inserts use approved Pheno gray and green; the SZKL editorial shell remains the owner brand.",
+    "No real employee records are published. Agent preparation and approval are a concept, not a claim of deployed orchestration.",
+    "Reuse the real RALLO public demo observations; do not invent joints or claim 3D accuracy."
   ]
 }

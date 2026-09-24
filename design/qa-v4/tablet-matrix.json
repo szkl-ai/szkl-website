@@ -1,0 +1,50 @@
+[
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "en",
+    "overflow": 1024,
+    "selected": "03PhenolabLaboratories & experiments",
+    "w": 1024
+  },
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "en",
+    "overflow": 1024,
+    "selected": "04PhenoPeople & agent workflows",
+    "w": 1024
+  },
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "en",
+    "overflow": 1024,
+    "selected": "02RALLOSports & movement",
+    "w": 1024
+  },
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "zh-CN",
+    "overflow": 1024,
+    "selected": "03Phenolab实验室与实验",
+    "w": 1024
+  },
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "zh-CN",
+    "overflow": 1024,
+    "selected": "04Pheno人员与智能体流程",
+    "w": 1024
+  },
+  {
+    "broken": 0,
+    "h": 768,
+    "lang": "zh-CN",
+    "overflow": 1024,
+    "selected": "02RALLO运动与动作",
+    "w": 1024
+  }
+]
