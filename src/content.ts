@@ -7,7 +7,7 @@ export const copy = {
  company:tx('Shenzhen Knowledge Labs','Shenzhen Knowledge Labs'),
  eyebrow:tx('Shenzhen · Hardware + intelligence + action','深圳 · 硬件 × 智能 × 行动'),
  heroTitle:tx('AI for the physical world.','让 AI 理解真实世界，推动下一步行动。'),
- heroLead:tx('SZKL builds physical AI systems: capture real-world data, compute what it means, and turn understanding into useful action.','SZKL 构建真实世界 AI 系统：采集现场数据，计算并理解其意义，将理解转化为有用的行动。'),
+ heroLead:tx('SZKL connects real-world data to useful action and measurable outcomes. Our focus: enterprise workflows with Pulse and venue-led sports intelligence with RALLO.','SZKL 连接真实世界的数据、行动与可衡量的结果，重点推进 Pulse 企业工作流程与 RALLO 场馆运动智能。'),
  heroSub:tx('From a conversation to a court. From a lab bench to a production line.','从一段对话到一片球场，从实验台到生产线。'),
  explore:tx('Explore our applications','探索应用场景'),
  discuss:tx('Bring us a real-world problem','和我们聊聊真实问题'),
@@ -21,9 +21,9 @@ export const copy = {
  {title:tx('Act','行动'),sub:tx('Help someone take the next step.','帮助人们决定下一步。'),body:tx('A next experiment. A follow-up task. A movement to review. The application turns understanding into a decision, a recommendation or an approved workflow.','下一轮实验、待办事项、需要复盘的动作。应用将理解转化为决策、建议或经过授权的工作流程。'),items:tx('Recommend · Review · Execute · Learn','建议 · 审核 · 执行 · 学习')}
  ],
  feedback:tx('Every reviewed outcome can inform the next cycle.','每一次经过验证的结果，都能为下一轮提供依据。'),
- appsTitle:tx('The method, in the real world.','将方法，带入真实场景。'),
- appsLead:tx('Voice, movement, experiments and enterprise operations. Each application brings the same capture–compute–act method to a different user need.','从语音、运动到实验与企业运营，用同一套采集、计算、行动的方法，服务不同的用户需求。'),
- appsLabel:tx('Applications in development','正在构建的应用'),
+ appsTitle:tx('Explore the work behind the thesis.','走进产品，看见实践。'),
+ appsLead:tx('Pulse and RALLO are our two commercial focus areas. Phenolab, Nian and our operations work contribute scientific experience, capture technology and workflow foundations.','Pulse 与 RALLO 是两个商业重点方向。Phenolab、Nian 及内部运营系统提供科研经验、采集技术与工作流程基础。'),
+ appsLabel:tx('Products & supporting applications','产品与支撑应用'),
  capture:tx('Capture','采集'), understand:tx('Compute','计算'), act:tx('Act','行动'),
  status:tx('Where we are','当前阶段'), gallery:tx('Inside the product','走近产品'), expand:tx('Open image','查看大图'), close:tx('Close image','关闭大图'),
  imageNote:tx('Concept visual','概念示意'),
@@ -36,7 +36,7 @@ export const copy = {
  {title:tx('A feedback loop that improves','不断积累经验的闭环'),body:tx('Compare recommendations with reviewed outcomes. Keep corrections and domain expertise in the loop.','将建议与经过审核的结果进行比较，把纠正意见和专业经验纳入下一轮。')}
  ],
  rootsLabel:tx('Built close to the physical world','扎根真实场景'),
- rootsTitle:tx('From materials discovery to everyday intelligence.','从材料发现，走向更多真实世界的智能应用。'),
+ rootsTitle:tx('Built from work in the real world.','从真实工作中，积累方法。'),
  rootsBody:tx('Our starting point is the practical work of materials R&D through Pheno: experiments, instruments, incomplete records and decisions that need evidence. SZKL carries that systems thinking into voice, sports and enterprise workflows.','我们的起点，是 Pheno 材料研发中的实际工作：实验、仪器、不完整的记录，以及需要证据支持的决策。SZKL 将这种系统思维延伸到语音、运动与企业工作流程。'),
  rootsSub:tx('Based in Shenzhen, we bring hardware development and AI engineering into the same product conversation.','扎根深圳，让硬件开发与 AI 工程从一开始就共同定义产品。'),
  photoCaption:tx('Laboratory photography · Pheno company materials','实验室照片 · Pheno 公司资料'),
@@ -50,7 +50,7 @@ export const copy = {
  teamLead:tx('Product, AI models and experimental systems—built by people who connect the disciplines.','连接产品、AI 模型与实验系统，让跨领域能力共同落地。'),
  bioLink:tx('View one-page profile','查看个人介绍'),
  contactTitle:tx('What could your real-world data make possible?','你的真实世界数据，还能创造什么？'),
- contactBody:tx('We’re looking for customers, domain experts and technical partners with a meaningful workflow to improve. Start with the place, the data and the decision that matters.','我们希望与客户、领域专家和技术伙伴一起，改进真正重要的工作流程。从具体场景、已有数据，以及关键决策开始聊起。'),
+ contactBody:tx('We welcome manufacturing pilot partners, sports venues, domain experts and investors who care about measurable customer value. Start with the workflow, the evidence and the result worth proving.','欢迎制造业试点伙伴、运动场馆、领域专家及关注客户实际价值的投资人。从工作流程、证据与值得验证的结果开始交流。'),
  mail:tx('Start a conversation','发起交流'),
  footer:tx('Physical AI. Built around useful action.','面向真实世界的 AI，让理解转化为行动。'),
  all:tx('All applications','全部应用'), back:tx('Back to SZKL','返回 SZKL'), share:tx('Copy profile link','复制介绍链接'), copied:tx('Link copied','链接已复制'),copyFail:tx('Copy the address from your browser to share this page.','请复制浏览器地址来分享此页面。'),
@@ -59,8 +59,8 @@ export const copy = {
  viaMichael:tx('Introduction via Michael','通过 Michael 联系'), profileNote:tx('Profile based on existing company introductions.','个人简介整理自既有公司介绍。'),
  preferences:tx('Language','语言'),chosen:tx('Selected application','当前应用'),proof:tx('Source-linked outputs. Domain-specific actions.','输出关联证据，行动贴合场景。'),
 };
-export const products=[
- {id:'nian',name:'Nian',cn:'念',category:tx('Voice & personal context','语音与个人上下文'),tag:tx('Hardware + app prototype','硬件与应用原型'),
+const productDefinitions=[
+ {id:'nian',name:'Nian',cn:'念',category:tx('Voice capture','语音采集'),tag:tx('Hardware + app prototype','硬件与应用原型'),
  title:tx('Capture the moment. Carry the context.','记录当下，留住上下文。'),
  intro:tx('A voice recording puck and companion app that turn spoken moments into a searchable record, connected summaries and a clearer view of the day.','语音记录设备与配套应用，将口述和交流转化为可检索的记录、关联摘要，以及更清晰的一日回顾。'),
  input:tx('Button-controlled voice recording from conversations, field notes and spoken ideas.','通过实体按键控制录音，记录对话、现场笔记与口述想法。'),
@@ -74,7 +74,7 @@ export const products=[
  takeaway:tx('For researchers, field teams and people whose important work happens in conversation.','面向研究人员、现场团队，以及在交流中完成重要工作的人。'),
  link:tx('Discuss a Nian pilot','洽谈 Nian 试用'),demo:'memory'
  },
- {id:'rallo',name:'RALLO',cn:'拉罗',category:tx('Sports & movement','运动与动作'),tag:tx('Badminton-first pilot','羽毛球优先试点'),
+ {id:'rallo',name:'RALLO',cn:'拉罗',category:tx('Sports · venue-led','运动 · 场馆触达'),tag:tx('Badminton-first pilot','羽毛球优先试点'),
  title:tx('See the game. Find the next improvement.','看清比赛，找到下一步提升。'),
  intro:tx('Court cameras and computer vision turn match footage into moments players can revisit, coaches can discuss and communities can share.','球场相机与计算机视觉，将比赛视频转化为球员可回看、教练可讨论、社群可分享的精彩片段。'),
  input:tx('Court footage from fixed cameras or uploaded match videos.','固定相机采集的球场视频，或上传的比赛录像。'),
@@ -85,7 +85,7 @@ export const products=[
  caption:tx('Camera installation concept · generated visualization','相机安装概念 · 生成式渲染'),
  secondary:'rallo-screen.png',secondaryAlt:tx('Existing RALLO player-tracking interface capture with rally thumbnails','既有 RALLO 球员跟踪界面截图及回合缩略图'),
  secondaryCaption:tx('Software prototype screenshot · player tracking on sample footage','软件原型截图 · 样例视频中的球员跟踪'),
- takeaway:tx('For players, coaches and venues. Starting with badminton; designed to extend across sports.','面向球员、教练与场馆。从羽毛球出发，逐步扩展到更多运动。'),
+ takeaway:tx('For badminton venues, players and coaches. Prove the court experience before expanding to other sports.','面向羽毛球场馆、球员与教练，先验证球场体验，再拓展其他运动。'),
  link:tx('Open RALLO','打开 RALLO'),demo:'sport'
  },
  {id:'phenolab',name:'Phenolab',cn:'',category:tx('Laboratories & experiments','实验室与实验'),tag:tx('Pheno Lab Data Platform · lab.szkl.com','Pheno 实验数据平台 · lab.szkl.com'),
@@ -102,7 +102,7 @@ export const products=[
  takeaway:tx('For research teams connecting experimental work to reusable evidence.','面向希望将实验过程转化为可复用证据的研发团队。'),
  link:tx('Open Phenolab','打开 Phenolab'),demo:'lab'
  },
- {id:'pheno-operations',name:'Pheno',cn:'',category:tx('People & agent workflows','人员与智能体流程'),tag:tx('Operations platform · pheno.szkl.com','运营平台 · pheno.szkl.com'),
+ {id:'pheno-operations',name:'Pheno',cn:'',category:tx('Internal operations','内部运营'),tag:tx('Operations platform · pheno.szkl.com','运营平台 · pheno.szkl.com'),
  title:tx('Connect the work. Coordinate the next action.','连接工作现场，协同下一步行动。'),
  intro:tx('Employee records, RFID cards, equipment bookings and shared knowledge provide a practical foundation for coordinated work. Agent-assisted workflows can build on that context and its permissions.','通过员工档案、RFID 卡片、设备预约与共享知识，为工作协同提供基础。智能体辅助流程可在这些上下文和权限之上扩展。'),
  input:tx('Employee and card records, equipment schedules, weekly reports, meeting files and team knowledge.','员工与卡片记录、设备日程、周报、会议文件和团队知识。'),
@@ -114,21 +114,22 @@ export const products=[
  takeaway:tx('For research and engineering teams coordinating people, equipment and knowledge.','面向需要协同人员、设备与知识的研发和工程团队。'),
  link:tx('Open Pheno platform','打开 Pheno 平台'),demo:'operations'
  },
- {id:'pulse',name:'Pulse',cn:'',category:tx('Enterprise & industrial workflows','企业与工业工作流程'),tag:tx('Scoped customer pilots','按场景定义试点'),
- title:tx('Put intelligence where the work happens.','让智能进入真正的工作现场。'),
- intro:tx('Forward-deployed AI engineering connects a business’s data and physical operations to decisions its people can use.','通过深入现场的 AI 工程服务，将企业数据与实际运营关联起来，形成业务人员能够使用的决策依据。'),
- input:tx('Documents, work orders, operational records, sensors and relevant camera feeds—with an agreed data scope.','在约定的数据范围内，连接文档、工单、业务记录、传感器与相关视频。'),
- model:tx('Retrieval, vision and domain models interpret events against the organisation’s knowledge and workflow.','通过检索、视觉与领域模型，结合组织知识和工作流程解释业务事件。'),
- action:tx('Prepare a cited decision brief, route an exception or draft an action for approval. Integrations follow the customer’s agreed workflow.','生成附带证据的决策简报、分发异常事项，或起草待审核的行动；系统集成遵循客户确认的流程。'),
- stage:tx('Engagements are scoped around a specific workflow and measurable pilot. Capabilities and deployment boundaries are agreed per project.','围绕具体流程和可衡量的试点确定合作范围；能力与部署边界按项目约定。'),
+ {id:'pulse',name:'Pulse',cn:'',category:tx('Enterprise · manufacturing','企业 · 制造业'),tag:tx('Proposed entry: SMT quality investigations','拟议切入点：SMT 质量异常排查'),
+ title:tx('Make the next manufacturing decision better informed.','让下一次制造决策，更有依据。'),
+ intro:tx('Pulse is being developed to help engineering teams investigate manufacturing exceptions: gather the relevant records, ask for missing context, assess possible causes and prepare a response for review.','Pulse 正围绕制造异常排查开发：汇集相关记录，询问缺失的现场信息，分析可能原因，并为工程团队准备待审核的处置方案。'),
+ input:tx('Start with approved inspection results, lot and process records, and targeted operator context. Add sensors only where an important observation is missing.','从授权的检测结果、批次与工艺记录，以及针对问题补充的操作员信息开始。关键观察缺失时，再增加传感采集。'),
+ model:tx('Combine retrieval, statistical checks and domain reasoning to assemble evidence, compare hypotheses and identify the next useful test.','结合检索、统计核查与领域推理，整理证据、比较假设，并确定下一项有价值的测试。'),
+ action:tx('An authorised engineer reviews the proposed response. Track the result against an agreed baseline and retain the reviewed case for future investigations.','由授权工程师审核处置建议；按照约定基线跟踪结果，保留经复核的案例供后续排查使用。'),
+ stage:tx('Manufacturing product direction and illustrative workflow. Pilot partners are sought; no production deployment, customer ROI or autonomous process control is claimed here.','制造业产品方向与示例流程，正在寻找试点伙伴。此处不代表已完成生产部署、验证客户投资回报或实现自主工艺控制。'),
  image:'factory-concept.jpg',imageAlt:tx('Industrial AI workflow concept in a manufacturing environment','制造场景中的工业 AI 工作流程概念图'),
  caption:tx('Manufacturing application concept · visualization from existing project materials','制造应用概念 · 来自既有项目资料的渲染图'),
- secondary:'lab-photo.jpg',secondaryAlt:tx('Laboratory equipment shown in Pheno company materials','Pheno 公司资料中的实验设备照片'),
- secondaryCaption:tx('Our scientific starting point · photography from Pheno company materials','我们的科研起点 · Pheno 公司资料中的实验室照片'),
- takeaway:tx('For manufacturers and research-led businesses ready to test AI against a real operational problem.','面向希望围绕真实运营问题验证 AI 价值的制造企业与研发型企业。'),
- link:tx('Discuss an enterprise pilot','洽谈企业 AI 试点'),demo:'enterprise'
+ secondary:'factory-concept.jpg',secondaryAlt:tx('Concept of an industrial workflow in a manufacturing environment','制造环境中的工业工作流程概念'),
+ secondaryCaption:tx('Manufacturing concept · generated visualization, not a customer installation','制造场景概念 · 生成式渲染，非客户部署现场'),
+ takeaway:tx('For quality and process teams with a recurring exception, usable records and a measurable baseline.','面向有重复异常、可用记录及衡量基线的质量与工艺团队。'),
+ link:tx('Discuss a manufacturing pilot','洽谈制造业试点'),demo:'enterprise'
  }
 ];
+export const products=['pulse','rallo','phenolab','nian','pheno-operations'].map(id=>productDefinitions.find(p=>p.id===id)!);
 export const people=[
  {id:'michael',name:'Michael Liu',chinese:'刘美辰',image:'michael.jpg',role:tx('Founder · Product & business','创始人 · 产品与业务'),
  headline:tx('Building useful AI, from the physical world up.','从真实世界出发，构建有用的 AI。'),

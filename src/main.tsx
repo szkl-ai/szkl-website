@@ -4,4 +4,5 @@ import App from './App';
 import './index.css';
 import './method.css';
 import './evidence.css';
+import './strategy.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

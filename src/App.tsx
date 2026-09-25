@@ -2,6 +2,7 @@ import {useEffect,useRef,useState} from 'react';
 import {ArrowUpRight,ArrowRight,Camera,Mic,Workflow,Layers,Check,Link as LinkIcon,Download,Printer,X,Plus,Mail,FlaskConical} from 'lucide-react';
 import {copy,products,people,tx,type Lang,type Text} from './content';
 import {MethodHero,CapabilityChapters} from './Method';
+import {CommercialFocus,GrowthThesis,PulseInvestigation,RalloRoute} from './Strategy';
 import {ExperimentDesigner,PhenolabEvidence,RalloEvidence,OperationsWorkbench,AgentWorkflowConcept,CaptureWorkbench} from './ApplicationEvidence';
 const media=(name:string)=>`/media/${name}`;
 const brand=(name:string)=>`/brand/${name}`;
@@ -11,7 +12,7 @@ function App(){
  const [lang,setLang]=useState<Lang>(params.get('lang')==='zh'?'zh':'en');
  const profile=people.find(p=>location.pathname.replace(/\/$/,'')===`/people/${p.id}`);
  const initialApplication=params.get('application')==='labpilot'?'phenolab':params.get('application');
- const [selected,setSelected]=useState(products.some(p=>p.id===initialApplication)?initialApplication!:'nian');
+ const [selected,setSelected]=useState(products.some(p=>p.id===initialApplication)?initialApplication!:'pulse');
  const [lightbox,setLightbox]=useState<{src:string;alt:string;caption:string}|null>(null);
  const [toast,setToast]=useState('');
  const dialog=useRef<HTMLDialogElement>(null);
@@ -24,8 +25,9 @@ function App(){
   const next=new URL(location.href);next.searchParams.set('lang',lang);history.replaceState({},'',next);
  },[lang,profile]);
  useEffect(()=>{if(lightbox)dialog.current?.showModal();else dialog.current?.close()},[lightbox]);
+ useEffect(()=>{const id=location.hash.slice(1);if(!id)return;const frame=requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({behavior:'instant'}));return()=>cancelAnimationFrame(frame)},[]);
  useEffect(()=>{if(!toast)return;const timeout=setTimeout(()=>setToast(''),4000);return()=>clearTimeout(timeout)},[toast]);
- const select=(id:string)=>{setSelected(id);const u=new URL(location.href);u.searchParams.set('application',id);history.replaceState({},'',u)};
+ const select=(id:string)=>{setSelected(id);const u=new URL(location.href);u.searchParams.set('application',id);u.hash='applications';history.replaceState({},'',u)};
  const open=(src:string,alt:Text,caption:Text)=>setLightbox({src:media(src),alt:t(alt),caption:t(caption)});
  const share=async()=>{try{await navigator.clipboard.writeText(location.href);setToast(t(copy.copied))}catch{setToast(t(copy.copyFail))}};
  const product=products.find(p=>p.id===selected)!;
@@ -37,7 +39,7 @@ function App(){
  <a className="skip" href="#main">{t(copy.skip)}</a>
  <header className="site-header"><div className="wrap header-inner">
   <a className="company-mark" href={url('/')} aria-label={t(copy.home)}><img src={brand('szkl-logo-black.png')} alt="SZKL" width="128"/><span>Shenzhen Knowledge Labs</span></a>
-  <nav aria-label={t(tx('Main navigation','主导航'))}>{profile?<a href={url('/')}><ArrowRight className="back-arrow" size={15}/>{t(copy.back)}</a>:<><a href="#approach">{t(copy.approach)}</a><a href="#applications">{t(copy.applications)}</a><a href="#people">{t(copy.people)}</a></>}</nav>
+  <nav aria-label={t(tx('Main navigation','主导航'))}>{profile?<a href={url('/')}><ArrowRight className="back-arrow" size={15}/>{t(copy.back)}</a>:<><a href="#focus">{t(tx('Focus','重点方向'))}</a><a href="#applications">{t(copy.applications)}</a><a href="#thesis">{t(tx('Our thesis','发展逻辑'))}</a><a href="#people">{t(copy.people)}</a></>}</nav>
   <div className="language" aria-label={t(copy.preferences)}><button onClick={()=>setLang('en')} aria-pressed={lang==='en'} lang="en">EN</button><button onClick={()=>setLang('zh')} aria-pressed={lang==='zh'} lang="zh-CN">中文</button></div>
  </div></header>
  {profile?<main id="main" className="profile wrap">
@@ -48,14 +50,17 @@ function App(){
   <a className="text-link profile-site" href={url('/')}>{t(tx('Explore the physical AI vision at SZKL','探索 SZKL 的真实世界 AI 愿景'))}<ArrowRight size={18}/></a>
  </main>:<main id="main">
  <MethodHero lang={lang}/>
- <CapabilityChapters lang={lang}/>
+ <CommercialFocus lang={lang} onSelect={select}/>
  <section className="applications section" id="applications"><div className="wrap"><div className="section-heading light"><p className="eyebrow">{t(copy.appsLabel)}</p><h2>{t(copy.appsTitle)}</h2><p>{t(copy.appsLead)}</p></div><div className="product-tabs" role="tablist" aria-label={t(copy.chosen)}>{products.map((p,i)=><button key={p.id} id={`tab-${p.id}`} role="tab" aria-selected={p.id===selected} aria-controls="application-view" tabIndex={p.id===selected?0:-1} onClick={()=>select(p.id)} onKeyDown={e=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();const n=e.key==='Home'?0:e.key==='End'?products.length-1:(i+(e.key==='ArrowRight'?1:products.length-1))%products.length;select(products[n].id);document.getElementById(`tab-${products[n].id}`)?.focus()}}}><span className="tab-index">0{i+1}</span><span className="tab-name">{p.name}<small>{t(p.category)}</small></span><ArrowUpRight size={20}/></button>)}</div>
  <div className="application-view" id="application-view" role="tabpanel" aria-labelledby={`tab-${selected}`}>
- <div className={`product-top ${product.id}`}><div className="product-copy"><p className="eyebrow">{t(product.tag)}</p>{product.id==='rallo'?<img className="rallo-mark" src={brand('rallo-white.svg')} alt="RALLO"/>:product.id==='pulse'?<div className="pulse-mark"><img src={brand('pulse-logo-horizontal.png')} alt="PULSE — Make Knowledge Count."/></div>:['phenolab','pheno-operations'].includes(product.id)?<div className="phenolab-identity"><div className="phenolab-mark"><img src={brand('pheno-logo.png')} alt="Pheno"/></div><p className="product-name">{product.id==='phenolab'?'Phenolab':t(tx('Operations','运营'))}</p></div>:<p className="product-name">{product.name} <span>{product.cn}</span></p>}<h3>{t(product.title)}</h3><p>{t(product.intro)}</p><p className="product-for">{t(product.takeaway)}</p><a className="button white" href={productHref||mailLink(`${product.name} pilot enquiry`)} target={productHref?'_blank':undefined} rel={productHref?'noopener noreferrer':undefined}>{t(product.link)}<ArrowUpRight size={18}/></a></div>{product.id==='phenolab'?<ExperimentDesigner lang={lang}/>:product.id==='rallo'?<RalloEvidence lang={lang}/>:product.id==='pheno-operations'?<OperationsWorkbench lang={lang}/>:<figure className={`product-image ${product.id}`}><button className="image-button" onClick={()=>open(productImage,product.imageAlt,product.caption)} aria-label={`${t(copy.expand)}: ${product.name}`}><img src={media(productImage)} alt={t(product.imageAlt)} loading="lazy"/><span className="expand-icon"><Plus size={20}/></span></button><figcaption>{t(product.caption)}</figcaption></figure>}</div>
+ <div className={`product-top ${product.id}`}><div className="product-copy"><p className="eyebrow">{t(product.tag)}</p>{product.id==='rallo'?<img className="rallo-mark" src={brand('rallo-white.svg')} alt="RALLO"/>:product.id==='pulse'?<div className="pulse-mark"><img src={brand('pulse-logo-horizontal.png')} alt="PULSE — Make Knowledge Count."/></div>:['phenolab','pheno-operations'].includes(product.id)?<div className="phenolab-identity"><div className="phenolab-mark"><img src={brand('pheno-logo.png')} alt="Pheno"/></div><p className="product-name">{product.id==='phenolab'?'Phenolab':t(tx('Operations','运营'))}</p></div>:<p className="product-name">{product.name} <span>{product.cn}</span></p>}<h3>{t(product.title)}</h3><p>{t(product.intro)}</p><p className="product-for">{t(product.takeaway)}</p><a className="button white" href={productHref||mailLink(`${product.name} pilot enquiry`)} target={productHref?'_blank':undefined} rel={productHref?'noopener noreferrer':undefined}>{t(product.link)}<ArrowUpRight size={18}/></a></div>{product.id==='pulse'?<PulseInvestigation lang={lang}/>:product.id==='phenolab'?<ExperimentDesigner lang={lang}/>:product.id==='rallo'?<RalloEvidence lang={lang}/>:product.id==='pheno-operations'?<OperationsWorkbench lang={lang}/>:<figure className={`product-image ${product.id}`}><button className="image-button" onClick={()=>open(productImage,product.imageAlt,product.caption)} aria-label={`${t(copy.expand)}: ${product.name}`}><img src={media(productImage)} alt={t(product.imageAlt)} loading="lazy"/><span className="expand-icon"><Plus size={20}/></span></button><figcaption>{t(product.caption)}</figcaption></figure>}</div>
  <div className="product-flow">{[product.input,product.model,product.action].map((text,i)=><div key={i}><span className="mini-index">0{i+1} / {t([copy.capture,copy.understand,copy.act][i])}</span><p>{t(text)}</p></div>)}</div>
  {product.id==='phenolab'?<PhenolabEvidence lang={lang}/>:product.id==='pheno-operations'?<AgentWorkflowConcept lang={lang}/>:<div className="product-gallery"><figure><button className="image-button secondary-image" onClick={()=>open(product.id==='rallo'?product.image:product.secondary,product.id==='rallo'?product.imageAlt:product.secondaryAlt,product.id==='rallo'?product.caption:product.secondaryCaption)} aria-label={`${t(copy.expand)}: ${t(copy.gallery)}`}><img src={media(product.id==='rallo'?product.image:product.secondary)} alt={t(product.id==='rallo'?product.imageAlt:product.secondaryAlt)} loading="lazy"/><span className="expand-icon"><Plus size={20}/></span></button><figcaption>{t(product.id==='rallo'?product.caption:product.secondaryCaption)}</figcaption></figure><OutputDemo kind={product.demo} lang={lang}/></div>}
+ {product.id==='rallo'&&<RalloRoute lang={lang}/>}
  <div className="product-status"><span>{t(copy.status)}</span><p>{t(product.stage)}</p></div>
  </div></div></section>
+ <CapabilityChapters lang={lang}/>
+ <GrowthThesis lang={lang}/>
  <section className="roots section"><div className="wrap roots-grid"><figure><img src={media('lab-photo.jpg')} alt={t(copy.photoCaption)} loading="lazy"/><figcaption>{t(copy.photoCaption)}</figcaption></figure><div><p className="eyebrow">{t(copy.rootsLabel)}</p><h2>{t(copy.rootsTitle)}</h2><p>{t(copy.rootsBody)}</p><p>{t(copy.rootsSub)}</p><div className="roots-brand"><img src={brand('pheno-logo.png')} alt="Pheno"/><span>{t(tx('Our materials R&D foundation','我们的材料研发起点'))}</span></div></div></div></section>
  <section className="principles section wrap"><div className="section-heading"><p className="eyebrow">{t(tx('How we build','构建原则'))}</p><h2>{t(copy.principlesTitle)}</h2></div><div className="principle-grid">{copy.principles.map((p,i)=><article key={i}><div className="principle-icon">{i===0?<Mic/>:i===1?<Layers/>:<Check/>}</div><h3>{t(p.title)}</h3><p>{t(p.body)}</p></article>)}</div></section>
  <section className="team section wrap" id="people"><div className="section-heading"><p className="eyebrow">{t(copy.people)}</p><h2>{t(copy.teamTitle)}</h2><p>{t(copy.teamLead)}</p></div><div className="team-grid">{people.map(p=><a className="person" href={url(`/people/${p.id}/`)} key={p.id}><img src={media(p.image)} alt={p.name} loading="lazy"/><div><p className="eyebrow">{t(p.role)}</p><h3>{p.name}<span>{p.chinese}</span></h3><p>{t(p.short)}</p><span className="text-link">{t(copy.bioLink)}<ArrowUpRight size={18}/></span></div></a>)}</div></section>
@@ -78,8 +83,8 @@ function OutputDemo({kind,lang}:{kind:string;lang:Lang}){
  label:tx('The Phenolab workflow','Phenolab 工作流程'),icon:FlaskConical,title:tx('Keep the scientific trail intact.','保留完整的科研证据链。'),
  rows:[{label:tx('Record','记录'),text:tx('Link the observation to the sample and procedure step.','将观察关联到样品和具体操作步骤。')},{label:tx('Compare','比较'),text:tx('Review the conditions and outcomes across runs.','跨批次比较实验条件与结果。')},{label:tx('Carry forward','继续探索'),text:tx('Use the reviewed evidence to plan the next experiment.','依据经过审核的证据，规划下一轮实验。')}],foot:tx('Illustrative workflow · recommendation capability in development.','工作流程示例 · 实验建议能力仍在开发中。')
  }:{
- label:tx('Illustrative enterprise output','企业应用输出示例'),icon:Workflow,title:tx('Evidence → decision → action.','证据 → 决策 → 行动。'),
- rows:[{label:tx('Observation','观察'),text:tx('A workflow event is linked to its source record.','将工作流程中的事件关联到源记录。')},{label:tx('Decision brief','决策简报'),text:tx('Summarise the issue, supporting evidence and options.','整理问题、支持证据与可选方案。')},{label:tx('Approved action','授权行动'),text:tx('Route the reviewed task to the right owner.','将审核后的任务分配给相应负责人。')}],foot:tx('Concept workflow · scope and integrations agreed per customer.','流程概念 · 范围与系统集成按客户需求约定。')
+ label:tx('An investigation that can be reviewed','可复核的排查过程'),icon:Workflow,title:tx('Evidence → action → verified outcome.','证据 → 行动 → 结果验证。'),
+ rows:[{label:tx('Observation','观察'),text:tx('Link the defect, material lot and process history.','关联缺陷、物料批次与工艺历史。')},{label:tx('Decision brief','决策简报'),text:tx('Show likely causes, missing evidence and tests to distinguish them.','呈现可能原因、缺失证据及区分假设的测试。')},{label:tx('Review & verify','审核与验证'),text:tx('An engineer approves the plan and checks the result against a baseline.','由工程师批准方案，并对照基线核验结果。')}],foot:tx('Concept workflow · scope and integrations agreed per customer.','流程概念 · 范围与系统集成按客户需求约定。')
  };
  const Icon=content.icon;
  return <aside className="output-demo"><div className="demo-top"><span>{t(content.label)}</span><Icon size={21}/></div><h4>{t(content.title)}</h4><div className="demo-rows">{content.rows.map((row,i)=><div key={i}><span>{t(row.label)}</span><p>{t(row.text)}</p></div>)}</div><p className="demo-foot">{t(content.foot)}</p></aside>
