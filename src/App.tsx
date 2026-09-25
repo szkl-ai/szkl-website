@@ -1,619 +1,92 @@
-import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowDownRight, ArrowUp, ArrowUpRight, LockKeyhole } from 'lucide-react';
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-import { FadeUp } from './components/FadeUp';
-import { SiteHeader } from './components/SiteHeader';
-import { COPY, type Language } from './i18n';
-import { PHENO_PORTAL_URL, PULSE_LOCKUP, PULSE_URL, VIDEO_SOURCE } from './site';
-
-function ExternalArrow() {
-  return (
-    <ArrowUpRight
-      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-      aria-hidden="true"
-    />
-  );
+import {useEffect,useRef,useState} from 'react';
+import {ArrowUpRight,ArrowRight,Camera,Mic,Workflow,Layers,Check,Link as LinkIcon,Download,Printer,X,Plus,Mail,FlaskConical} from 'lucide-react';
+import {copy,products,people,tx,type Lang,type Text} from './content';
+import {MethodHero,CapabilityChapters} from './Method';
+import {CommercialFocus,GrowthThesis,PulseInvestigation,RalloRoute} from './Strategy';
+import {ExperimentDesigner,PhenolabEvidence,RalloEvidence,OperationsWorkbench,AgentWorkflowConcept,CaptureWorkbench} from './ApplicationEvidence';
+const media=(name:string)=>`/media/${name}`;
+const brand=(name:string)=>`/brand/${name}`;
+const mailLink=(subject:string)=>`mailto:mliu@szkl.com?subject=${encodeURIComponent(subject)}`;
+function App(){
+ const params=new URLSearchParams(location.search);
+ const [lang,setLang]=useState<Lang>(params.get('lang')==='zh'?'zh':'en');
+ const profile=people.find(p=>location.pathname.replace(/\/$/,'')===`/people/${p.id}`);
+ const initialApplication=params.get('application')==='labpilot'?'phenolab':params.get('application');
+ const [selected,setSelected]=useState(products.some(p=>p.id===initialApplication)?initialApplication!:'pulse');
+ const [lightbox,setLightbox]=useState<{src:string;alt:string;caption:string}|null>(null);
+ const [toast,setToast]=useState('');
+ const dialog=useRef<HTMLDialogElement>(null);
+ const t=(text:Text)=>text[lang];
+ const url=(path:string)=>`${path}?lang=${lang}`;
+ useEffect(()=>{
+  document.documentElement.lang=lang==='zh'?'zh-CN':'en';
+  document.title=profile?`${profile.name} | SZKL`:`SZKL — ${lang==='en'?'AI for the physical world':'面向真实世界的 AI'}`;
+  document.querySelector('meta[name="description"]')?.setAttribute('content',profile?t(profile.lead):t(copy.heroLead));
+  const next=new URL(location.href);next.searchParams.set('lang',lang);history.replaceState({},'',next);
+ },[lang,profile]);
+ useEffect(()=>{if(lightbox)dialog.current?.showModal();else dialog.current?.close()},[lightbox]);
+ useEffect(()=>{const id=location.hash.slice(1);if(!id)return;const frame=requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({behavior:'instant'}));return()=>cancelAnimationFrame(frame)},[]);
+ useEffect(()=>{if(!toast)return;const timeout=setTimeout(()=>setToast(''),4000);return()=>clearTimeout(timeout)},[toast]);
+ const select=(id:string)=>{setSelected(id);const u=new URL(location.href);u.searchParams.set('application',id);u.hash='applications';history.replaceState({},'',u)};
+ const open=(src:string,alt:Text,caption:Text)=>setLightbox({src:media(src),alt:t(alt),caption:t(caption)});
+ const share=async()=>{try{await navigator.clipboard.writeText(location.href);setToast(t(copy.copied))}catch{setToast(t(copy.copyFail))}};
+ const product=products.find(p=>p.id===selected)!;
+ const productImage=product.image;
+ const productHref=({phenolab:'https://lab.szkl.com',rallo:'https://sports.szkl.com','pheno-operations':'https://pheno.szkl.com'} as Record<string,string>)[product.id];
+ const showcase=params.get('showcase');
+ if(showcase)return <div className="showcase-page"><main><div className="showcase-top"><a href={`/?lang=${lang}&application=${showcase==='operations'?'pheno-operations':showcase==='rallo'?'rallo':'phenolab'}#applications`}>← {t(tx('Back to SZKL','返回 SZKL'))}</a><div className="language"><button aria-pressed={lang==='en'} onClick={()=>setLang('en')}>EN</button><button aria-pressed={lang==='zh'} onClick={()=>setLang('zh')}>中文</button></div></div>{showcase==='rallo'?<RalloEvidence lang={lang}/>:showcase==='operations'?<><OperationsWorkbench lang={lang}/><AgentWorkflowConcept lang={lang}/></>:showcase==='capture'?<CaptureWorkbench lang={lang}/>:<><ExperimentDesigner lang={lang}/><PhenolabEvidence lang={lang}/></>}</main></div>;
+ return <>
+ <a className="skip" href="#main">{t(copy.skip)}</a>
+ <header className="site-header"><div className="wrap header-inner">
+  <a className="company-mark" href={url('/')} aria-label={t(copy.home)}><img src={brand('szkl-logo-black.png')} alt="SZKL" width="128"/><span>Shenzhen Knowledge Labs</span></a>
+  <nav aria-label={t(tx('Main navigation','主导航'))}>{profile?<a href={url('/')}><ArrowRight className="back-arrow" size={15}/>{t(copy.back)}</a>:<><a href="#focus">{t(tx('Focus','重点方向'))}</a><a href="#applications">{t(copy.applications)}</a><a href="#thesis">{t(tx('Our thesis','发展逻辑'))}</a><a href="#people">{t(copy.people)}</a></>}</nav>
+  <div className="language" aria-label={t(copy.preferences)}><button onClick={()=>setLang('en')} aria-pressed={lang==='en'} lang="en">EN</button><button onClick={()=>setLang('zh')} aria-pressed={lang==='zh'} lang="zh-CN">中文</button></div>
+ </div></header>
+ {profile?<main id="main" className="profile wrap">
+  <div className="profile-top"><span className="eyebrow">SZKL / {t(tx('People','人物'))}</span><div className="profile-tools"><button onClick={share}><LinkIcon size={15}/>{t(copy.share)}</button><button onClick={()=>window.print()}><Printer size={15}/>{t(copy.print)}</button></div></div>
+  <section className="profile-hero"><div><p className="eyebrow">{t(profile.role)}</p><h1>{profile.name}<span>{profile.chinese}</span></h1><h2>{t(profile.headline)}</h2><p className="lead">{t(profile.lead)}</p><div className="actions"><a className="button primary" href={mailLink(`Connect with ${profile.name}`)}><Mail size={17}/>{t(profile.contactLabel)}</a><a className="button secondary" href={`/contacts/${profile.id}.vcf`} download={`${profile.name.replace(/ /g,'-')}.vcf`}><Download size={17}/>{t(copy.download)}</a></div></div><figure className="portrait"><img src={media(profile.image)} alt={profile.name}/><figcaption>{profile.name} / Shenzhen Knowledge Labs</figcaption></figure></section>
+  <section className="profile-story"><div><h2>{t(copy.background)}</h2><p>{t(profile.bio)}</p><p>{t(profile.background)}</p></div><aside><h2>{t(copy.focus)}</h2>{profile.focus.map((x,i)=><div className="focus-item" key={i}><span>0{i+1}</span>{t(x)}</div>)}</aside></section>
+  <section className="profile-connect"><div><p className="eyebrow">{t(copy.connect)}</p><p>{t(profile.connect)}</p></div><div className="profile-links"><h3>{t(copy.links)}</h3>{profile.email&&<a href={`mailto:${profile.email}`}>{profile.email}<ArrowUpRight size={17}/></a>}{profile.linkedin?<a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn<ArrowUpRight size={17}/></a>:<div>LinkedIn <span>{t(copy.placeholder)}</span></div>}<div>WeChat <span>{t(copy.placeholder)}</span></div><div>{t(tx('Other social profiles','其他社交账号'))}<span>{t(copy.placeholder)}</span></div></div></section>
+  <a className="text-link profile-site" href={url('/')}>{t(tx('Explore the physical AI vision at SZKL','探索 SZKL 的真实世界 AI 愿景'))}<ArrowRight size={18}/></a>
+ </main>:<main id="main">
+ <MethodHero lang={lang}/>
+ <CommercialFocus lang={lang} onSelect={select}/>
+ <section className="applications section" id="applications"><div className="wrap"><div className="section-heading light"><p className="eyebrow">{t(copy.appsLabel)}</p><h2>{t(copy.appsTitle)}</h2><p>{t(copy.appsLead)}</p></div><div className="product-tabs" role="tablist" aria-label={t(copy.chosen)}>{products.map((p,i)=><button key={p.id} id={`tab-${p.id}`} role="tab" aria-selected={p.id===selected} aria-controls="application-view" tabIndex={p.id===selected?0:-1} onClick={()=>select(p.id)} onKeyDown={e=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();const n=e.key==='Home'?0:e.key==='End'?products.length-1:(i+(e.key==='ArrowRight'?1:products.length-1))%products.length;select(products[n].id);document.getElementById(`tab-${products[n].id}`)?.focus()}}}><span className="tab-index">0{i+1}</span><span className="tab-name">{p.name}<small>{t(p.category)}</small></span><ArrowUpRight size={20}/></button>)}</div>
+ <div className="application-view" id="application-view" role="tabpanel" aria-labelledby={`tab-${selected}`}>
+ <div className={`product-top ${product.id}`}><div className="product-copy"><p className="eyebrow">{t(product.tag)}</p>{product.id==='rallo'?<img className="rallo-mark" src={brand('rallo-white.svg')} alt="RALLO"/>:product.id==='pulse'?<div className="pulse-mark"><img src={brand('pulse-logo-horizontal.png')} alt="PULSE — Make Knowledge Count."/></div>:['phenolab','pheno-operations'].includes(product.id)?<div className="phenolab-identity"><div className="phenolab-mark"><img src={brand('pheno-logo.png')} alt="Pheno"/></div><p className="product-name">{product.id==='phenolab'?'Phenolab':t(tx('Operations','运营'))}</p></div>:<p className="product-name">{product.name} <span>{product.cn}</span></p>}<h3>{t(product.title)}</h3><p>{t(product.intro)}</p><p className="product-for">{t(product.takeaway)}</p><a className="button white" href={productHref||mailLink(`${product.name} pilot enquiry`)} target={productHref?'_blank':undefined} rel={productHref?'noopener noreferrer':undefined}>{t(product.link)}<ArrowUpRight size={18}/></a></div>{product.id==='pulse'?<PulseInvestigation lang={lang}/>:product.id==='phenolab'?<ExperimentDesigner lang={lang}/>:product.id==='rallo'?<RalloEvidence lang={lang}/>:product.id==='pheno-operations'?<OperationsWorkbench lang={lang}/>:<figure className={`product-image ${product.id}`}><button className="image-button" onClick={()=>open(productImage,product.imageAlt,product.caption)} aria-label={`${t(copy.expand)}: ${product.name}`}><img src={media(productImage)} alt={t(product.imageAlt)} loading="lazy"/><span className="expand-icon"><Plus size={20}/></span></button><figcaption>{t(product.caption)}</figcaption></figure>}</div>
+ <div className="product-flow">{[product.input,product.model,product.action].map((text,i)=><div key={i}><span className="mini-index">0{i+1} / {t([copy.capture,copy.understand,copy.act][i])}</span><p>{t(text)}</p></div>)}</div>
+ {product.id==='phenolab'?<PhenolabEvidence lang={lang}/>:product.id==='pheno-operations'?<AgentWorkflowConcept lang={lang}/>:<div className="product-gallery"><figure><button className="image-button secondary-image" onClick={()=>open(product.id==='rallo'?product.image:product.secondary,product.id==='rallo'?product.imageAlt:product.secondaryAlt,product.id==='rallo'?product.caption:product.secondaryCaption)} aria-label={`${t(copy.expand)}: ${t(copy.gallery)}`}><img src={media(product.id==='rallo'?product.image:product.secondary)} alt={t(product.id==='rallo'?product.imageAlt:product.secondaryAlt)} loading="lazy"/><span className="expand-icon"><Plus size={20}/></span></button><figcaption>{t(product.id==='rallo'?product.caption:product.secondaryCaption)}</figcaption></figure><OutputDemo kind={product.demo} lang={lang}/></div>}
+ {product.id==='rallo'&&<RalloRoute lang={lang}/>}
+ <div className="product-status"><span>{t(copy.status)}</span><p>{t(product.stage)}</p></div>
+ </div></div></section>
+ <CapabilityChapters lang={lang}/>
+ <GrowthThesis lang={lang}/>
+ <section className="roots section"><div className="wrap roots-grid"><figure><img src={media('lab-photo.jpg')} alt={t(copy.photoCaption)} loading="lazy"/><figcaption>{t(copy.photoCaption)}</figcaption></figure><div><p className="eyebrow">{t(copy.rootsLabel)}</p><h2>{t(copy.rootsTitle)}</h2><p>{t(copy.rootsBody)}</p><p>{t(copy.rootsSub)}</p><div className="roots-brand"><img src={brand('pheno-logo.png')} alt="Pheno"/><span>{t(tx('Our materials R&D foundation','我们的材料研发起点'))}</span></div></div></div></section>
+ <section className="principles section wrap"><div className="section-heading"><p className="eyebrow">{t(tx('How we build','构建原则'))}</p><h2>{t(copy.principlesTitle)}</h2></div><div className="principle-grid">{copy.principles.map((p,i)=><article key={i}><div className="principle-icon">{i===0?<Mic/>:i===1?<Layers/>:<Check/>}</div><h3>{t(p.title)}</h3><p>{t(p.body)}</p></article>)}</div></section>
+ <section className="team section wrap" id="people"><div className="section-heading"><p className="eyebrow">{t(copy.people)}</p><h2>{t(copy.teamTitle)}</h2><p>{t(copy.teamLead)}</p></div><div className="team-grid">{people.map(p=><a className="person" href={url(`/people/${p.id}/`)} key={p.id}><img src={media(p.image)} alt={p.name} loading="lazy"/><div><p className="eyebrow">{t(p.role)}</p><h3>{p.name}<span>{p.chinese}</span></h3><p>{t(p.short)}</p><span className="text-link">{t(copy.bioLink)}<ArrowUpRight size={18}/></span></div></a>)}</div></section>
+ <section className="contact section" id="contact"><div className="wrap contact-grid"><div><p className="eyebrow">{t(copy.contact)}</p><h2>{t(copy.contactTitle)}</h2><p>{t(copy.contactBody)}</p></div><div className="contact-actions"><a className="button white" href={mailLink('Let’s explore physical AI')}>{t(copy.mail)}<ArrowUpRight size={18}/></a><a href="mailto:mliu@szkl.com">mliu@szkl.com</a><a href="https://www.linkedin.com/in/michaelmliu1/" target="_blank" rel="noreferrer">Michael / LinkedIn<ArrowUpRight size={15}/></a></div></div></section>
+ </main>}
+ <footer className="wrap site-footer"><a href={url('/')}><img src={brand('szkl-logo-black.png')} alt="SZKL" width="112"/></a><div><strong>Shenzhen Knowledge Labs</strong><span>{t(copy.footer)}</span></div><span>© {new Date().getFullYear()} SZKL</span></footer>
+ <dialog ref={dialog} aria-label={t(copy.expand)} className="lightbox" onCancel={()=>setLightbox(null)} onClick={e=>{if(e.target===e.currentTarget)setLightbox(null)}}><div><button className="lightbox-close" onClick={()=>setLightbox(null)} aria-label={t(copy.close)}><X size={23}/></button>{lightbox&&<figure><img src={lightbox.src} alt={lightbox.alt}/><figcaption>{lightbox.caption}</figcaption></figure>}</div></dialog>
+ <div role="status" className={`toast ${toast?'visible':''}`}>{toast}</div>
+ </>
 }
-
-function App() {
-  const [language, setLanguage] = useState<Language>(() =>
-    window.localStorage.getItem('szkl-language') === 'zh' ? 'zh' : 'en',
-  );
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const [backToTopSurface, setBackToTopSurface] = useState<'dark' | 'light'>('dark');
-  const copy = COPY[language];
-  const shouldReduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 28,
-    mass: 0.28,
-  });
-  const heroKeywordGradientPosition = useTransform(
-    smoothProgress,
-    [0, 0.18],
-    ['12% 50%', '88% 50%'],
-  );
-  const heroVideoY = useTransform(scrollYProgress, [0, 0.16], [0, 110]);
-  const heroContentY = useTransform(scrollYProgress, [0, 0.16], [0, 74]);
-  const heroContentOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0.36]);
-  const signalRotation = useTransform(scrollYProgress, [0, 0.3], [0, 38]);
-  const marqueeX = useTransform(scrollYProgress, [0.08, 0.58], [100, -760]);
-  const aboutOrbY = useTransform(scrollYProgress, [0.05, 0.34], [-120, 180]);
-  const cultureOrbY = useTransform(scrollYProgress, [0.36, 0.72], [-100, 210]);
-  const pulseOrbY = useTransform(scrollYProgress, [0.5, 0.9], [-80, 170]);
-
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    setShowBackToTop(latest > 0 && window.scrollY >= window.innerHeight * 0.9);
-
-    const surface = document
-      .elementsFromPoint(document.documentElement.clientWidth - 40, window.innerHeight - 112)
-      .map((element) => element.closest<HTMLElement>('[data-surface]')?.dataset.surface)
-      .find((value): value is 'dark' | 'light' => value === 'dark' || value === 'light');
-
-    if (surface) {
-      setBackToTopSurface(surface);
-    }
-  });
-
-  useEffect(() => {
-    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-    document.body.dataset.language = language;
-    document.title = copy.metaTitle;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute('content', copy.metaDescription);
-    window.localStorage.setItem('szkl-language', language);
-  }, [copy.metaDescription, copy.metaTitle, language]);
-
-  return (
-    <main className="min-w-0 overflow-hidden bg-[#f2f1ec] text-[#111]">
-      <motion.div
-        className="scroll-progress fixed left-0 top-0 z-[100] h-[3px] w-full origin-left bg-[linear-gradient(90deg,#ffffff_0%,#aab3ff_48%,#5967ff_100%)]"
-        style={{ scaleX: smoothProgress }}
-        aria-hidden="true"
-      />
-      <section id="home" data-surface="dark" className="relative min-h-[100svh] scroll-mt-0 overflow-hidden bg-black text-white">
-        <motion.video
-          className="hero-video absolute inset-0 h-full w-full scale-[1.02] object-cover"
-          src={VIDEO_SOURCE}
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-          tabIndex={-1}
-          style={{ y: shouldReduceMotion ? 0 : heroVideoY }}
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.08)_38%,rgba(0,0,0,0.86)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_48%,rgba(93,107,255,0.26),transparent_33%)]" />
-
-        <motion.div
-          className="signal-field pointer-events-none absolute right-[-16vw] top-[18vh] h-[72vw] max-h-[920px] w-[72vw] max-w-[920px]"
-          style={{ rotate: shouldReduceMotion ? 0 : signalRotation }}
-          aria-hidden="true"
-        >
-          <span className="signal-ring signal-ring-one" />
-          <span className="signal-ring signal-ring-two" />
-          <span className="signal-ring signal-ring-three" />
-        </motion.div>
-
-        <div className="hero-shell relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col px-5 py-5 sm:px-8 sm:py-7 lg:px-10 xl:px-8">
-          <SiteHeader language={language} onLanguageChange={setLanguage} />
-
-          <motion.div
-            className="my-auto grid min-w-0 gap-8 py-10 lg:grid-cols-[minmax(0,1fr)_310px] lg:items-center lg:gap-14 lg:py-12"
-            style={{
-              y: shouldReduceMotion ? 0 : heroContentY,
-              opacity: shouldReduceMotion ? 1 : heroContentOpacity,
-            }}
-          >
-            <div className="min-w-0">
-              <FadeUp
-                as="h1"
-                delay={0.08}
-                y={38}
-                className="max-w-[980px] text-[clamp(3.25rem,13vw,4.3rem)] font-medium leading-[0.86] tracking-[-0.07em] sm:text-[clamp(4.6rem,8.2vw,7.6rem)]"
-                ariaLabel={PULSE_LOCKUP.headline}
-              >
-                <span className="block">
-                  Make{' '}
-                  <motion.span
-                    className="hero-keyword inline-block"
-                    style={{
-                      backgroundPosition: shouldReduceMotion
-                        ? '50% 50%'
-                        : heroKeywordGradientPosition,
-                    }}
-                  >
-                    Knowledge
-                  </motion.span>
-                </span>
-                <span className="block">Count.</span>
-              </FadeUp>
-              <FadeUp
-                as="p"
-                delay={0.16}
-                y={28}
-                className="mt-7 max-w-3xl text-[clamp(1.05rem,2.2vw,1.5rem)] leading-[1.42] text-white/72"
-              >
-                {PULSE_LOCKUP.supporting}
-              </FadeUp>
-            </div>
-
-            <FadeUp delay={0.22} className="min-w-0 rounded-[1.75rem] border border-white/18 bg-black/30 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.32)] backdrop-blur-xl lg:mb-1">
-              <div
-                className="mb-6 flex h-12 max-w-full items-center gap-2"
-                role="img"
-                aria-label="Pulse"
-              >
-                <img
-                  src="/pulse-icon-official.png"
-                  alt=""
-                  className="brand-logo-on-dark h-12 w-auto object-contain"
-                  aria-hidden="true"
-                  draggable="false"
-                />
-                <img
-                  src="/pulse-wordmark-official.png"
-                  alt=""
-                  className="brand-logo-on-dark h-10 w-auto object-contain"
-                  aria-hidden="true"
-                  draggable="false"
-                />
-              </div>
-              <p className="text-base leading-relaxed text-white/78">
-                {copy.hero.body}
-              </p>
-              <div className="mt-7 flex flex-col gap-3">
-                <a
-                  href={PULSE_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pulse-cta group flex items-center justify-between rounded-full bg-white px-5 py-3.5 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-0.5"
-                >
-                  {copy.experiencePulse}
-                  <ExternalArrow />
-                </a>
-                <a
-                  href="#about"
-                  className="group flex items-center justify-between rounded-full border border-white/18 px-5 py-3.5 text-sm text-white/70 transition-colors duration-300 hover:border-white/38 hover:text-white"
-                >
-                  {copy.hero.explore}
-                  <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true" />
-                </a>
-              </div>
-            </FadeUp>
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="about" data-surface="light" className="relative scroll-mt-0 overflow-hidden px-5 py-20 sm:px-8 sm:py-32 lg:px-10 lg:py-40">
-        <motion.div
-          className="ambient-orb pointer-events-none absolute -right-44 top-20 h-[480px] w-[480px] rounded-full bg-[#6d79ff]/10 blur-[95px]"
-          style={{ y: shouldReduceMotion ? 0 : aboutOrbY }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.31fr_minmax(0,1fr)] lg:gap-20">
-          <div>
-            <FadeUp as="p" className="text-xs font-medium uppercase tracking-[0.22em] text-black/42">
-              {copy.about.label}
-            </FadeUp>
-            <FadeUp as="p" delay={0.08} className="mt-7 max-w-xs text-sm leading-relaxed text-black/50">
-              {copy.about.intro}
-            </FadeUp>
-          </div>
-          <div className="min-w-0">
-            <FadeUp as="h2" y={30} mobileX={14} className="max-w-5xl text-4xl font-medium leading-[1.02] tracking-[-0.048em] sm:text-6xl lg:text-7xl">
-              {copy.about.title}
-            </FadeUp>
-            <div className="mt-12 grid gap-8 border-t border-black/20 pt-8 md:grid-cols-2">
-              <FadeUp as="p" delay={0.08} className="max-w-xl text-base leading-relaxed text-black/60 sm:text-lg">
-                {copy.about.mission}
-              </FadeUp>
-              <FadeUp as="p" delay={0.14} className="max-w-md text-sm leading-relaxed text-black/48 md:justify-self-end">
-                {copy.about.belief}
-              </FadeUp>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        data-surface="dark"
-        className="kinetic-marquee relative overflow-hidden border-y border-white/10 bg-[#0c0d13] py-7 text-white sm:py-9"
-        aria-label={copy.motionLine}
-      >
-        <motion.div
-          className="flex w-max min-w-max items-center gap-14 whitespace-nowrap text-[clamp(2rem,5.2vw,5rem)] font-medium tracking-[-0.045em] text-white/90"
-          style={{ x: shouldReduceMotion ? 0 : marqueeX }}
-          aria-hidden="true"
-        >
-          {[0, 1, 2].map((item) => (
-            <span key={item} className="inline-flex items-center gap-14">
-              {copy.motionLine}
-              <span className="h-3 w-3 rounded-full bg-[#9ba7ff] shadow-[0_0_26px_rgba(155,167,255,0.9)]" />
-            </span>
-          ))}
-        </motion.div>
-      </section>
-
-      <section id="ecosystem" data-surface="dark" className="scroll-mt-0 bg-[#090909] px-5 py-20 text-white sm:px-8 sm:py-32 lg:px-10 lg:py-36">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-end">
-            <FadeUp as="p" className="text-xs font-medium uppercase tracking-[0.22em] text-white/42">
-              {copy.ecosystem.label}
-            </FadeUp>
-            <FadeUp as="h2" y={30} className="max-w-2xl text-4xl font-medium leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:justify-self-end">
-              {copy.ecosystem.title}
-            </FadeUp>
-          </div>
-
-          <div className="mt-16 grid min-w-0 gap-3 lg:grid-cols-3">
-            <FadeUp y={72} scale={0.92} rotate={-1.5} blur={10} mobileX={-18} className="h-full min-w-0">
-              <motion.article
-                className="ecosystem-card ecosystem-card-company grid h-full min-h-[440px] min-w-0 grid-rows-[auto_112px_minmax(0,1fr)_auto] gap-y-6 rounded-[2rem] border border-white/14 bg-black p-7 sm:p-9"
-                whileHover={shouldReduceMotion ? undefined : { y: -7, scale: 1.012 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.55 }}
-              >
-                <span className="ecosystem-card-sheen" aria-hidden="true" />
-                <div className="flex items-center justify-between gap-4 text-xs uppercase tracking-[0.18em] text-white/38">
-                  <span>01</span>
-                  <span>{copy.ecosystem.companyLabel}</span>
-                </div>
-                <div className="flex min-w-0 items-center">
-                  <span className="relative block h-[78px] w-[232px] max-w-full overflow-hidden">
-                    <img
-                      src="/szkl-logo-official.png"
-                      alt={copy.brandAlt}
-                      className="szkl-logo-on-dark absolute left-1/2 top-1/2 w-[332px] max-w-none -translate-x-1/2 -translate-y-1/2"
-                      loading="lazy"
-                      decoding="async"
-                      draggable="false"
-                    />
-                  </span>
-                </div>
-                <p className="text-base leading-relaxed text-white/55">
-                  {copy.ecosystem.companyBody}
-                </p>
-                <a
-                  href="#about"
-                  className="group inline-flex min-h-11 w-fit items-center gap-3 rounded-full border border-white/22 px-5 py-3 text-sm font-medium text-white/78 transition-colors hover:border-white/45 hover:text-white"
-                >
-                  {copy.ecosystem.companyAction}
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                </a>
-              </motion.article>
-            </FadeUp>
-
-            <FadeUp delay={0.08} y={72} scale={0.9} rotate={1.5} blur={10} mobileX={18} className="h-full min-w-0">
-              <motion.article
-                className="ecosystem-card ecosystem-card-pulse pulse-card grid h-full min-h-[440px] min-w-0 grid-rows-[auto_112px_minmax(0,1fr)_auto] gap-y-6 overflow-hidden rounded-[2rem] p-7 text-white sm:p-9"
-                whileHover={shouldReduceMotion ? undefined : { y: -7, scale: 1.012 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.55 }}
-              >
-                <span className="ecosystem-card-sheen" aria-hidden="true" />
-                <div className="relative z-10 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.18em] text-white/60">
-                  <span>02</span>
-                  <span>{copy.ecosystem.pulseLabel}</span>
-                </div>
-                <div className="flex min-w-0 items-center">
-                  <img
-                    src="/pulse-logo-official.png"
-                    alt="Pulse"
-                    className="brand-logo-on-dark w-[104px] object-contain sm:w-[112px]"
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                  />
-                </div>
-                <p className="text-base leading-relaxed text-white/72">
-                  {copy.ecosystem.pulseBody}
-                </p>
-                <a
-                  href={PULSE_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pulse-cta group inline-flex min-h-11 w-fit items-center gap-3 rounded-full bg-white px-5 py-3.5 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-0.5"
-                >
-                  {copy.experiencePulse}
-                  <ExternalArrow />
-                </a>
-              </motion.article>
-            </FadeUp>
-
-            <FadeUp delay={0.16} y={72} scale={0.92} rotate={-1} blur={10} mobileX={-18} className="h-full min-w-0">
-              <motion.article
-                className="ecosystem-card ecosystem-card-pheno grid h-full min-h-[440px] min-w-0 grid-rows-[auto_112px_minmax(0,1fr)_auto] gap-y-6 rounded-[2rem] bg-[#f2f1ec] p-7 text-black sm:p-9"
-                whileHover={shouldReduceMotion ? undefined : { y: -7, scale: 1.012 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 0.55 }}
-              >
-                <span className="ecosystem-card-sheen" aria-hidden="true" />
-                <div className="flex items-center justify-between gap-4 text-xs uppercase tracking-[0.18em] text-black/42">
-                  <span>03</span>
-                  <span className="inline-flex items-center gap-2"><LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" /> {copy.ecosystem.phenoLabel}</span>
-                </div>
-                <div className="flex min-w-0 items-center">
-                  <img
-                    src="/pheno-logo-official.png"
-                    alt="Pheno"
-                    className="brand-logo-on-light h-auto w-[240px] max-w-full object-contain sm:w-[270px]"
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                  />
-                </div>
-                <p className="text-base leading-relaxed text-black/58">
-                  {copy.ecosystem.phenoBody}
-                </p>
-                <a
-                  href={PHENO_PORTAL_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex min-h-11 w-fit items-center gap-3 rounded-full border border-black/22 px-5 py-3 text-sm font-medium text-black transition-colors hover:border-black/55"
-                >
-                  {copy.ecosystem.phenoPortal}
-                  <ExternalArrow />
-                </a>
-              </motion.article>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
-      <section id="culture" data-surface="light" className="relative scroll-mt-0 overflow-hidden px-5 py-20 sm:px-8 sm:py-32 lg:px-10 lg:py-40">
-        <motion.div
-          className="ambient-orb pointer-events-none absolute -left-52 top-24 h-[560px] w-[560px] rounded-full bg-[#8290ff]/9 blur-[115px]"
-          style={{ y: shouldReduceMotion ? 0 : cultureOrbY }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="grid min-w-0 gap-10 lg:grid-cols-[0.55fr_minmax(0,1fr)] lg:gap-20">
-            <div>
-              <FadeUp as="p" className="text-xs font-medium uppercase tracking-[0.22em] text-black/42">
-                {copy.culture.label}
-              </FadeUp>
-              <FadeUp as="h2" y={30} className="mt-6 max-w-xl text-[clamp(2.65rem,13vw,3rem)] font-medium leading-[0.96] tracking-[-0.05em] sm:text-7xl">
-                {copy.culture.title}
-              </FadeUp>
-            </div>
-            <FadeUp as="p" delay={0.08} className="max-w-2xl text-lg leading-relaxed text-black/58 lg:pt-10">
-              {copy.culture.intro}
-            </FadeUp>
-          </div>
-
-          <div className="mt-16 grid min-w-0 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
-            {copy.culture.values.map((value, index) => (
-              <FadeUp key={value.title} delay={(index % 4) * 0.05} y={46} scale={0.95} blur={8} mobileX={index % 2 === 0 ? -16 : 16} className="relative min-w-0 border-t border-black/15 py-7 sm:py-8 lg:min-h-[230px]">
-                <motion.span
-                  className="absolute left-0 top-[-1px] h-[2px] w-full origin-left bg-[linear-gradient(90deg,#5967ff_0%,rgba(89,103,255,0.08)_100%)]"
-                  initial={shouldReduceMotion ? false : { scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.85, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                  aria-hidden="true"
-                />
-                <span className="text-xs text-black/35">{String(index + 1).padStart(2, '0')}</span>
-                <h3 className="mt-6 text-xl font-medium tracking-[-0.025em] sm:mt-9">{value.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-black/52">{value.body}</p>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pulse" data-surface="dark" className="relative scroll-mt-0 overflow-hidden bg-[#111318] px-5 py-20 text-white sm:px-8 sm:py-32 lg:px-10 lg:py-40">
-        <motion.div
-          className="ambient-orb pointer-events-none absolute -right-48 top-20 h-[680px] w-[680px] rounded-full bg-[#4d5bff]/18 blur-[120px]"
-          style={{ y: shouldReduceMotion ? 0 : pulseOrbY }}
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto grid max-w-7xl min-w-0 gap-16 lg:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.5fr)] lg:gap-16">
-          <div className="min-w-0">
-            <FadeUp y={24} scale={0.94} blur={6} className="mb-8">
-              <img
-                src="/pulse-logo-official.png"
-                alt=""
-                className="brand-logo-on-dark w-[94px] object-contain sm:w-[112px]"
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-                draggable="false"
-              />
-            </FadeUp>
-            <FadeUp as="p" className="text-xs font-semibold uppercase tracking-[0.28em] text-[#aab3ff]">
-              {copy.pulse.label}
-            </FadeUp>
-            <FadeUp as="h2" y={30} className="mt-6 max-w-5xl text-[clamp(2.65rem,13vw,3rem)] font-medium leading-[0.92] tracking-[-0.055em] sm:text-7xl">
-              {copy.pulse.title}
-            </FadeUp>
-            <FadeUp as="p" delay={0.1} className="mt-10 max-w-3xl text-base leading-relaxed text-white/62 sm:text-lg sm:leading-relaxed">
-              {copy.pulse.intro}
-            </FadeUp>
-            <FadeUp delay={0.16}>
-              <a
-                href={PULSE_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="pulse-cta group mt-9 inline-flex items-center gap-4 rounded-full bg-[#aab3ff] px-6 py-4 text-sm font-medium text-[#10121a] transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {copy.experiencePulse}
-                <ExternalArrow />
-              </a>
-            </FadeUp>
-          </div>
-
-          <div className="min-w-0 border-t border-white/20">
-            {copy.pulse.directions.map((item, index) => (
-              <FadeUp key={item.title} delay={index * 0.05} y={42} scale={0.975} blur={7} mobileX={index % 2 === 0 ? -14 : 14} className="grid min-w-0 grid-cols-[42px_minmax(0,1fr)] gap-5 border-b border-white/15 py-7">
-                <div className="pt-1 text-xs text-white/30">
-                  {String(index + 1).padStart(2, '0')}
-                  <motion.span
-                    className="mt-3 block h-1.5 w-1.5 rounded-full bg-[#aab3ff] shadow-[0_0_16px_rgba(170,179,255,0.7)]"
-                    initial={shouldReduceMotion ? false : { scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: shouldReduceMotion ? 0 : 0.45, delay: 0.15 + index * 0.06 }}
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-xl font-medium tracking-[-0.025em]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/48">{item.body}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section data-surface="light" className="bg-white px-5 py-20 sm:px-8 sm:py-32 lg:px-10 lg:py-36" aria-labelledby="learning-loop-title">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex min-w-0 items-end justify-between gap-8">
-            <div className="min-w-0">
-              <FadeUp as="p" className="text-xs font-medium uppercase tracking-[0.22em] text-black/40">
-                {copy.learning.label}
-              </FadeUp>
-              <FadeUp as="h2" id="learning-loop-title" y={30} className="mt-5 max-w-3xl text-4xl font-medium leading-[1] tracking-[-0.045em] sm:text-6xl">
-                {copy.learning.title}
-              </FadeUp>
-            </div>
-            <ArrowDownRight className="hidden h-12 w-12 shrink-0 text-black/25 sm:block" aria-hidden="true" />
-          </div>
-
-          <div className="relative mt-16 grid min-w-0 border-t border-black/20 md:grid-cols-2 lg:grid-cols-5">
-            <motion.div
-              className="absolute left-0 top-[-2px] z-10 h-[3px] w-full origin-left bg-[linear-gradient(90deg,#5967ff_0%,#aab3ff_52%,rgba(170,179,255,0.12)_100%)] shadow-[0_0_18px_rgba(89,103,255,0.22)]"
-              initial={shouldReduceMotion ? false : { scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: shouldReduceMotion ? 0 : 1.35, ease: [0.22, 1, 0.36, 1] }}
-              aria-hidden="true"
-            />
-            {copy.learning.steps.map((step, index) => (
-              <FadeUp
-                key={step.title}
-                delay={0.12 + index * 0.08}
-                y={50}
-                scale={0.95}
-                blur={8}
-                mobileX={index % 2 === 0 ? -14 : 14}
-                className={`min-w-0 border-b border-black/15 py-7 sm:py-8 md:min-h-[220px] md:border-r md:px-5 md:last:border-r-0 ${
-                  index % 2 === 0 ? 'md:pl-0' : 'md:border-r-0 md:pr-0'
-                } lg:min-h-[240px] lg:border-b-0 lg:border-r lg:px-5 ${
-                  index === 0 ? 'lg:pl-0' : ''
-                } ${index === copy.learning.steps.length - 1 ? 'lg:border-r-0 lg:pr-0' : ''}`}
-              >
-                <span className="inline-flex items-center gap-3 text-xs text-black/32">
-                  <motion.span
-                    className="h-2 w-2 rounded-full bg-[#5967ff] shadow-[0_0_14px_rgba(89,103,255,0.5)]"
-                    initial={shouldReduceMotion ? false : { scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: shouldReduceMotion ? 0 : 0.45, delay: 0.28 + index * 0.09 }}
-                    aria-hidden="true"
-                  />
-                  {step.number}
-                </span>
-                <h3 className="mt-8 text-2xl font-medium tracking-[-0.03em] sm:mt-10 md:mt-14">{step.title}</h3>
-                <p className="mt-4 max-w-[180px] text-sm leading-relaxed text-black/50">{step.body}</p>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" data-surface="dark" className="closing-stage relative scroll-mt-0 overflow-hidden bg-black px-5 pb-8 pt-20 text-white sm:px-8 sm:pt-32 lg:px-10 lg:pt-40">
-        <motion.div
-          className="pointer-events-none absolute -left-44 top-20 h-[560px] w-[560px] rounded-full bg-[#5967ff]/18 blur-[120px]"
-          initial={shouldReduceMotion ? false : { scale: 0.72, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 1.4, ease: [0.22, 1, 0.36, 1] }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <FadeUp as="p" className="text-xs font-medium uppercase tracking-[0.22em] text-white/38">
-            {copy.closing.label}
-          </FadeUp>
-          <FadeUp as="h2" y={30} mobileX={-14} className="mt-6 max-w-6xl text-[clamp(2.65rem,12.8vw,3rem)] font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-8xl">
-            {copy.closing.title}
-          </FadeUp>
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-            <FadeUp delay={0.1}>
-              <a
-                href={PULSE_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="pulse-cta group inline-flex items-center gap-4 rounded-full bg-white px-6 py-4 text-sm font-medium text-black transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {copy.experiencePulse}
-                <ExternalArrow />
-              </a>
-            </FadeUp>
-            <FadeUp delay={0.16}>
-              <a
-                href={PHENO_PORTAL_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full border border-white/20 px-6 py-4 text-sm text-white/68 transition-colors hover:border-white/40 hover:text-white"
-              >
-                <LockKeyhole className="h-4 w-4" aria-hidden="true" />
-                {copy.ecosystem.phenoPortal}
-                <ExternalArrow />
-              </a>
-            </FadeUp>
-          </div>
-
-          <footer className="mt-24 grid gap-6 border-t border-white/15 py-8 text-xs text-white/38 sm:mt-32 sm:grid-cols-3 sm:items-center">
-            <span>{copy.brandAlt}</span>
-            <span className="sm:text-center">{copy.closing.location}</span>
-            <span className="sm:text-right">{copy.closing.motto}</span>
-          </footer>
-        </div>
-      </section>
-
-      <AnimatePresence>
-        {showBackToTop && (
-          <motion.button
-            type="button"
-            className={`back-to-top group z-[90] inline-flex h-[62px] w-[42px] flex-col items-center justify-center gap-1 rounded-full border px-0 py-2 text-[9px] font-medium uppercase tracking-[0.14em] shadow-[0_10px_28px_rgba(0,0,0,0.16)] backdrop-blur-xl transition-colors ${
-              backToTopSurface === 'dark'
-                ? 'border-white/[0.78] bg-white/[0.92] text-black/[0.82] hover:bg-white hover:text-black'
-                : 'border-black/[0.18] bg-black/[0.84] text-white/[0.86] hover:bg-black hover:text-white'
-            }`}
-            onClick={() =>
-              window.scrollTo({
-                top: 0,
-                behavior: shouldReduceMotion ? 'auto' : 'smooth',
-              })
-            }
-            initial={shouldReduceMotion ? false : { opacity: 0, x: 18, scale: 0.96 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 12, scale: 0.97 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.32, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={shouldReduceMotion ? undefined : { y: -2 }}
-            whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
-            aria-label={copy.backToTop}
-          >
-            <ArrowUp className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden="true" />
-            <span>{copy.backToTopShort}</span>
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </main>
-  );
+function OutputDemo({kind,lang}:{kind:string;lang:Lang}){
+ const t=(x:Text)=>x[lang];
+ const content=kind==='memory'?{
+ label:tx('Illustrative app output','应用输出示例'),icon:Mic,title:tx('The day, in three layers.','一天，三层记忆。'),
+ rows:[{label:tx('01 / Full transcript','01 / 完整转写'),text:tx('“Let’s compare the two samples tomorrow.”','“我们明天比较一下这两个样品。”')},{label:tx('02 / Conversation summary','02 / 分段摘要'),text:tx('Team discussed comparing the latest samples.','团队讨论了对最新样品进行比较。')},{label:tx('03 / Day summary','03 / 全天回顾'),text:tx('A sample comparison was proposed. Confirm the owner and timing.','今天提出了一项样品比较计划，需确认负责人和时间。')}],foot:tx('Concept display · sample content, not a real recording.','界面概念 · 示例内容，非真实录音。')
+ }:kind==='sport'?{
+ label:tx('From analysis to practice','从分析到练习'),icon:Camera,title:tx('A clip worth reviewing.','找到值得复盘的片段。'),
+ rows:[{label:tx('Observe','观察'),text:tx('Locate a rally and follow the player through it.','定位回合，查看球员在回合中的移动。')},{label:tx('Review','复盘'),text:tx('Watch the movement with its video context.','结合原始视频回看动作。')},{label:tx('Act','行动'),text:tx('Agree on a practice focus with your coach.','与教练一起确定练习重点。')}],foot:tx('Illustrative workflow · automated coaching remains in development.','工作流程示例 · 自动化指导仍在开发中。')
+ }:kind==='lab'?{
+ label:tx('The Phenolab workflow','Phenolab 工作流程'),icon:FlaskConical,title:tx('Keep the scientific trail intact.','保留完整的科研证据链。'),
+ rows:[{label:tx('Record','记录'),text:tx('Link the observation to the sample and procedure step.','将观察关联到样品和具体操作步骤。')},{label:tx('Compare','比较'),text:tx('Review the conditions and outcomes across runs.','跨批次比较实验条件与结果。')},{label:tx('Carry forward','继续探索'),text:tx('Use the reviewed evidence to plan the next experiment.','依据经过审核的证据，规划下一轮实验。')}],foot:tx('Illustrative workflow · recommendation capability in development.','工作流程示例 · 实验建议能力仍在开发中。')
+ }:{
+ label:tx('An investigation that can be reviewed','可复核的排查过程'),icon:Workflow,title:tx('Evidence → action → verified outcome.','证据 → 行动 → 结果验证。'),
+ rows:[{label:tx('Observation','观察'),text:tx('Link the defect, material lot and process history.','关联缺陷、物料批次与工艺历史。')},{label:tx('Decision brief','决策简报'),text:tx('Show likely causes, missing evidence and tests to distinguish them.','呈现可能原因、缺失证据及区分假设的测试。')},{label:tx('Review & verify','审核与验证'),text:tx('An engineer approves the plan and checks the result against a baseline.','由工程师批准方案，并对照基线核验结果。')}],foot:tx('Concept workflow · scope and integrations agreed per customer.','流程概念 · 范围与系统集成按客户需求约定。')
+ };
+ const Icon=content.icon;
+ return <aside className="output-demo"><div className="demo-top"><span>{t(content.label)}</span><Icon size={21}/></div><h4>{t(content.title)}</h4><div className="demo-rows">{content.rows.map((row,i)=><div key={i}><span>{t(row.label)}</span><p>{t(row.text)}</p></div>)}</div><p className="demo-foot">{t(content.foot)}</p></aside>
 }
-
 export default App;

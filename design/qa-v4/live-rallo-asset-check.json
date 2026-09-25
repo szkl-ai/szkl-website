@@ -1,0 +1,26 @@
+[
+  {
+    "file": "tracking.js",
+    "matches_live": true,
+    "local_sha256": "aeffc155bd748094134f09371a934d03cbda74dda6f844eb4941582dfaadb6a8",
+    "live_sha256": "aeffc155bd748094134f09371a934d03cbda74dda6f844eb4941582dfaadb6a8"
+  },
+  {
+    "file": "tracking.json",
+    "matches_live": true,
+    "local_sha256": "32e564984d8338b4a6be5b023a111e3bc062666f77b5686085b24e2507d01b73",
+    "live_sha256": "32e564984d8338b4a6be5b023a111e3bc062666f77b5686085b24e2507d01b73"
+  },
+  {
+    "file": "match.mp4",
+    "matches_live": true,
+    "local_sha256": "d371816af9f2259be3c16281c267f20a181758dfe2f2378608a9bdabfc7b634e",
+    "live_sha256": "d371816af9f2259be3c16281c267f20a181758dfe2f2378608a9bdabfc7b634e"
+  },
+  {
+    "file": "poster.jpg",
+    "matches_live": true,
+    "local_sha256": "d4faf4310c164c591389771da793e44b860eb7145e7dcf0a31c95f9a0bac4eef",
+    "live_sha256": "d4faf4310c164c591389771da793e44b860eb7145e7dcf0a31c95f9a0bac4eef"
+  }
+]

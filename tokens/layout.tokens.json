@@ -1,0 +1,64 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "system": "pheno-szkl-application-architecture",
+  "breakpoint": {
+    "compactMax": "767px",
+    "mediumMin": "768px",
+    "mediumMax": "1199px",
+    "expandedMin": "1200px",
+    "wideMin": "1600px"
+  },
+  "chrome": {
+    "titlebar": "48px",
+    "toolbar": "40px",
+    "statusbar": "28px",
+    "activityRail": "48px",
+    "splitterVisual": "1px",
+    "splitterHitArea": "8px"
+  },
+  "pane": {
+    "navigation": {
+      "min": "200px",
+      "default": "248px",
+      "max": "360px"
+    },
+    "list": {
+      "min": "280px",
+      "default": "344px",
+      "max": "480px"
+    },
+    "primary": {
+      "min": "560px",
+      "preferredShare": "50-70%"
+    },
+    "inspector": {
+      "min": "320px",
+      "default": "360px",
+      "max": "480px"
+    },
+    "bottomPanel": {
+      "min": "160px",
+      "default": "240px",
+      "maxViewportShare": "45%"
+    }
+  },
+  "overlay": {
+    "contextDrawer": {
+      "min": "320px",
+      "default": "400px",
+      "max": "480px",
+      "maxViewportShare": "90%"
+    },
+    "commandPalette": {
+      "min": "560px",
+      "max": "720px",
+      "maxHeight": "70dvh"
+    }
+  },
+  "ratio": {
+    "listDetail": "33:67",
+    "supportingPane": "67:33",
+    "threePaneBalanced": "25:50:25",
+    "threePaneDetailPriority": "25:25:50"
+  }
+}

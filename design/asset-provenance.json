@@ -1,0 +1,22 @@
+{
+  "nian-product.png": "Approved Nian product design views, August 2026 asset rollout; enclosure rendering.",
+  "nian-lifestyle.png": "Approved Nian desktop hero, August 2026 asset rollout; lifestyle rendering.",
+  "lab-photo.jpg": "Pheno company introduction presentation, slide 13; laboratory photograph.",
+  "labpilot-screen.png": "LabPilot prototype, existing app020 live-canvas desktop screenshot.",
+  "rallo-screen.png": "RALLO prototype studio, existing studio-players-v03 screenshot.",
+  "rallo-demo.jpg": "RALLO demonstration footage poster from the product repository.",
+  "michael.jpg": "Existing Pulse industrial AI team presentation v2; Michael portrait.",
+  "ethan.jpg": "Existing Pulse industrial AI team presentation v2; Ethan portrait.",
+  "factory-concept.jpg": "Existing Pulse industrial AI presentation v2; workshop concept illustration.",
+  "sports-concept.png": "AI-generated sports capture hardware concept, September 2026; not a deployed installation.",
+  "lab-concept.png": "AI-generated glovebox capture concept, September 2026; not a deployed installation.",
+  "louis.jpg": "Existing Pulse industrial AI team presentation v2; Louis portrait. Bio corroborated by Pheno BP July 2026, team slide.",
+  "phenolab-designer-preview.png": "Existing Pheno Lab Data Platform mockups/01-experiment-designer.png, exact copy. Static Designer v0.1 preview with example experiment text corroborated by prisma/seed.ts. Not presented as the current deployed interface. Official Pheno logo preserved. Current authenticated capture is pending user sign-in.",
+  "phenolab-glovebox-capture.png": "Generated 2026-09-24 using built-in image generation. Proposed 3-camera glovebox capture rig. Concept, not installation photography. Full prompts in design/visual-prompts-v4.md.",
+  "phenolab-robotic-hands.png": "Generated 2026-09-24 using built-in image generation. Dexterous anthropomorphic robot-hand research concept, not an existing installation.",
+  "phenolab-camera-frame.png": "Generated 2026-09-24 using built-in image generation. Illustrative glovebox camera view. Source image is unchanged; bilingual annotations are DOM overlays, explicitly not detector output.",
+  "../demos/rallo/match.mp4": "Byte-identical copy of already-public RALLO /demo/match.mp4 from sports.szkl.com product repository. Three sample rallies.",
+  "../demos/rallo/tracking.json": "Byte-identical recorded observations from RALLO public /demo/tracking.json. Contains 2D visible-joint observations, player boxes, shuttle observations, feet and court mapping. No private user uploads.",
+  "../demos/rallo/tracking.js": "Exact copy of public RALLO tracking overlay engine, reused in a new bilingual marketing viewer.",
+  "ApplicationEvidence.tsx": "Original UI recreations based on deployed Pheno product feature structure and owner-provided references. All science and employee records are fictitious. Not claimed to be authenticated live screenshots."
+}
