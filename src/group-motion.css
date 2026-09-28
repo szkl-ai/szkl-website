@@ -1,0 +1,96 @@
+/* Optional, group-only motion. Without the hook every element stays visible.
+   Never change document scrolling, positioning, focusability or pointer events. */
+.group-site[data-g-motion="active"] [data-g-reveal] {
+  --g-reveal-distance: 18px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 620ms cubic-bezier(.2,.65,.25,1) var(--g-reveal-delay, 0ms),
+              transform 760ms cubic-bezier(.2,.65,.25,1) var(--g-reveal-delay, 0ms);
+}
+.group-site[data-g-motion="active"] [data-g-reveal="waiting"] {
+  transform: translate3d(0, var(--g-reveal-distance), 0);
+  /* Preparation is offscreen and immediate; only the entrance transitions. */
+  transition: none;
+}
+.group-site[data-g-motion="active"] [data-g-reveal="waiting"][data-g-kind="reveal"] {
+  opacity: 0;
+}
+/* Interactive cards move a little, but are NEVER transparent or hidden. */
+.group-site[data-g-motion="active"] [data-g-kind="settle"] {
+  --g-reveal-distance: 10px;
+  opacity: 1;
+}
+.group-site[data-g-motion="active"] [data-g-entrance] {
+  animation: g-editorial-entrance 820ms cubic-bezier(.2,.65,.25,1) var(--g-reveal-delay, 0ms) both;
+}
+@keyframes g-editorial-entrance {
+  from { opacity: .72; transform: translate3d(0, 12px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.group-site[data-g-motion="active"] [data-g-entrance][data-g-kind="settle"] {
+  animation-name: g-editorial-settle;
+}
+@keyframes g-editorial-settle {
+  from { transform: translate3d(0, 10px, 0); }
+  to { transform: none; }
+}
+.group-site .g-visual:has(.g-visual-image[data-parallax]) {
+  overflow: hidden;
+}
+.group-site[data-g-motion="active"] .g-visual-image[data-parallax][data-g-depth] {
+  transform: translate3d(0, var(--g-depth-y, 0px), 0) scale(1.035);
+  transform-origin: center;
+  transition: none;
+}
+/* Instant target/focus visibility is also CSS-backed, before event delivery. */
+.group-site[data-g-motion] [data-g-reveal]:is([data-g-instant], :focus-within, :target),
+.group-site[data-g-motion] :target [data-g-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+@media (max-width: 767px), (pointer: coarse) {
+  .group-site[data-g-motion="active"] [data-g-reveal] {
+    --g-reveal-distance: 7px;
+    transition-duration: 360ms;
+    transition-delay: 0ms;
+  }
+  .group-site[data-g-motion="active"] [data-g-entrance] {
+    animation-name: g-editorial-mobile;
+    animation-duration: 420ms;
+    animation-delay: 0ms;
+  }
+  @keyframes g-editorial-mobile {
+    from { transform: translate3d(0, 7px, 0); }
+    to { transform: none; }
+  }
+  .group-site[data-g-motion] .g-visual-image[data-parallax] { transform: none !important; }
+}
+.group-site[data-g-motion="reduced"] [data-g-reveal],
+.group-site[data-g-motion="reduced"] .g-visual-image[data-parallax] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* :has keeps the document-level override restricted to this page. */
+  html:has(.group-site), html:has(.group-site) body, .group-site, .group-site * {
+    scroll-behavior: auto !important;
+  }
+  .group-site [data-g-reveal], .group-site .g-visual-image[data-parallax] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media print {
+  .group-site [data-g-reveal], .group-site .g-visual-image[data-parallax] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,4 +1,4 @@
-import {ArrowRight, ArrowDown, ArrowUpRight, Radio, Cpu, Workflow, CornerDownRight} from 'lucide-react';
+import {ArrowRight, Radio, Cpu, Workflow, CornerDownRight} from 'lucide-react';
 import {tx, type Lang} from './content';
 
 export const capabilities = [
@@ -64,26 +64,21 @@ function ActionDiagram(){
  </svg>;
 }
 
-export function MethodHero({lang}:{lang:Lang}){
+export function Approach({lang}:{lang:Lang}){
  const t=(x:{en:string;zh:string})=>x[lang];
- return <section className="method-hero wrap" aria-labelledby="method-title">
-  <div className="method-intro"><div><p className="eyebrow"><span className="blue-rule"/>Shenzhen Knowledge Labs / {t(tx('Physical AI','真实世界 AI'))}</p><h1 id="method-title">{t(tx('The physical world.','让真实世界，'))}<br/><span>{t(tx('Made actionable.','成为行动的起点。'))}</span></h1><p className="method-formula">{t(tx('Capture','采集'))}<ArrowRight size={16}/>{t(tx('Compute','计算'))}<ArrowRight size={16}/>{t(tx('Act','行动'))}</p></div><div className="method-intro-copy"><p className="lead">{t(tx('We connect real-world data to useful action and measurable outcomes. Capture the right signals, understand the context, and check what happens next.','我们连接真实世界的数据、行动与可衡量的结果：采集合适的信号，理解上下文，并核验后续变化。'))}</p><p>{t(tx('Our focus: enterprise workflows with Pulse and venue-led sports intelligence with RALLO. Built with hardware, AI and domain expertise.','当前重点是 Pulse 企业工作流程与 RALLO 场馆运动智能，结合硬件、AI 与领域经验共同构建。'))}</p><a className="text-link" href="#focus">{t(tx('Explore our two focus areas','了解两个重点方向'))}<ArrowDown size={18}/></a></div></div>
+ return <section className="capabilities section wrap" id="approach" aria-labelledby="approach-title">
+  <div className="section-heading"><p className="eyebrow">{t(tx('Approach','方法与优势'))}</p><h2 id="approach-title">{t(tx('Capture. Compute. Act.','采集、计算、行动。'))}</h2><p>{t(tx('Our products share an engineering approach: capture the right signals, understand the context, and put useful outputs into the user’s workflow.','我们的产品采用共同的工程方法：采集合适的信号，理解上下文，并将有用的输出接入用户的工作流程。'))}</p></div>
+  <div className="approach-summary">{capabilities.map(s=><div key={s.id}><span>{s.number} / {t(s.title)}</span><h3>{t(s.strength)}</h3></div>)}</div>
+  <details className="product-details light-details" id="method-details"><summary>{t(tx('Explore our engineering approach','了解我们的工程方法'))}<ArrowRight size={18}/></summary>
   <div className="method-system" aria-label={t(tx('Capture to compute to action: our physical AI method','从采集、计算到行动：我们的真实世界 AI 方法'))}>
    <div className="system-label"><span>{t(tx('Our method','我们的方法'))}</span><span>{t(tx('One connected system','一个相连的系统'))}</span></div>
-   <div className="method-sequence">{capabilities.map((s,i)=><a key={s.id} className="method-step" href={`#${s.id}`}><div className="method-step-title"><span>{s.number}</span><h2>{t(s.title)}</h2><ArrowRight className="method-next" size={22}/></div><p className="method-summary">{t(s.summary)}</p>{i===0?<SignalDiagram/>:i===1?<ModelDiagram/>:<ActionDiagram/>}<div className="diagram-caption">{t(s.input)}</div><div className="method-output"><span>{t(tx('Output','输出'))}</span><strong>{t(s.output)}</strong></div></a>)}</div>
+   <div className="method-sequence">{capabilities.map((s,i)=><a key={s.id} className="method-step" href={`#${s.id}`}><div className="method-step-title"><span>{s.number}</span><h3>{t(s.title)}</h3><ArrowRight className="method-next" size={22}/></div><p className="method-summary">{t(s.summary)}</p>{i===0?<SignalDiagram/>:i===1?<ModelDiagram/>:<ActionDiagram/>}<div className="diagram-caption">{t(s.input)}</div><div className="method-output"><span>{t(tx('Output','输出'))}</span><strong>{t(s.output)}</strong></div></a>)}</div>
    <div className="method-feedback"><CornerDownRight size={18}/><span>{t(tx('Verify the outcome. Carry approved learning into the next cycle.','核验结果，将获准的经验带入下一轮。'))}</span></div>
   </div>
-  <div className="method-foundations">{capabilities.map(s=><a key={s.id} href={`#${s.id}`}><span>{s.number}</span>{t(s.strength)}<ArrowUpRight size={17}/></a>)}</div>
- </section>;
-}
-
-export function CapabilityChapters({lang}:{lang:Lang}){
- const t=(x:{en:string;zh:string})=>x[lang];
- return <section className="capabilities section wrap" id="approach"><div className="section-heading"><p className="eyebrow">{t(tx('Why SZKL','为什么选择 SZKL'))}</p><h2>{t(tx('An advantage at every step.','每一步，都有积累。'))}</h2><p>{t(tx('Close to the hardware. Deep in the data. Present where the work happens.','贴近硬件，深入数据，扎根工作现场。'))}</p></div>
   {capabilities.map((s,i)=>{const Icon=[Radio,Cpu,Workflow][i];return <article className="capability-chapter" id={s.id} key={s.id}>
    <div className="capability-index"><span className="eyebrow">{s.number} / {t(s.title)}</span><Icon size={30} strokeWidth={1.5}/><h3>{t(s.headline)}</h3><p>{t(s.body)}</p></div>
    <div className="capability-detail"><p className="eyebrow">{t(tx('The SZKL advantage','SZKL 的优势'))}</p><h4>{t(s.strength)}</h4><p>{t(s.advantage)}</p><dl><div><dt>{t(tx('What we work with','技术与方法'))}</dt><dd>{t(s.stack)}</dd></div><div><dt>{t(tx('What it delivers','交付给用户'))}</dt><dd>{t(s.deliver)}</dd></div></dl>{i===1&&<p className="capability-note">{t(tx('Model choice follows task quality, data permissions, cost and deployment constraints. Changing a model requires evaluation; it is not an automatic swap.','模型选择取决于任务质量、数据权限、成本和部署约束。更换模型需要评估验证，不能直接替换。'))}</p>}</div>
   </article>})}
-  <a className="button primary" href="#applications">{t(tx('See the method in practice','查看具体应用'))}<ArrowDown size={18}/></a>
+  </details>
  </section>;
 }

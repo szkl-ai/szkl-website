@@ -5,4 +5,7 @@ import './index.css';
 import './method.css';
 import './evidence.css';
 import './strategy.css';
+import './home.css';
+import './group.css';
+import './visuals.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

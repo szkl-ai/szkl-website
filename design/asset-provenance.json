@@ -1,4 +1,9 @@
 {
+  "pheno-high-throughput.mp4": "Web-optimized silent H.264 copy of owner-supplied Downloads/高通量设备宣传视频_V4_260511.mp4; 70 seconds, 1280x720 at 25 fps. Real equipment footage: sample-vial handling, dispensing and weighing. Original source unchanged. Poster extracted at 12 seconds; bilingual visual-description tracks accompany the silent version.",
+  "../brand/rallo-logo.svg": "Byte-identical official RALLO Signature D / rallo-signature-d-1-1 from Badminton/assets/brand/rallo/web/logo-primary-ink.svg. Transparent vector. SHA-256 d903b0ee71896c7667b16cb6872e196219cd3ce790d8cc7ec335777f4f716c69.",
+  "../brand/nian-logo.svg": "New custom geometric lowercase wordmark created for this website at Michael's explicit request after confirming no standalone logo existed. Transparent vector, dark lettering, blue recording dot/audio accent. Proposed identity, not represented as a previously approved brand asset.",
+  "../brand/pulse-logo-horizontal.png": "Existing approved Pulse lockup preserved, including intentional English slogan. Original PNG already has alpha; white CSS background removed from the group portfolio.",
+  "../brand/pheno-logo.png": "Existing Pheno logo preserved. Original PNG already has alpha; white CSS background removed from the group portfolio.",
   "nian-product.png": "Approved Nian product design views, August 2026 asset rollout; enclosure rendering.",
   "nian-lifestyle.png": "Approved Nian desktop hero, August 2026 asset rollout; lifestyle rendering.",
   "lab-photo.jpg": "Pheno company introduction presentation, slide 13; laboratory photograph.",
@@ -18,5 +23,206 @@
   "../demos/rallo/match.mp4": "Byte-identical copy of already-public RALLO /demo/match.mp4 from sports.szkl.com product repository. Three sample rallies.",
   "../demos/rallo/tracking.json": "Byte-identical recorded observations from RALLO public /demo/tracking.json. Contains 2D visible-joint observations, player boxes, shuttle observations, feet and court mapping. No private user uploads.",
   "../demos/rallo/tracking.js": "Exact copy of public RALLO tracking overlay engine, reused in a new bilingual marketing viewer.",
-  "ApplicationEvidence.tsx": "Original UI recreations based on deployed Pheno product feature structure and owner-provided references. All science and employee records are fictitious. Not claimed to be authenticated live screenshots."
+  "ApplicationEvidence.tsx": "Original UI recreations based on deployed Pheno product feature structure and owner-provided references. All science and employee records are fictitious. Not claimed to be authenticated live screenshots.",
+  "../visuals/motion-1.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/intelligence/motion-1.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "0c569b9e584fdfb3550f13c4c345eb97df71c6e06ee35a32049ebf51f3afc3cd",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/motion-2.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/intelligence/motion-2.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "34cf622aeaa784f70bc896246ea3ce451458b11d1a8d68f8e9d4e5698a2d88eb",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/motion-3.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/intelligence/motion-3.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "6af1be624861d21a1ef2d483f7e39f628ce51cc1afadba27f1235bbf7f4b6bfc",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/knowledge-1.webp": {
+    "id": "knowledge-1",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/renders/knowledge-1.png",
+    "source_sha256": "fca47b5a69c3de1dbae1dd211207f6feaf2fdea80535fb827aa1ef7d41369a5d",
+    "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/knowledge-1.webp",
+    "master": "/Users/michael/.hermes/reviews/szkl-visual-v3/branded-masters/knowledge-1.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "bf10947cedd9a2e6c8ceec06cb63bf8d643fa3568e9df663a5add43683fbccf8",
+    "branding": "Official transparent SZKL logo; no opaque plate",
+    "boundary": "Not product photography, deployment proof or trained-model computational data. Original files retained.",
+    "status": "new-for-review",
+    "kind": "AI-generated concept"
+  },
+  "../visuals/knowledge-2.webp": {
+    "kind": "AI-generated revised engineering concept, for owner review",
+    "revision": 2,
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/renders/knowledge/knowledge-2.png",
+    "source_sha256": "e4e294b5c6ff56b235a747f342c63e9558c46f5a405d72dfaec8386fec64fbd1",
+    "sha256": "c63e2f5ce59091c15077f587e977004d55884b749939555cb2f1fb92891274f8",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "branding": "Official SZKL logo composited transparently, no logo plate",
+    "boundary": "Conceptual rendering, not validated manufacturing, electrical performance, measured tracking or an existing office photograph"
+  },
+  "../visuals/knowledge-3.webp": {
+    "kind": "AI-generated revised engineering concept, for owner review",
+    "revision": 2,
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/renders/knowledge/knowledge-3.png",
+    "source_sha256": "a0fbd8128f4c4c74cb48794b13472dced0217182fd6326b9bd8dda4d7d691ca6",
+    "sha256": "d8cf364ffcf3cb2c9d9385c71edb7895d21ed62d38363c6de1a8c84fae28e261",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "branding": "Official SZKL logo composited transparently, no logo plate",
+    "boundary": "Conceptual rendering, not validated manufacturing, electrical performance, measured tracking or an existing office photograph"
+  },
+  "../visuals/hardware-1.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/engineering/hardware-1.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "cc37066fc08f4de44e26ef182435bf107f6e194aa940ed331ce69bef0c3025fd",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/hardware-2.webp": {
+    "id": "hardware-2",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/before/visuals/hardware-2.webp",
+    "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/hardware-2.webp",
+    "sha256": "512f364d024906db41fe4c9785189a5ddafea02eed658782b57250cedcfc98da",
+    "status": "restored-previous",
+    "kind": "AI-generated concept",
+    "boundary": "Not product photography, deployment proof or trained-model computational data. Original files retained."
+  },
+  "../visuals/hardware-3.webp": {
+    "id": "hardware-3",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/before/visuals/hardware-3.webp",
+    "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/hardware-3.webp",
+    "sha256": "ff99c87247daf07dd8b7b470272bf9f17964aaad08ba13930f8abfe7fd8393ef",
+    "status": "restored-previous",
+    "kind": "AI-generated concept",
+    "boundary": "Not product photography, deployment proof or trained-model computational data. Original files retained."
+  },
+  "../visuals/nian-1.webp": {
+    "kind": "AI-generated revised engineering concept, for owner review",
+    "revision": 2,
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/renders/nian/nian-1.png",
+    "source_sha256": "7f37bd14bb5defa8f8cdbb25203eadd843ee08771d67d85cf5486bf2d0933eca",
+    "sha256": "264665ce61d6bacc9a20aa9fa2835461caf6030cecf3bcbcc90e8a5224806392",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "branding": "Official SZKL logo composited transparently, no logo plate",
+    "boundary": "Conceptual rendering, not validated manufacturing, electrical performance, measured tracking or an existing office photograph"
+  },
+  "../visuals/nian-2.webp": {
+    "kind": "AI-generated revised engineering concept, for owner review",
+    "revision": 2,
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/renders/nian/nian-2.png",
+    "source_sha256": "60d68a40aa4fd8d762aebb238b19527275a55f478b6d7ceeb882b0254ecfb4c7",
+    "sha256": "e8f9bb6245726842caa6f8cf87873cb9d46c78520dbb0a02374a1449fcf83662",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "branding": "Official SZKL logo composited transparently, no logo plate",
+    "boundary": "Conceptual rendering, not validated manufacturing, electrical performance, measured tracking or an existing office photograph"
+  },
+  "../visuals/nian-3.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/nian/nian-3.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f698698d2ea1348e505be98ba61bffdf8ed3e1e1e9c3d42097e4f64e174b0e7b",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/workspace-1.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/engineering/workspace-1.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "c124988f7b254f767202862c3bde0448571f3aec19cb676a074f5d8a8a4e17f0",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/workspace-2.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/engineering/workspace-2.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "e66cfe0d07eb2bd30bc8479675bd026340c18aa1aa62fe6d17e1cccd1d794194",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "../visuals/workspace-3.webp": {
+    "kind": "AI-generated engineering/workspace concept",
+    "generator": "Codex native image generation; image-model name not supplied",
+    "source": "/Users/michael/.hermes/reviews/szkl-visual-expansion/renders/engineering/workspace-3.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "9f178e5e981c0daf65ca8bc8ec79ecc2f43f835cb67e2146815513c643c1b671",
+    "branding": "Exact official SZKL transparent logo composited in contrasting light/dark ink, no background plate; generated scene otherwise unchanged.",
+    "evidence": "AI-generated conceptual rendering, not an actual deployment photograph or validated engineering diagram."
+  },
+  "michael-illustrated.webp": "Web-optimized derivative of the named user-approved cartoon portrait from ~/.hermes/artifacts/szkl-portraits/. Original approved PNG and original photograph retained; no new portrait generated. Applied by explicit owner request.",
+  "ethan-illustrated.webp": "Web-optimized derivative of the named user-approved cartoon portrait from ~/.hermes/artifacts/szkl-portraits/. Original approved PNG and original photograph retained; no new portrait generated. Applied by explicit owner request.",
+  "louis-illustrated.webp": "Web-optimized derivative of the named user-approved cartoon portrait from ~/.hermes/artifacts/szkl-portraits/. Original approved PNG and original photograph retained; no new portrait generated. Applied by explicit owner request.",
+  "../visuals/nian-use.webp": {
+    "id": "nian-use",
+    "source": "/Users/michael/Documents/Michael Overall/outputs/Nian_Approved_Asset_Rollout_20260826/fullres/23_Nian_Sales_No_Glyph.png",
+    "source_sha256": "6f3fc2c316769cd7bc98a15e5429c75145308f8cb409d005079616c5bf66514c",
+    "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/nian-use.webp",
+    "master": "/Users/michael/.hermes/reviews/szkl-visual-v3/branded-masters/nian-use.png",
+    "dimensions": [
+      1536,
+      864
+    ],
+    "sha256": "c94ec623d5ef4f65324a7c036f040f685f571eb3da4c524b805c5c0de94087d2",
+    "branding": "Official transparent SZKL logo; no opaque plate",
+    "boundary": "Not product photography, deployment proof or trained-model computational data. Original files retained.",
+    "status": "existing-use-case",
+    "kind": "AI-generated concept"
+  }
 }

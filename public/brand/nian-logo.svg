@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="104" viewBox="0 0 330 104" role="img" aria-labelledby="title desc">
+  <title id="title">Nian 念</title>
+  <desc id="desc">A custom lowercase nian wordmark. A blue recording dot and two short audio strokes connect the identity to voice and listening.</desc>
+  <g fill="none" stroke="#202422" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 79V30M17 49C17 20 72 20 72 49V79"/>
+    <path d="M105 45V79"/>
+    <path d="M181 31V79M181 55a24 24 0 1 1-48 0a24 24 0 1 1 48 0"/>
+    <path d="M212 79V30M212 49C212 20 267 20 267 49V79"/>
+  </g>
+  <circle cx="105" cy="26" r="6" fill="#2058d6"/>
+  <g fill="none" stroke="#2058d6" stroke-width="7" stroke-linecap="round">
+    <path d="M294 43V67"/>
+    <path d="M312 51V59"/>
+  </g>
+</svg>

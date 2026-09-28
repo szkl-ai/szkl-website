@@ -1,27 +1,27 @@
 {
   "brand": "szkl",
   "productName": "SZKL Physical AI",
-  "productArchetype": "knowledge-institution",
+  "productArchetype": "physical-ai-technology-group",
   "primaryUser": "Potential customers, industrial and venue partners, professional collaborators and investors",
-  "repeatedJob": "Understand the company and identify a concrete pilot or person to contact",
-  "dominantProductObject": "Capture-compute-act method, two focused commercial applications and evidence of repeatability",
-  "signatureComposition": "Method-first editorial hero, two focus lanes, real product evidence, shared capabilities and stage-gated growth thesis",
-  "primaryAction": "Discuss a real-world workflow",
+  "repeatedJob": "Understand the group's physical-AI thesis, why the integrated position matters, who is building it, and which projects substantiate it",
+  "dominantProductObject": "One physical-AI engineering thesis: Capture → Understanding → Action, supported by shared engineering disciplines and domain-specific validation",
+  "signatureComposition": "Typographic group positioning and feedback-loop architecture; technical responsibilities and model families; why-now rationale and Shenzhen engineering strengths; actual team; compact project evidence; contact",
+  "primaryAction": "Explore the technology approach or connect with the group",
   "applicationArchitecture": {
     "shellMode": "document",
     "canonicalFrameId": "szkl.s2-light-editorial",
-    "pattern": "Public editorial document with in-place application switcher",
+    "pattern": "Group-first editorial homepage with separate profile and product-showcase routes",
     "visiblePanes": [
       "Navigation",
       "Company or profile document"
     ],
-    "primarySpaceTarget": "Full reading width up to 1200px; text paired with media at desktop",
+    "primarySpaceTarget": "Group content up to 1280px; legacy profiles preserve their existing layout",
     "paneContracts": [],
     "responsiveTransformation": {
-      "wide": "Centered 1200px content; side-by-side thesis and visual evidence",
-      "expanded": "Two-column editorial composition",
-      "medium": "Reduced gaps; flexible product tabs; paired product media",
-      "compact": "Single document column; wrapped navigation; vertically ordered workflow and images"
+      "wide": "Typographic opening, horizontal feedback loop, three-column technical chapters, compact project rows",
+      "expanded": "Editorial thesis and rationale; team and projects remain subordinate",
+      "medium": "Reduced gaps, adaptive technical columns and mobile navigation disclosure",
+      "compact": "Vertical system flow and technical chapters, compact portrait rows and project teasers; no homepage demo embeds"
     }
   },
   "evidenceStates": [
@@ -42,8 +42,9 @@
   ],
   "requiredViewports": [
     "1440x900",
-    "1024x768",
-    "390x844"
+    "1024x844",
+    "390x844",
+    "320x844"
   ],
   "languages": [
     "en",
@@ -68,7 +69,8 @@
     "Pheno workbench inserts use approved Pheno gray and green; the SZKL editorial shell remains the owner brand.",
     "No real employee records are published. Agent preparation and approval are a concept, not a claim of deployed orchestration.",
     "Reuse the real RALLO public demo observations; do not invent joints or claim 3D accuracy.",
-    "Lead with Pulse manufacturing and RALLO badminton; retain Phenolab, Nian and Pheno operations as supporting applications",
+    "Lead with the group's physical-AI thesis, technology families and why-now rationale; then team; then compact Pulse, RALLO, Phenolab, Nian and internal Pheno operations teasers",
+    "Full product demos and workbenches stay on separate showcase pages, not mounted or hidden inside the group homepage",
     "Do not publish mock ARR, ACV, venue counts, margin or network-effect claims as operating results",
     "Distinguish proposed product strategy, illustrative workflows and observed demos",
     "Model routing requires task evaluation; approved data and reviewed outcomes underpin learning"

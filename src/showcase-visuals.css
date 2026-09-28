@@ -1,0 +1,13 @@
+.showcase-page .sv-stories{margin-top:72px;border-top:1px solid #3c4a4f;color:#edf2ee}
+.showcase-page .sv-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);align-items:center;gap:7%;padding:56px 0;border-bottom:1px solid #3c4a4f}
+.showcase-page .sv-copy{min-width:0;max-width:470px}.showcase-page .sv-copy .sv-kicker,.showcase-page .sv-workspace .sv-kicker{color:#245ac4;font:11px/1.6 'SFMono-Regular',Consolas,monospace;letter-spacing:.035em;margin:0 0 18px}
+.showcase-page .sv-stories h2{font-size:clamp(25px,2.7vw,38px);line-height:1.2;letter-spacing:-.025em;font-weight:450;margin:0 0 22px;text-wrap:balance}
+.showcase-page .sv-copy>p:last-child,.showcase-page .sv-workspace p{color:#535e58;font-size:15px;line-height:1.85;margin:0}
+.showcase-page .sv-copy>p:last-child{color:#bac8c0}
+.showcase-page .sv-copy .sv-kicker{color:#a8c2ff}
+.showcase-page .sv-workspace>div{color:#202724}
+.showcase-page .sv-story figure{margin:0;min-width:0}.showcase-page .sv-story img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;display:block}
+.showcase-page .sv-reverse{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.showcase-page .sv-reverse .sv-copy{grid-column:2;grid-row:1}.showcase-page .sv-reverse figure{grid-column:1;grid-row:1}
+.showcase-page .sv-workspace{display:grid;grid-template-columns:1fr 1fr;align-items:end;background:#313d34 url('/visuals/workspace-3.webp') center/cover no-repeat;margin-top:56px;padding-top:210px}.showcase-page .sv-workspace>div{grid-column:2;background:#f5f4ef;padding:32px 0 0 32px}.showcase-page .sv-workspace h2{font-size:30px}
+@media(max-width:760px){.showcase-page .sv-stories{margin-top:44px}.showcase-page .sv-story,.showcase-page .sv-reverse{grid-template-columns:minmax(0,1fr);gap:28px;padding:36px 0}.showcase-page .sv-reverse .sv-copy,.showcase-page .sv-reverse figure{grid-column:auto;grid-row:auto}.showcase-page .sv-workspace{grid-template-columns:1fr;padding-top:230px;background-position:center top;background-size:auto 380px;margin-top:40px}.showcase-page .sv-workspace>div{grid-column:1;padding:26px 0 0}.showcase-page .sv-workspace h2{font-size:26px}}
+@media print{.showcase-page .sv-workspace{background:none;padding-top:0}.showcase-page .sv-workspace>div{grid-column:1/-1;padding-left:0}.showcase-page .sv-story{break-inside:avoid}}
