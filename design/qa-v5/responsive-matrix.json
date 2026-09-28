@@ -1,0 +1,146 @@
+[
+  {
+    "requested": 1440,
+    "language": "en",
+    "brokenImages": [],
+    "headings": [
+      "Investigate the exception. Improve the response.",
+      "From a court session to a reason to return."
+    ],
+    "laneRects": [
+      {
+        "width": 599.9999389648438,
+        "x": 119.97662353515624,
+        "y": 1266.6507568359375
+      },
+      {
+        "width": 599.9999389648438,
+        "x": 719.9765625,
+        "y": 1266.6507568359375
+      }
+    ],
+    "lang": "en",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "requested": 1440,
+    "language": "zh",
+    "brokenImages": [],
+    "headings": [
+      "查清异常，让处置更有效。",
+      "让每次上场，都有值得回来的理由。"
+    ],
+    "laneRects": [
+      {
+        "width": 599.9999389648438,
+        "x": 119.97662353515624,
+        "y": 1239.518798828125
+      },
+      {
+        "width": 599.9999389648438,
+        "x": 719.9765625,
+        "y": 1239.518798828125
+      }
+    ],
+    "lang": "zh-CN",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "requested": 1024,
+    "language": "en",
+    "brokenImages": [],
+    "headings": [
+      "Investigate the exception. Improve the response.",
+      "From a court session to a reason to return."
+    ],
+    "laneRects": [
+      {
+        "width": 488.0293273925781,
+        "x": 23.999706268310547,
+        "y": 1303.70166015625
+      },
+      {
+        "width": 488.032958984375,
+        "x": 512.029052734375,
+        "y": 1303.70166015625
+      }
+    ],
+    "lang": "en",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "requested": 1024,
+    "language": "zh",
+    "brokenImages": [],
+    "headings": [
+      "查清异常，让处置更有效。",
+      "让每次上场，都有值得回来的理由。"
+    ],
+    "laneRects": [
+      {
+        "width": 488.0293273925781,
+        "x": 23.999706268310547,
+        "y": 1255.819091796875
+      },
+      {
+        "width": 488.032958984375,
+        "x": 512.029052734375,
+        "y": 1255.819091796875
+      }
+    ],
+    "lang": "zh-CN",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "requested": 390,
+    "language": "en",
+    "brokenImages": [],
+    "headings": [
+      "Investigate the exception. Improve the response.",
+      "From a court session to a reason to return."
+    ],
+    "laneRects": [
+      {
+        "width": 357.9512023925781,
+        "x": 16.001020431518555,
+        "y": 2180.596435546875
+      },
+      {
+        "width": 357.9512023925781,
+        "x": 16.001020431518555,
+        "y": 2917.96484375
+      }
+    ],
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "requested": 390,
+    "language": "zh",
+    "brokenImages": [],
+    "headings": [
+      "查清异常，让处置更有效。",
+      "让每次上场，都有值得回来的理由。"
+    ],
+    "laneRects": [
+      {
+        "width": 357.9512023925781,
+        "x": 16.001020431518555,
+        "y": 2056.2900390625
+      },
+      {
+        "width": 357.9512023925781,
+        "x": 16.001020431518555,
+        "y": 2683.140869140625
+      }
+    ],
+    "lang": "zh-CN",
+    "scrollWidth": 390,
+    "width": 390
+  }
+]

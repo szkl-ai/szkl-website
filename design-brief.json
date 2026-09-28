@@ -1,0 +1,78 @@
+{
+  "brand": "szkl",
+  "productName": "SZKL Physical AI",
+  "productArchetype": "physical-ai-technology-group",
+  "primaryUser": "Potential customers, industrial and venue partners, professional collaborators and investors",
+  "repeatedJob": "Understand the group's physical-AI thesis, why the integrated position matters, who is building it, and which projects substantiate it",
+  "dominantProductObject": "One physical-AI engineering thesis: Capture → Understanding → Action, supported by shared engineering disciplines and domain-specific validation",
+  "signatureComposition": "Typographic group positioning and feedback-loop architecture; technical responsibilities and model families; why-now rationale and Shenzhen engineering strengths; actual team; compact project evidence; contact",
+  "primaryAction": "Explore the technology approach or connect with the group",
+  "applicationArchitecture": {
+    "shellMode": "document",
+    "canonicalFrameId": "szkl.s2-light-editorial",
+    "pattern": "Group-first editorial homepage with separate profile and product-showcase routes",
+    "visiblePanes": [
+      "Navigation",
+      "Company or profile document"
+    ],
+    "primarySpaceTarget": "Group content up to 1280px; legacy profiles preserve their existing layout",
+    "paneContracts": [],
+    "responsiveTransformation": {
+      "wide": "Typographic opening, horizontal feedback loop, three-column technical chapters, compact project rows",
+      "expanded": "Editorial thesis and rationale; team and projects remain subordinate",
+      "medium": "Reduced gaps, adaptive technical columns and mobile navigation disclosure",
+      "compact": "Vertical system flow and technical chapters, compact portrait rows and project teasers; no homepage demo embeds"
+    }
+  },
+  "evidenceStates": [
+    "Product-design visualization",
+    "Software prototype screenshot",
+    "Company-material photograph",
+    "Application concept",
+    "Team biography from existing company collateral",
+    "Real recorded public tracking demo with functional overlay controls",
+    "Recreated Pheno workspace using fictional data",
+    "Generated glovebox and dexterous robot hardware concepts",
+    "Illustrative capture annotations, not model predictions"
+  ],
+  "permissionStates": [
+    "Public-facing review copy; deployment audience remains owner-private",
+    "No customer records, credentials or fictional traction published",
+    "Separate GitHub review branch; production changes require final owner approval"
+  ],
+  "requiredViewports": [
+    "1440x900",
+    "1024x844",
+    "390x844",
+    "320x844"
+  ],
+  "languages": [
+    "en",
+    "zh"
+  ],
+  "approvedAssetDirectory": "public/brand",
+  "tokenFile": "tokens/szkl.tokens.json",
+  "logoAssetId": "szkl.wordmark.dark",
+  "logoAsset": "public/brand/szkl-logo-black.png",
+  "logoBackground": "white",
+  "webIconSet": "public/brand/web/szkl",
+  "specialConstraints": [
+    "Document scroll is intentional for public site and one-page bios",
+    "No unverified valuation, customer logos or quantified performance",
+    "User's physical AI thesis supersedes older knowledge-only positioning",
+    "Preserve official logos and Pulse English lockup",
+    "Profile titles provisional from existing materials pending user update",
+    "No product collage or cropped product images in the opening",
+    "Model families described at company level; named model examples scoped to verified use cases",
+    "Ethan and Louis PhD designations confirmed by owner; no invented degree institution for Ethan",
+    "Phenolab uses the exact official Pheno logo on a white plate, with product name separate; its application links to lab.szkl.com. SZKL remains the site owner brand.",
+    "Pheno workbench inserts use approved Pheno gray and green; the SZKL editorial shell remains the owner brand.",
+    "No real employee records are published. Agent preparation and approval are a concept, not a claim of deployed orchestration.",
+    "Reuse the real RALLO public demo observations; do not invent joints or claim 3D accuracy.",
+    "Lead with the group's physical-AI thesis, technology families and why-now rationale; then team; then compact Pulse, RALLO, Phenolab, Nian and internal Pheno operations teasers",
+    "Full product demos and workbenches stay on separate showcase pages, not mounted or hidden inside the group homepage",
+    "Do not publish mock ARR, ACV, venue counts, margin or network-effect claims as operating results",
+    "Distinguish proposed product strategy, illustrative workflows and observed demos",
+    "Model routing requires task evaluation; approved data and reviewed outcomes underpin learning"
+  ]
+}

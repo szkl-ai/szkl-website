@@ -1,0 +1,57 @@
+[data-brand="pheno"] {
+  --brand-primary: #95ca00;
+  --brand-secondary: #0b7c86;
+  --brand-deep: #4f6b00;
+  --brand-soft: #edf6d7;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-subtle: #f3f5f2;
+  --ink: #292c29;
+  --muted: #687069;
+  --border: #d8ded7;
+  --success: #4f6b00;
+  --warning: #a56300;
+  --danger: #b42318;
+  --focus: #4f6b00;
+  --radius-control: 4px;
+  --radius-panel: 6px;
+  --radius-card: 8px;
+  --motion-fast: 140ms;
+  --motion-standard: 200ms;
+}
+
+[data-brand="szkl"] {
+  --brand-primary: #2f6bff;
+  --brand-secondary: #23b7e5;
+  --brand-deep: #1746bd;
+  --brand-soft: #e9efff;
+  --background: #07090d;
+  --surface: #11151c;
+  --surface-subtle: #171c24;
+  --ink: #f6f8fb;
+  --muted: #8e98a7;
+  --border: #27303d;
+  --success: #23a26d;
+  --warning: #d9941a;
+  --danger: #d94c55;
+  --focus: #2f6bff;
+  --radius-control: 3px;
+  --radius-panel: 6px;
+  --radius-card: 8px;
+  --motion-fast: 160ms;
+  --motion-standard: 220ms;
+}
+
+:where([data-brand="pheno"], [data-brand="szkl"]) {
+  --font-sans: Inter, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: SFMono-Regular, "Roboto Mono", Consolas, monospace;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+}

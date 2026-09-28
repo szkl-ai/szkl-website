@@ -1,0 +1,17 @@
+import {useEffect,useState} from 'react';
+import {tx,type Lang} from './content';
+import {visualStudies,visualReviewStatus} from './visualStudies';
+const categories=[['motion',tx('Motion & spatial intelligence','运动与空间智能')],['knowledge',tx('Knowledge & memory','知识与记忆')],['hardware',tx('Hardware & edge systems','硬件与端侧系统')],['nian',tx('Nian: engineering & use','Nian：工程与使用')],['workspace',tx('The engineering workspace','工程工作空间')]] as const;
+export default function VisualGallery(){
+ const [lang,setLang]=useState<Lang>(new URLSearchParams(location.search).get('lang')==='zh'?'zh':'en');
+ useEffect(()=>{document.documentElement.lang=lang==='en'?'en':'zh-CN';document.title=`SZKL — ${tx('Visual studies','视觉方案')[lang]}`;const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url)},[lang]);
+ useEffect(()=>{const target=document.getElementById(location.hash.slice(1));if(target)requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant'}))},[]);
+ return <div className="group-site g-gallery">
+  <a className="skip" href="#main">{tx('Skip to content','跳转到内容')[lang]}</a>
+  <header className="g-header"><div className="g-wrap g-header-inner"><a className="g-brand" href={`/?lang=${lang}`}><img src="/brand/szkl-logo-black.png" alt="SZKL" width="128" height="32"/></a><a className="g-gallery-back" href={`/?lang=${lang}#technology`}>{tx('← Back to the group','← 返回集团首页')[lang]}</a><div className="g-languages"><button onClick={()=>setLang('en')} aria-pressed={lang==='en'} lang="en">EN</button><button onClick={()=>setLang('zh')} aria-pressed={lang==='zh'} lang="zh-CN">中文</button></div></div></header>
+  <main id="main" className="g-wrap">
+   <section className="g-gallery-intro"><p className="g-kicker">SZKL / {tx('Visual studies','视觉方案')[lang]}</p><h1>{tx('Engineering, visualized.','让工程，可视化。')[lang]}</h1><p>{tx('Five themes. Thirteen studies. Selected directions and revised concepts for motion, memory, hardware, capture and engineering spaces.','五个主题，十三个方案。汇集运动、记忆、硬件、采集与工程空间的已选方向及修订概念。')[lang]}</p><nav aria-label={tx('Visual themes','视觉主题')[lang]}>{categories.map(([id,title])=><a key={id} href={`#${id}`}>{title[lang]}</a>)}</nav></section>
+   {categories.map(([category,title],i)=><section className="g-gallery-section" key={category} id={category}><div className="g-gallery-heading"><p className="g-kicker">0{i+1}</p><h2>{title[lang]}</h2></div><div className="g-gallery-grid">{visualStudies.filter(x=>x.category===category).map(study=><article key={study.id} id={study.id} data-study={study.id} data-review={visualReviewStatus(study.id)}><a href={`/visuals/${study.id}.webp`} target="_blank" rel="noreferrer" aria-label={`${study.title[lang]} — ${tx('open image','打开图片')[lang]}`}><img src={`/visuals/${study.id}.webp`} width="1536" height={study.id==='nian-use'?864:1024} alt={study.alt[lang]} loading="lazy" decoding="async"/></a><div className="g-gallery-caption"><div><span className="g-kicker">{study.id}</span><h3>{study.title[lang]}</h3><span className="g-study-status">{(visualReviewStatus(study.id)==='revised'?tx('Revised · for review','修订版 · 待确认'):tx('Selected direction','已选方向'))[lang]}</span></div><a href={`/visuals/${study.id}.webp`} download={`SZKL-${study.id}.webp`}>{tx('Download','下载')[lang]} ↓</a></div></article>)}</div></section>)}
+  </main><footer className="g-footer g-wrap"><a href={`/?lang=${lang}`}>SZKL</a><span>{tx('Visual review workspace','视觉审阅空间')[lang]}</span></footer>
+ </div>
+}

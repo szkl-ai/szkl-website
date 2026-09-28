@@ -1,0 +1,41 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "brand": "szkl",
+  "color": {
+    "brandPrimary": "#2F6BFF",
+    "brandSecondary": "#23B7E5",
+    "backgroundDark": "#07090D",
+    "surfaceDark": "#11151C",
+    "backgroundLight": "#F7F9FC",
+    "surfaceLight": "#FFFFFF",
+    "ink": "#101318",
+    "mutedDark": "#8E98A7",
+    "mutedLight": "#667182",
+    "borderDark": "#27303D",
+    "borderLight": "#D8DEE8",
+    "success": "#23A26D",
+    "warning": "#D9941A",
+    "danger": "#D94C55",
+    "focus": "#2F6BFF"
+  },
+  "radius": {
+    "control": "3px",
+    "panel": "6px",
+    "cardMax": "8px"
+  },
+  "space": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "24px",
+    "6": "32px",
+    "7": "48px",
+    "8": "64px"
+  },
+  "motion": {
+    "fast": "160ms",
+    "standard": "220ms",
+    "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)"
+  }
+}

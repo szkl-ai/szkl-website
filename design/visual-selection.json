@@ -1,0 +1,160 @@
+{
+  "revision": 3,
+  "active_count": 13,
+  "active_ids": [
+    "motion-1",
+    "motion-2",
+    "motion-3",
+    "knowledge-1",
+    "knowledge-2",
+    "knowledge-3",
+    "hardware-1",
+    "hardware-2",
+    "hardware-3",
+    "nian-1",
+    "nian-use",
+    "workspace-1",
+    "workspace-3"
+  ],
+  "preserved": [
+    "motion-1",
+    "motion-2",
+    "motion-3",
+    "hardware-1",
+    "knowledge-2",
+    "knowledge-3",
+    "nian-1",
+    "workspace-1",
+    "workspace-3"
+  ],
+  "restored_previous": [
+    "hardware-2",
+    "hardware-3"
+  ],
+  "new_render": [
+    "knowledge-1"
+  ],
+  "existing_use_case": [
+    "nian-use"
+  ],
+  "removed_from_active": [
+    "nian-2",
+    "nian-3",
+    "workspace-2"
+  ],
+  "defaults": {
+    "motion": "motion-1",
+    "hardware": "hardware-1",
+    "workspace": "workspace-1",
+    "nian_engineering": "nian-1"
+  },
+  "assets": [
+    {
+      "id": "motion-1",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/motion-1.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/motion-1.webp",
+      "sha256": "0c569b9e584fdfb3550f13c4c345eb97df71c6e06ee35a32049ebf51f3afc3cd",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "motion-2",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/motion-2.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/motion-2.webp",
+      "sha256": "34cf622aeaa784f70bc896246ea3ce451458b11d1a8d68f8e9d4e5698a2d88eb",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "motion-3",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/motion-3.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/motion-3.webp",
+      "sha256": "6af1be624861d21a1ef2d483f7e39f628ce51cc1afadba27f1235bbf7f4b6bfc",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "knowledge-1",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/renders/knowledge-1.png",
+      "source_sha256": "fca47b5a69c3de1dbae1dd211207f6feaf2fdea80535fb827aa1ef7d41369a5d",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/knowledge-1.webp",
+      "master": "/Users/michael/.hermes/reviews/szkl-visual-v3/branded-masters/knowledge-1.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "bf10947cedd9a2e6c8ceec06cb63bf8d643fa3568e9df663a5add43683fbccf8",
+      "branding": "Official transparent SZKL logo; no opaque plate",
+      "boundary": "Illustrative concept, not measured results or product photography",
+      "status": "new-for-review"
+    },
+    {
+      "id": "knowledge-2",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/knowledge-2.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/knowledge-2.webp",
+      "sha256": "c63e2f5ce59091c15077f587e977004d55884b749939555cb2f1fb92891274f8",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "knowledge-3",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/knowledge-3.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/knowledge-3.webp",
+      "sha256": "d8cf364ffcf3cb2c9d9385c71edb7895d21ed62d38363c6de1a8c84fae28e261",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "hardware-1",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/hardware-1.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/hardware-1.webp",
+      "sha256": "cc37066fc08f4de44e26ef182435bf107f6e194aa940ed331ce69bef0c3025fd",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "hardware-2",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/before/visuals/hardware-2.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/hardware-2.webp",
+      "sha256": "512f364d024906db41fe4c9785189a5ddafea02eed658782b57250cedcfc98da",
+      "status": "restored-previous"
+    },
+    {
+      "id": "hardware-3",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v2/before/visuals/hardware-3.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/hardware-3.webp",
+      "sha256": "ff99c87247daf07dd8b7b470272bf9f17964aaad08ba13930f8abfe7fd8393ef",
+      "status": "restored-previous"
+    },
+    {
+      "id": "nian-1",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/nian-1.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/nian-1.webp",
+      "sha256": "264665ce61d6bacc9a20aa9fa2835461caf6030cecf3bcbcc90e8a5224806392",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "nian-use",
+      "source": "/Users/michael/Documents/Michael Overall/outputs/Nian_Approved_Asset_Rollout_20260826/fullres/23_Nian_Sales_No_Glyph.png",
+      "source_sha256": "6f3fc2c316769cd7bc98a15e5429c75145308f8cb409d005079616c5bf66514c",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/nian-use.webp",
+      "master": "/Users/michael/.hermes/reviews/szkl-visual-v3/branded-masters/nian-use.png",
+      "dimensions": [
+        1536,
+        864
+      ],
+      "sha256": "c94ec623d5ef4f65324a7c036f040f685f571eb3da4c524b805c5c0de94087d2",
+      "branding": "Official transparent SZKL logo; no opaque plate",
+      "boundary": "Illustrative concept, not measured results or product photography",
+      "status": "existing-use-case"
+    },
+    {
+      "id": "workspace-1",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/workspace-1.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/workspace-1.webp",
+      "sha256": "c124988f7b254f767202862c3bde0448571f3aec19cb676a074f5d8a8a4e17f0",
+      "status": "selected-preserved"
+    },
+    {
+      "id": "workspace-3",
+      "source": "/Users/michael/.hermes/reviews/szkl-visual-v3/before/public/visuals/workspace-3.webp",
+      "output": "/Users/michael/Documents/SZKL Website Next/public/visuals/workspace-3.webp",
+      "sha256": "9f178e5e981c0daf65ca8bc8ec79ecc2f43f835cb67e2146815513c643c1b671",
+      "status": "selected-preserved"
+    }
+  ]
+}

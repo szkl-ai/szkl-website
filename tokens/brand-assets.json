@@ -1,0 +1,202 @@
+{
+  "version": "1.3.0",
+  "updated": "2026-08-12",
+  "policy": {
+    "clearSpace": "Keep clear space equal to at least half the displayed icon height on every side.",
+    "generatedMockups": "Reserve a clean brand slot during rendering, then composite the approved source asset without regeneration.",
+    "faviconRule": "Favicons must be deterministic size exports from the approved compact mark. Never shrink a wordmark into a favicon.",
+    "prohibited": [
+      "AI-generated or typed approximations of a logo",
+      "manual tracing or substitute marks",
+      "recoloring, stretching, cropping, outlining, glow, shadow, or distortion",
+      "placing a wordmark on an unapproved or insufficient-contrast background",
+      "attaching product names or slogans inside the logo clear space",
+      "using a document lockup or full wordmark as a compact favicon"
+    ]
+  },
+  "authoritativeSources": [
+    {
+      "id": "pheno.wordmark.source-original",
+      "provenance": "Pheno approved VI source master",
+      "projectCopy": "public/brand/source/pheno-wordmark-2000x580.png"
+    },
+    {
+      "id": "pheno.icon.source-original",
+      "provenance": "Pheno approved VI source master",
+      "projectCopy": "public/brand/source/pheno-icon-1000x1000.png"
+    },
+    {
+      "id": "pulse.lockup.source-original",
+      "provenance": "PhenoPulse approved VI source master",
+      "projectCopy": "faithful PNG exports are registered as pulse.wordmark.horizontal, pulse.lockup.stacked, and pulse.icon.wave"
+    }
+  ],
+  "assets": [
+    {
+      "id": "pheno.wordmark.primary",
+      "brand": "pheno",
+      "type": "wordmark",
+      "status": "approved web export",
+      "path": "public/brand/pheno-logo.png",
+      "sourceAssetId": "pheno.wordmark.source",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalWidth": "104px",
+      "preferredAppWidth": "104-132px",
+      "checksumSha256": "2aaecb9751e4d8f01467161bc70ddb82f4ce3ab818247a3bdd2d54bba14f5cea"
+    },
+    {
+      "id": "pheno.wordmark.source",
+      "brand": "pheno",
+      "type": "wordmark source",
+      "status": "authoritative source",
+      "path": "public/brand/source/pheno-wordmark-2000x580.png",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalWidth": "104px",
+      "preferredAppWidth": "104-132px",
+      "checksumSha256": "1cb15f53fec486ca630c543f737f7d1f4c5f3ed5447f99d09ec77d6df4cf1da2"
+    },
+    {
+      "id": "pheno.icon.primary",
+      "brand": "pheno",
+      "type": "icon",
+      "status": "authoritative source",
+      "path": "public/brand/pheno-icon.png",
+      "backgrounds": ["white", "light neutral", "contrast-verified dark neutral"],
+      "minimumDigitalSize": "20px",
+      "preferredAppSize": "28-36px",
+      "checksumSha256": "ded53d7a4fc83cdf8db88e1bff28d0c876a50016c2b7bf1244d2ec12925d9578"
+    },
+    {
+      "id": "szkl.wordmark.dark",
+      "brand": "szkl",
+      "type": "wordmark",
+      "status": "approved transparent export",
+      "path": "public/brand/szkl-logo-black.png",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalWidth": "112px",
+      "preferredAppWidth": "112-136px",
+      "checksumSha256": "cf376455b31370b99f59a7e7eed9ae589e99e8bcc73fb52655f0731b02dbc072"
+    },
+    {
+      "id": "szkl.wordmark.light",
+      "brand": "szkl",
+      "type": "wordmark",
+      "status": "approved transparent export",
+      "path": "public/brand/szkl-logo-white.png",
+      "backgrounds": ["black", "obsidian", "carbon"],
+      "minimumDigitalWidth": "112px",
+      "preferredAppWidth": "112-136px",
+      "checksumSha256": "67145c9ece1e15bf52140e47bf4e2483a549a816676cdcf7865735b4469e4769"
+    },
+    {
+      "id": "szkl.icon.dark",
+      "brand": "szkl",
+      "type": "icon",
+      "status": "approved vector",
+      "path": "public/brand/szkl-icon-black.svg",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalSize": "20px",
+      "preferredAppSize": "24-32px",
+      "checksumSha256": "832a1f229c790ff0949195ce1ce4d140480c30c4545da8d5a67855614a26f6ea"
+    },
+    {
+      "id": "szkl.icon.light",
+      "brand": "szkl",
+      "type": "icon",
+      "status": "approved vector",
+      "path": "public/brand/szkl-icon-white.svg",
+      "backgrounds": ["black", "obsidian", "carbon"],
+      "minimumDigitalSize": "20px",
+      "preferredAppSize": "24-32px",
+      "checksumSha256": "843253a30782a0485c2875260cd99c6a86cf4a81be2610ae9f242f2799e1eb16"
+    },
+    {
+      "id": "szkl.wordmark.document",
+      "brand": "szkl",
+      "type": "document lockup",
+      "status": "approved white-plate export",
+      "path": "public/brand/szkl-logo-document.png",
+      "backgrounds": ["white only"],
+      "minimumDigitalWidth": "180px",
+      "preferredAppWidth": "not for application chrome",
+      "checksumSha256": "6df502aca24ce52e20a1f001b3d4a82bb2b36e5da9c52489b641f743d779461d"
+    },
+    {
+      "id": "pulse.wordmark.horizontal",
+      "brand": "pulse",
+      "type": "horizontal lockup",
+      "status": "approved source export",
+      "path": "public/brand/pulse-logo-horizontal.png",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalWidth": "136px",
+      "preferredAppWidth": "144-188px",
+      "checksumSha256": "5dc15106e4a7fcb40068a8d2a9038b477752200a7c8aded69150e05bf566024d"
+    },
+    {
+      "id": "pulse.lockup.stacked",
+      "brand": "pulse",
+      "type": "stacked lockup",
+      "status": "approved source export",
+      "path": "public/brand/pulse-logo-stacked.png",
+      "backgrounds": ["white", "light neutral"],
+      "minimumDigitalWidth": "96px",
+      "preferredAppWidth": "112-160px",
+      "checksumSha256": "1bac51ebe36cf2f8459a01b4c1ef39f62b86691f436aef72975273c40f6c3add"
+    },
+    {
+      "id": "pulse.icon.wave",
+      "brand": "pulse",
+      "type": "icon",
+      "status": "approved source export",
+      "path": "public/brand/pulse-icon.png",
+      "backgrounds": ["white", "light neutral", "contrast-verified dark neutral"],
+      "minimumDigitalSize": "24px",
+      "preferredAppSize": "28-40px",
+      "checksumSha256": "b411999eba08bfec241ee602acb280b7275bc80dc781428ea0c8803c02ebce1e"
+    }
+  ],
+  "webSets": {
+    "pheno": {
+      "sourceAssetId": "pheno.icon.primary",
+      "directory": "public/brand/web/pheno",
+      "faviconIco": "favicon.ico",
+      "favicon16": "favicon-16x16.png",
+      "favicon32": "favicon-32x32.png",
+      "favicon48": "favicon-48x48.png",
+      "appleTouch180": "apple-touch-icon.png",
+      "webApp192": "icon-192.png",
+      "webApp512": "icon-512.png",
+      "manifest": "site.webmanifest",
+      "themeColor": "#F3F5F2"
+    },
+    "szkl": {
+      "sourceAssetId": "szkl.icon.light",
+      "directory": "public/brand/web/szkl",
+      "faviconIco": "favicon.ico",
+      "favicon16": "favicon-16x16.png",
+      "favicon32": "favicon-32x32.png",
+      "favicon48": "favicon-48x48.png",
+      "appleTouch180": "apple-touch-icon.png",
+      "webApp192": "icon-192.png",
+      "webApp512": "icon-512.png",
+      "manifest": "site.webmanifest",
+      "themeColor": "#07090D"
+    },
+    "pulse": {
+      "sourceAssetId": "pulse.icon.wave",
+      "directory": "public/brand/web/pulse",
+      "faviconIco": "favicon.ico",
+      "favicon16": "favicon-16x16.png",
+      "favicon32": "favicon-32x32.png",
+      "favicon48": "favicon-48x48.png",
+      "appleTouch180": "apple-touch-icon.png",
+      "webApp192": "icon-192.png",
+      "webApp512": "icon-512.png",
+      "manifest": "site.webmanifest",
+      "themeColor": "#F7F9FC"
+    }
+  },
+  "backwardCompatibleAliases": {
+    "public/brand/pulse-logo.png": "pulse.wordmark.horizontal"
+  }
+}
