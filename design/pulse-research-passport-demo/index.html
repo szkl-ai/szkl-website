@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8fb">
+  <title>Pulse Research Passport Demo</title>
+  <link rel="icon" href="assets/pulse-icon-official.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent" data-en="Skip to content" data-zh="跳至主要内容">Skip to content</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand-block">
+        <img src="assets/pulse-logo-horizontal-official.png" alt="Pulse by Pheno">
+      </div>
+
+      <nav class="side-nav">
+        <button class="nav-item active" type="button" data-page="home" aria-current="page">
+          <i data-lucide="house"></i><span data-en="Home" data-zh="首页">Home</span>
+        </button>
+        <button class="nav-item" type="button" data-page="passport">
+          <i data-lucide="globe-2"></i><span data-en="Passport" data-zh="研究护照">Passport</span>
+        </button>
+        <button class="nav-item" type="button" data-page="experiments">
+          <i data-lucide="flask-conical"></i><span data-en="Experiments" data-zh="实验">Experiments</span>
+        </button>
+        <button class="nav-item" type="button" data-page="generate">
+          <i data-lucide="sparkles"></i><span data-en="Generate" data-zh="智能生成">Generate</span>
+        </button>
+        <button class="nav-item" type="button" data-page="community">
+          <i data-lucide="users"></i><span data-en="Community" data-zh="研究社区">Community</span>
+        </button>
+        <button class="nav-item" type="button" data-page="opportunities">
+          <i data-lucide="briefcase-business"></i><span data-en="Opportunities" data-zh="机会">Opportunities</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <button class="privacy-card" id="privacyButton" type="button">
+        <span class="privacy-icon"><i data-lucide="lock-keyhole"></i></span>
+        <span>
+          <strong data-en="Your data is yours" data-zh="数据由你掌控">Your data is yours</strong>
+          <small data-en="Private by default · Share by choice" data-zh="默认私密 · 自主选择分享">Private by default · Share by choice</small>
+        </span>
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <button class="profile-button" type="button" data-open-privacy>
+        <img class="profile-avatar-img" src="assets/lin-zhao-profile.png" alt="Fictional portrait of Lin Zhao" data-alt-en="Fictional portrait of Lin Zhao" data-alt-zh="赵琳的虚构人物肖像">
+        <span class="profile-copy">
+          <strong data-en="Lin Zhao" data-zh="赵琳">Lin Zhao</strong>
+          <small data-en="Materials Researcher" data-zh="材料研究员">Materials Researcher</small>
+        </span>
+        <i data-lucide="more-horizontal"></i>
+      </button>
+    </aside>
+
+    <header class="mobile-header">
+      <img src="assets/pulse-logo-horizontal-official.png" alt="Pulse by Pheno">
+      <div class="mobile-header-actions">
+        <button class="icon-button language-toggle" type="button" aria-label="Switch language">中</button>
+        <button class="icon-button" type="button" data-open-capture aria-label="Quick capture"><i data-lucide="plus"></i></button>
+      </div>
+    </header>
+
+    <main class="main-shell" id="mainContent" tabindex="-1">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="pageEyebrow" data-en="RESEARCH PASSPORT" data-zh="研究护照">RESEARCH PASSPORT</p>
+          <h1 id="pageTitle">Home</h1>
+          <p class="page-subtitle" id="pageSubtitle">Your research, connected to evidence.</p>
+        </div>
+        <div class="topbar-actions">
+          <label class="search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="globalSearch" placeholder="Search your research" aria-label="Search your research" data-placeholder-en="Search your research" data-placeholder-zh="搜索你的研究">
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="language-pill language-toggle" type="button" aria-label="Switch language">
+            <i data-lucide="languages"></i><span>中文</span>
+          </button>
+          <button class="icon-button notification-button" type="button" aria-label="Notifications">
+            <i data-lucide="bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="primary-button" type="button" data-open-capture>
+            <i data-lucide="plus"></i><span data-en="Quick capture" data-zh="快速采集">Quick capture</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="view-stack">
+        <section class="view active" data-view="home" aria-labelledby="homeHeading">
+          <div class="home-hero">
+            <div class="home-welcome">
+              <div class="hero-wave"></div>
+              <p class="hero-kicker"><span class="live-dot"></span><span data-en="Sunday · Research day 14" data-zh="星期日 · 连续研究第 14 天">Sunday · Research day 14</span></p>
+              <h2 id="homeHeading"><span data-en="Good morning, Lin." data-zh="早上好，赵琳。">Good morning, Lin.</span><br><em data-en="What will you move forward today?" data-zh="今天想推进哪一步？">What will you move forward today?</em></h2>
+              <div class="hero-actions">
+                <button class="primary-button large" type="button" data-go-page="experiments">
+                  <i data-lucide="play"></i><span data-en="Continue experiment" data-zh="继续实验">Continue experiment</span>
+                </button>
+                <button class="secondary-button large" type="button" data-open-capture>
+                  <i data-lucide="scan-line"></i><span data-en="Capture evidence" data-zh="采集证据">Capture evidence</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="home-passport-summary">
+              <div class="summary-head">
+                <span class="avatar avatar-lg">LZ</span>
+                <div>
+                  <h3 data-en="Lin Zhao" data-zh="赵琳">Lin Zhao</h3>
+                  <p data-en="Materials Researcher" data-zh="材料研究员">Materials Researcher</p>
+                </div>
+                <span class="verified-badge"><i data-lucide="badge-check"></i><span data-en="Verified" data-zh="已验证">Verified</span></span>
+              </div>
+              <div class="passport-progress-row">
+                <div class="progress-ring" style="--value:86"><span>86%</span></div>
+                <div>
+                  <strong data-en="Passport strength" data-zh="护照完整度">Passport strength</strong>
+                  <p data-en="Add one supervisor verification to improve visibility." data-zh="再添加一项监督人验证，即可提升可信度。">Add one supervisor verification to improve visibility.</p>
+                  <button class="text-button" type="button" data-go-page="passport"><span data-en="Open passport" data-zh="打开研究护照">Open passport</span><i data-lucide="arrow-right"></i></button>
+                </div>
+              </div>
+              <div class="mini-stats">
+                <div><strong>237</strong><span data-en="Experiments" data-zh="实验">Experiments</span></div>
+                <div><strong>14</strong><span data-en="Papers" data-zh="论文">Papers</span></div>
+                <div><strong>28</strong><span data-en="Protocols" data-zh="研究方案">Protocols</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel active-experiment-card span-2">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-label cyan"><i data-lucide="flask-conical"></i><span data-en="ACTIVE EXPERIMENT" data-zh="进行中的实验">ACTIVE EXPERIMENT</span></span>
+                  <h3 data-en="Solid-state electrolyte interface stability" data-zh="固态电解质界面稳定性">Solid-state electrolyte interface stability</h3>
+                </div>
+                <button class="icon-button subtle" type="button" aria-label="More experiment options" data-aria-en="More experiment options" data-aria-zh="更多实验选项"><i data-lucide="more-horizontal"></i></button>
+              </div>
+              <div class="experiment-meta-row">
+                <span><i data-lucide="calendar-days"></i><span data-en="Day 10 of 14" data-zh="第 10 / 14 天">Day 10 of 14</span></span>
+                <span><i data-lucide="thermometer"></i>85 °C</span>
+                <span><i data-lucide="shield-check"></i><span data-en="Supervisor linked" data-zh="已关联监督人">Supervisor linked</span></span>
+              </div>
+              <div class="experiment-progress"><span style="width:72%"></span></div>
+              <div class="next-action">
+                <span class="next-action-icon"><i data-lucide="microscope"></i></span>
+                <div><small data-en="NEXT ACTION" data-zh="下一步">NEXT ACTION</small><strong data-en="Capture 240-hour impedance measurement" data-zh="采集 240 小时阻抗测量数据">Capture 240-hour impedance measurement</strong></div>
+                <button class="secondary-button" type="button" data-go-page="experiments"><span data-en="Open workspace" data-zh="打开工作台">Open workspace</span></button>
+              </div>
+            </article>
+
+            <article class="panel evidence-card">
+              <div class="panel-heading compact">
+                <span class="section-label violet"><i data-lucide="library"></i><span data-en="NEW EVIDENCE" data-zh="新证据">NEW EVIDENCE</span></span>
+                <span class="status-pill green"><i data-lucide="link"></i>DOI</span>
+              </div>
+              <div class="evidence-visual"><div class="micrograph"></div><div class="spectrum"><span></span><span></span><span></span></div></div>
+              <h3 data-en="Interfacial treatment improves perovskite stability" data-zh="界面处理可提升钙钛矿稳定性">Interfacial treatment improves perovskite stability</h3>
+              <p>Science · 2024 · <span data-en="Open access" data-zh="开放获取">Open access</span></p>
+              <div class="tag-row"><span data-en="Perovskite" data-zh="钙钛矿">Perovskite</span><span data-en="Stability" data-zh="稳定性">Stability</span><span>SAM</span></div>
+              <button class="text-button" type="button" data-go-page="passport"><span data-en="View evidence" data-zh="查看证据">View evidence</span><i data-lucide="arrow-right"></i></button>
+            </article>
+
+            <article class="panel interaction-feed span-3">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-label coral"><i data-lucide="radio-tower"></i><span data-en="RESEARCH INBOX" data-zh="研究动态">RESEARCH INBOX</span></span>
+                  <h3 data-en="People are responding to your work" data-zh="你的研究正在获得回应">People are responding to your work</h3>
+                </div>
+                <span class="status-pill coral"><span data-en="3 NEW" data-zh="3 条新动态">3 NEW</span></span>
+              </div>
+              <div class="interaction-list">
+                <button class="interaction-item" type="button" data-interaction="instructor">
+                  <span class="interaction-icon violet"><i data-lucide="user-check"></i></span>
+                  <span class="interaction-copy"><small data-en="INSTRUCTOR REVIEW" data-zh="导师审核">INSTRUCTOR REVIEW</small><strong data-en="Experiment report sent to Prof. Liu" data-zh="实验报告已发送给刘教授">Experiment report sent to Prof. Liu</strong><span data-en="Stability Run 024 · Awaiting feedback" data-zh="稳定性实验 024 · 等待反馈">Stability Run 024 · Awaiting feedback</span></span>
+                  <span class="interaction-action"><span data-en="View status" data-zh="查看状态">View status</span><i data-lucide="arrow-up-right"></i></span>
+                </button>
+                <button class="interaction-item" type="button" data-interaction="industry">
+                  <span class="interaction-icon amber"><i data-lucide="building-2"></i></span>
+                  <span class="interaction-copy"><small data-en="INDUSTRY INVITATION" data-zh="企业邀请">INDUSTRY INVITATION</small><strong data-en="Aurora Materials invited you to submit a proposal" data-zh="曙光材料邀请你提交研究提案">Aurora Materials invited you to submit a proposal</strong><span data-en="Next-Generation Interface Materials Challenge · $30,000 award" data-zh="下一代界面材料挑战赛 · 30,000 美元奖金">Next-Generation Interface Materials Challenge · $30,000 award</span></span>
+                  <span class="interaction-action"><span data-en="Open invite" data-zh="打开邀请">Open invite</span><i data-lucide="arrow-up-right"></i></span>
+                </button>
+                <button class="interaction-item" type="button" data-interaction="peer">
+                  <span class="interaction-icon coral"><i data-lucide="heart-pulse"></i></span>
+                  <span class="interaction-copy"><small data-en="PEER RECOGNITION" data-zh="同行认可">PEER RECOGNITION</small><strong data-en="Mira Chen viewed your shared report and sent a Beat" data-zh="陈米拉查看了你的共享报告，并送出一个 Beat">Mira Chen viewed your shared report and sent a Beat</strong><span data-en="Stability Run 024 · Verified peer interaction" data-zh="稳定性实验 024 · 已验证同行互动">Stability Run 024 · Verified peer interaction</span></span>
+                  <span class="interaction-action beat-received"><span>+1 Beat</span><i data-lucide="heart"></i></span>
+                </button>
+              </div>
+            </article>
+
+            <article class="panel home-community-card">
+              <div class="panel-heading compact"><span class="section-label violet"><i data-lucide="users"></i><span data-en="FROM YOUR COMMUNITY" data-zh="来自研究社区">FROM YOUR COMMUNITY</span></span></div>
+              <div class="people-row"><span class="avatar avatar-xs blue">MC</span><span class="avatar avatar-xs coral">AR</span><span class="avatar avatar-xs green">SK</span><span class="people-count">+37</span></div>
+              <h3 data-en="Protocol challenge: reproducible humidity testing" data-zh="实验方案挑战：可复现湿度测试">Protocol challenge: reproducible humidity testing</h3>
+              <p data-en="A shared protocol is gaining momentum in Materials Commons." data-zh="一项共享实验方案正在材料研究社区中获得关注。">A shared protocol is gaining momentum in Materials Commons.</p>
+              <div class="social-meta"><span><i data-lucide="heart-pulse"></i>128 <span data-en="Beats" data-zh="Beats">Beats</span></span><span><i data-lucide="message-circle"></i>23</span><span><i data-lucide="git-fork"></i>37</span></div>
+              <button class="text-button" type="button" data-go-page="community"><span data-en="Join the discussion" data-zh="参与讨论">Join the discussion</span><i data-lucide="arrow-right"></i></button>
+            </article>
+
+            <article class="panel home-opportunity-card span-2">
+              <div>
+                <span class="section-label amber"><i data-lucide="briefcase-business"></i><span data-en="TOP OPPORTUNITY MATCH" data-zh="最佳匹配机会">TOP OPPORTUNITY MATCH</span></span>
+                <h3 data-en="Postdoctoral Research Fellow · Solid-State Batteries" data-zh="博士后研究员 · 固态电池">Postdoctoral Research Fellow · Solid-State Batteries</h3>
+                <p>Stanford University · Palo Alto, CA</p>
+                <div class="tag-row"><span data-en="Solid-state" data-zh="固态电解质">Solid-state</span><span data-en="Characterization" data-zh="表征">Characterization</span><span data-en="In situ" data-zh="原位分析">In situ</span></div>
+              </div>
+              <div class="match-score"><strong>94%</strong><span data-en="evidence match" data-zh="证据匹配度">evidence match</span></div>
+              <button class="primary-button" type="button" data-go-page="opportunities"><span data-en="View match" data-zh="查看匹配">View match</span><i data-lucide="arrow-right"></i></button>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view="passport" aria-labelledby="passportHeading">
+          <article class="identity-hero panel">
+            <div class="identity-backdrop"></div>
+            <div class="identity-main">
+              <img class="profile-photo" src="assets/lin-zhao-profile.png" alt="Fictional portrait of Lin Zhao in a materials laboratory" data-alt-en="Fictional portrait of Lin Zhao in a materials laboratory" data-alt-zh="赵琳在材料实验室中的虚构人物肖像">
+              <div class="identity-copy">
+                <div class="identity-name-row"><h2 id="passportHeading" data-en="Lin Zhao" data-zh="赵琳">Lin Zhao</h2><span class="verified-badge"><i data-lucide="badge-check"></i><span data-en="Verified researcher" data-zh="已验证研究者">Verified researcher</span></span></div>
+                <p class="identity-role" data-en="Materials Researcher · Northbridge University" data-zh="材料研究员 · 北桥大学">Materials Researcher · Northbridge University</p>
+                <p class="identity-bio" data-en="I design and characterize advanced materials for energy and sustainability applications, with a focus on solid-state interfaces and in situ analysis." data-zh="我致力于能源与可持续应用中的先进材料设计和表征，重点研究固态界面与原位分析。">I design and characterize advanced materials for energy and sustainability applications, with a focus on solid-state interfaces and in situ analysis.</p>
+                <div class="identity-links"><span><i data-lucide="orbit"></i>ORCID iD: 0000-0002-8847-5412</span><span><i data-lucide="map-pin"></i><span data-en="Shenzhen, China" data-zh="中国深圳">Shenzhen, China</span></span></div>
+              </div>
+              <div class="identity-actions">
+                <button class="secondary-button" type="button" data-open-privacy><i data-lucide="shield-check"></i><span data-en="Sharing controls" data-zh="分享控制">Sharing controls</span></button>
+                <button class="primary-button" type="button" data-go-page="generate"><i data-lucide="file-output"></i><span data-en="Generate packet" data-zh="生成材料包">Generate packet</span></button>
+              </div>
+            </div>
+            <div class="identity-stats">
+              <div><i data-lucide="activity"></i><span><strong>1,246 h</strong><small data-en="Instrument hours" data-zh="仪器时长">Instrument hours</small></span></div>
+              <div><i data-lucide="flask-conical"></i><span><strong>237</strong><small data-en="Experiments · 63 failed" data-zh="实验 · 63 次失败">Experiments · 63 failed</small></span></div>
+              <div><i data-lucide="book-open-text"></i><span><strong>14</strong><small data-en="Papers · 9 first-author" data-zh="论文 · 9 篇第一作者">Papers · 9 first-author</small></span></div>
+              <div><i data-lucide="notebook-tabs"></i><span><strong>28</strong><small data-en="Protocols · 21 shared" data-zh="研究方案 · 21 项共享">Protocols · 21 shared</small></span></div>
+            </div>
+          </article>
+
+          <div class="profile-signal-grid">
+            <article class="panel signal-card beats-signal">
+              <div class="signal-card-head">
+                <span class="signal-icon coral"><i data-lucide="heart-pulse"></i></span>
+                <span class="status-pill coral" data-en="INFLUENCE SIGNAL" data-zh="影响力信号">INFLUENCE SIGNAL</span>
+              </div>
+              <div class="signal-value-row"><strong id="beatCount" data-beat-total>4,860</strong><span>Beats</span><small data-en="+128 this month" data-zh="本月 +128">+128 this month</small></div>
+              <p data-en="The overall reach of your verified work—not a capability or scientific-quality score." data-zh="用于反映已验证研究成果的整体影响范围，不代表能力水平或科研质量评分。">The overall reach of your verified work—not a capability or scientific-quality score.</p>
+              <div class="beat-sources" aria-label="Beats sources" data-aria-en="Beats sources" data-aria-zh="Beats 来源"><span><i data-lucide="download"></i><strong>2,140</strong><small data-en="Artifact use" data-zh="成果使用">Artifact use</small></span><span><i data-lucide="repeat-2"></i><strong>1,180</strong><small data-en="Replications" data-zh="复现引用">Replications</small></span><span><i data-lucide="heart"></i><strong>940</strong><small data-en="Peer Beats" data-zh="同行 Beats">Peer Beats</small></span><span><i data-lucide="badge-check"></i><strong>600</strong><small data-en="Verified recognition" data-zh="验证认可">Verified recognition</small></span></div>
+              <button class="text-button" type="button" data-open-beats><span data-en="See how Beats are earned" data-zh="查看 Beats 的计算方式">See how Beats are earned</span><i data-lucide="arrow-right"></i></button>
+            </article>
+
+            <article class="panel signal-card storage-signal">
+              <div class="signal-card-head"><span class="signal-icon cyan"><i data-lucide="database"></i></span><span class="section-label cyan" data-en="PASSPORT STORAGE" data-zh="护照存储空间">PASSPORT STORAGE</span></div>
+              <div class="storage-amount"><strong>64.8 GB</strong><span data-en="of 100 GB used" data-zh="已使用 / 共 100 GB">of 100 GB used</span></div>
+              <div class="storage-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" data-aria-en="65 percent of Passport storage used" data-aria-zh="研究护照存储空间已使用 65%"><span style="width:64.8%"></span></div>
+              <div class="storage-foot"><span><strong>35.2 GB</strong> <span data-en="remaining" data-zh="可用">remaining</span></span><span data-en="Synced just now" data-zh="刚刚同步">Synced just now</span></div>
+              <button class="text-button" type="button" data-manage-storage><span data-en="Manage storage" data-zh="管理存储空间">Manage storage</span><i data-lucide="arrow-right"></i></button>
+            </article>
+
+            <article class="panel signal-card streak-signal">
+              <div class="signal-card-head"><span class="signal-icon amber"><i data-lucide="flame"></i></span><span class="section-label amber" data-en="USAGE STREAK" data-zh="连续使用">USAGE STREAK</span></div>
+              <div class="streak-value"><strong>47</strong><span><b data-en="day streak" data-zh="天连续使用">day streak</b><small data-en="Personal best: 63 days" data-zh="个人最佳：63 天">Personal best: 63 days</small></span></div>
+              <div class="streak-week" aria-label="Seven active days" data-aria-en="Seven active days" data-aria-zh="连续活跃七天"><span><small data-en="M" data-zh="一">M</small><i data-lucide="check"></i></span><span><small data-en="T" data-zh="二">T</small><i data-lucide="check"></i></span><span><small data-en="W" data-zh="三">W</small><i data-lucide="check"></i></span><span><small data-en="T" data-zh="四">T</small><i data-lucide="check"></i></span><span><small data-en="F" data-zh="五">F</small><i data-lucide="check"></i></span><span><small data-en="S" data-zh="六">S</small><i data-lucide="check"></i></span><span class="today"><small data-en="S" data-zh="日">S</small><i data-lucide="flame"></i></span></div>
+              <p data-en="Today counts after one meaningful research action." data-zh="今天完成一项有效研究操作即可延续记录。">Today counts after one meaningful research action.</p>
+              <button class="text-button" type="button" data-streak-details><span data-en="View streak history" data-zh="查看连续使用记录">View streak history</span><i data-lucide="arrow-right"></i></button>
+            </article>
+          </div>
+
+          <div class="passport-grid">
+            <article class="panel credential-panel span-2">
+              <div class="panel-heading"><div><span class="section-label"><span data-en="RESEARCH PASSPORT" data-zh="研究护照">RESEARCH PASSPORT</span></span><h3 data-en="Verified credentials" data-zh="已验证资质">Verified credentials</h3></div><button class="text-button" type="button"><span data-en="View all 17" data-zh="查看全部 17 项">View all 17</span><i data-lucide="arrow-right"></i></button></div>
+              <div class="credential-grid">
+                <button class="credential-card violet-card" type="button"><span class="credential-seal"><i data-lucide="scan-search"></i></span><strong data-en="XPS Specialist" data-zh="XPS 专家">XPS Specialist</strong><small data-en="Surface Analysis" data-zh="表面分析">Surface Analysis</small><span class="credential-source" data-en="Verified by Thermo Fisher Scientific" data-zh="赛默飞世尔科技验证">Verified by Thermo Fisher Scientific</span><span class="verified-stamp" data-en="VERIFIED" data-zh="已验证">VERIFIED</span></button>
+                <button class="credential-card blue-card" type="button"><span class="credential-seal"><i data-lucide="atom"></i></span><strong data-en="In Situ XRD Practitioner" data-zh="原位 XRD 从业者">In Situ XRD Practitioner</strong><small data-en="Issued Oct 2023" data-zh="2023 年 10 月颁发">Issued Oct 2023</small><span class="credential-source" data-en="Verified by Rigaku Corporation" data-zh="Rigaku 株式会社验证">Verified by Rigaku Corporation</span><span class="verified-stamp" data-en="VERIFIED" data-zh="已验证">VERIFIED</span></button>
+                <button class="credential-card amber-card" type="button"><span class="credential-seal"><i data-lucide="shield-check"></i></span><strong data-en="Glovebox Safety" data-zh="手套箱安全认证">Glovebox Safety</strong><small data-en="Issued May 2023" data-zh="2023 年 5 月颁发">Issued May 2023</small><span class="credential-source" data-en="Verified by Northbridge EHS" data-zh="北桥大学 EHS 验证">Verified by Northbridge EHS</span><span class="verified-stamp" data-en="VERIFIED" data-zh="已验证">VERIFIED</span></button>
+                <button class="credential-card green-card" type="button"><span class="credential-seal"><i data-lucide="refresh-cw"></i></span><strong data-en="Reproducibility Champion" data-zh="可复现性冠军">Reproducibility Champion</strong><small data-en="Issued Jan 2024" data-zh="2024 年 1 月颁发">Issued Jan 2024</small><span class="credential-source" data-en="Verified by Open Science Framework" data-zh="开放科学框架验证">Verified by Open Science Framework</span><span class="verified-stamp" data-en="VERIFIED" data-zh="已验证">VERIFIED</span></button>
+              </div>
+            </article>
+
+            <article class="panel capability-panel">
+              <div class="panel-heading compact"><div><span class="section-label"><span data-en="CAPABILITY PROFILE" data-zh="能力画像">CAPABILITY PROFILE</span></span><h3 data-en="Evidence-linked map" data-zh="证据关联图谱">Evidence-linked map</h3></div><button class="icon-button subtle" type="button" aria-label="Capability information" data-aria-en="Capability information" data-aria-zh="能力画像说明"><i data-lucide="info"></i></button></div>
+              <div class="radar-wrap">
+                <svg class="radar-chart" viewBox="0 0 320 260" role="img" aria-label="Capability radar chart">
+                  <g class="radar-grid"><polygon points="160,25 265,86 265,174 160,235 55,174 55,86"></polygon><polygon points="160,59 229,99 229,161 160,201 91,161 91,99"></polygon><polygon points="160,93 193,112 193,148 160,167 127,148 127,112"></polygon><line x1="160" y1="25" x2="160" y2="235"></line><line x1="55" y1="86" x2="265" y2="174"></line><line x1="265" y1="86" x2="55" y2="174"></line></g>
+                  <polygon class="radar-data" points="160,60 239,100 215,155 160,207 91,161 72,96"></polygon>
+                  <g class="radar-points"><circle cx="160" cy="60" r="5"></circle><circle cx="239" cy="100" r="5"></circle><circle cx="215" cy="155" r="5"></circle><circle cx="160" cy="207" r="5"></circle><circle cx="91" cy="161" r="5"></circle><circle cx="72" cy="96" r="5"></circle></g>
+                </svg>
+                <span class="radar-label top"><strong data-en="Materials synthesis" data-zh="材料合成">Materials synthesis</strong><small>37 <i data-lucide="link"></i></small></span>
+                <span class="radar-label upper-right"><strong data-en="Characterization" data-zh="材料表征">Characterization</strong><small>52 <i data-lucide="link"></i></small></span>
+                <span class="radar-label lower-right"><strong data-en="Data analysis" data-zh="数据分析">Data analysis</strong><small>41 <i data-lucide="link"></i></small></span>
+                <span class="radar-label bottom"><strong data-en="Experimental design" data-zh="实验设计">Experimental design</strong><small>33 <i data-lucide="link"></i></small></span>
+                <span class="radar-label lower-left"><strong data-en="Collaboration" data-zh="跨学科协作">Collaboration</strong><small>28 <i data-lucide="link"></i></small></span>
+                <span class="radar-label upper-left"><strong data-en="Communication" data-zh="沟通表达">Communication</strong><small>24 <i data-lucide="link"></i></small></span>
+              </div>
+              <p class="panel-note"><i data-lucide="shield-check"></i><span data-en="No single score. Every dimension opens its underlying evidence." data-zh="不设置单一总分。每个能力维度均可查看底层证据。">No single score. Every dimension opens its underlying evidence.</span></p>
+            </article>
+
+            <article class="panel timeline-panel span-3">
+              <div class="panel-heading timeline-heading"><div><span class="section-label"><span data-en="EVIDENCE & ACTIVITY" data-zh="证据与活动">EVIDENCE & ACTIVITY</span></span><h3 data-en="Your research timeline" data-zh="你的研究时间线">Your research timeline</h3></div><div class="filter-chips"><button class="chip active" type="button" data-en="All" data-zh="全部">All</button><button class="chip" type="button" data-en="Experiments" data-zh="实验">Experiments</button><button class="chip" type="button" data-en="Papers" data-zh="论文">Papers</button><button class="chip" type="button" data-en="Protocols" data-zh="研究方案">Protocols</button><button class="chip" type="button" data-en="Credentials" data-zh="资质">Credentials</button></div></div>
+              <div class="timeline-list">
+                <div class="timeline-item"><time>May 12, 2024</time><span class="timeline-icon violet"><i data-lucide="flask-conical"></i></span><div><strong data-en="Solid electrolyte interfacial stability study" data-zh="固态电解质界面稳定性研究">Solid electrolyte interfacial stability study</strong><p>ASSB-21 · Li6PS5Cl · <span data-en="In situ EIS + XRD" data-zh="原位 EIS + XRD">In situ EIS + XRD</span></p><small class="failed-copy"><span data-en="Result: Failed · Learnings documented" data-zh="结果：失败 · 已记录经验">Result: Failed · Learnings documented</span></small></div><label class="share-toggle"><span data-en="Shared" data-zh="已分享">Shared</span><input type="checkbox" checked><span></span></label></div>
+                <div class="timeline-item"><time>Apr 28, 2024</time><span class="timeline-icon blue"><i data-lucide="book-open-text"></i></span><div><strong data-en="Interfacial chemistry of sulfide electrolytes" data-zh="硫化物电解质界面化学">Interfacial chemistry of sulfide electrolytes</strong><p>Advanced Energy Materials, 14(18), 2300456 (2024) · DOI</p><small data-en="First author" data-zh="第一作者">First author</small></div><label class="share-toggle"><span data-en="Shared" data-zh="已分享">Shared</span><input type="checkbox" checked><span></span></label></div>
+                <div class="timeline-item"><time>Apr 10, 2024</time><span class="timeline-icon green"><i data-lucide="notebook-tabs"></i></span><div><strong data-en="All-solid-state cell assembly protocol v2.1" data-zh="全固态电池组装实验方案 v2.1">All-solid-state cell assembly protocol v2.1</strong><p data-en="Step-by-step guide for coin cell fabrication in an Ar glovebox" data-zh="氩气手套箱中纽扣电池组装的分步指南">Step-by-step guide for coin cell fabrication in an Ar glovebox</p><small data-en="37 protocol uses" data-zh="被采用 37 次">37 protocol uses</small></div><label class="share-toggle"><span data-en="Shared" data-zh="已分享">Shared</span><input type="checkbox" checked><span></span></label></div>
+                <div class="timeline-item"><time>Mar 22, 2024</time><span class="timeline-icon amber"><i data-lucide="badge-check"></i></span><div><strong data-en="Glovebox safety credential renewed" data-zh="手套箱安全资质已续期">Glovebox safety credential renewed</strong><p data-en="Verified by Northbridge University EHS" data-zh="北桥大学 EHS 验证">Verified by Northbridge University EHS</p><small data-en="Valid through March 2026" data-zh="有效期至 2026 年 3 月">Valid through March 2026</small></div><label class="share-toggle"><span data-en="Private" data-zh="私密">Private</span><input type="checkbox"><span></span></label></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view="experiments" aria-labelledby="experimentsHeading">
+          <div class="experiments-toolbar panel">
+            <div><span class="section-label"><span data-en="EXPERIMENT WORKSPACE" data-zh="实验工作台">EXPERIMENT WORKSPACE</span></span><h2 id="experimentsHeading" data-en="From hypothesis to verified evidence" data-zh="从假设走向已验证证据">From hypothesis to verified evidence</h2><p data-en="Plan, run, capture and preserve every outcome—including failures." data-zh="规划、执行、采集并保存每项结果，包括失败实验。">Plan, run, capture and preserve every outcome—including failures.</p></div>
+            <button class="primary-button" type="button" id="newExperimentButton"><i data-lucide="plus"></i><span data-en="New experiment" data-zh="新建实验">New experiment</span></button>
+          </div>
+          <div class="experiment-layout">
+            <aside class="experiment-list panel" aria-label="Experiments">
+              <div class="list-search"><i data-lucide="search"></i><input type="search" data-placeholder-en="Search experiments" data-placeholder-zh="搜索实验" placeholder="Search experiments"></div>
+              <div class="experiment-list-tabs"><button class="chip active" type="button" data-en="Active" data-zh="进行中">Active</button><button class="chip" type="button" data-en="Completed" data-zh="已完成">Completed</button><button class="chip" type="button" data-en="Failed" data-zh="失败">Failed</button></div>
+              <button class="experiment-list-item active" type="button" data-experiment="024"><span class="status-dot green"></span><span><strong data-en="Stability run 024" data-zh="稳定性实验 024">Stability run 024</strong><small data-en="12 conditions · Day 10 of 14" data-zh="12 个条件 · 第 10 / 14 天">12 conditions · Day 10 of 14</small></span><span class="status-pill cyan" data-en="Live" data-zh="进行中">Live</span></button>
+              <button class="experiment-list-item" type="button" data-experiment="023"><span class="status-dot blue"></span><span><strong data-en="Interface screen 023" data-zh="界面筛选实验 023">Interface screen 023</strong><small data-en="8 conditions · Completed" data-zh="8 个条件 · 已完成">8 conditions · Completed</small></span><span class="status-pill green" data-en="Done" data-zh="完成">Done</span></button>
+              <button class="experiment-list-item" type="button" data-experiment="022"><span class="status-dot red"></span><span><strong data-en="Deposition run 022" data-zh="沉积实验 022">Deposition run 022</strong><small data-en="Vacuum leak · Learning saved" data-zh="真空泄漏 · 已保存经验">Vacuum leak · Learning saved</small></span><span class="status-pill red" data-en="Failed" data-zh="失败">Failed</span></button>
+            </aside>
+
+            <article class="experiment-detail panel" id="experimentDetail">
+              <div class="detail-heading"><div><div class="breadcrumb"><span data-en="Experiments" data-zh="实验">Experiments</span><i data-lucide="chevron-right"></i><span id="experimentCode">STAB-024</span></div><h2 id="experimentTitle" data-en="Stability run 024" data-zh="稳定性实验 024">Stability run 024</h2><div class="detail-badges"><span class="status-pill green"><i data-lucide="circle-dot"></i><span id="experimentStatus" data-en="In progress" data-zh="进行中">In progress</span></span><span class="status-pill">v1.3</span><span class="status-pill"><i data-lucide="user-round-check"></i><span data-en="Supervisor linked" data-zh="已关联监督人">Supervisor linked</span></span></div></div><div class="detail-actions"><button class="secondary-button" type="button"><span data-en="Log observation" data-zh="记录观察">Log observation</span></button><button class="icon-button subtle" type="button" aria-label="More experiment actions" data-aria-en="More experiment actions" data-aria-zh="更多实验操作"><i data-lucide="more-horizontal"></i></button></div></div>
+              <div class="workflow-steps">
+                <button class="workflow-step done" type="button"><span>1</span><small data-en="HYPOTHESIS" data-zh="假设">HYPOTHESIS</small><strong data-en="Lower ionic strength improves stability." data-zh="降低离子强度可改善长期稳定性。">Lower ionic strength improves stability.</strong><i data-lucide="check"></i></button>
+                <button class="workflow-step done" type="button"><span>2</span><small data-en="PLAN" data-zh="方案">PLAN</small><strong data-en="12-condition matrix · 10–50 mM" data-zh="12 个条件矩阵 · 10–50 mM">12-condition matrix · 10–50 mM</strong><i data-lucide="check"></i></button>
+                <button class="workflow-step active" type="button"><span>3</span><small data-en="EXECUTION" data-zh="执行">EXECUTION</small><strong data-en="37 °C · 14 days · live capture" data-zh="37 °C · 14 天 · 实时采集">37 °C · 14 days · live capture</strong><i data-lucide="radio"></i></button>
+                <button class="workflow-step" type="button"><span>4</span><small data-en="ANALYSIS" data-zh="分析">ANALYSIS</small><strong data-en="Pending verified dataset" data-zh="等待已验证数据集">Pending verified dataset</strong><i data-lucide="clock-3"></i></button>
+              </div>
+              <div class="experiment-data-grid">
+                <div class="instrument-panel">
+                  <div class="subpanel-heading"><div><span class="live-dot"></span><strong data-en="Live instrument log" data-zh="实时仪器日志">Live instrument log</strong></div><button class="text-button" type="button" data-open-capture><span data-en="Add record" data-zh="添加记录">Add record</span><i data-lucide="plus"></i></button></div>
+                  <div class="instrument-table" role="table">
+                    <div class="table-row table-head" role="row"><span data-en="Time" data-zh="时间">Time</span><span data-en="Instrument" data-zh="仪器">Instrument</span><span data-en="Metric" data-zh="指标">Metric</span><span data-en="Value" data-zh="数值">Value</span><span data-en="Status" data-zh="状态">Status</span></div>
+                    <div class="table-row" role="row"><span>10:24:31</span><span>ÄKTA pure</span><span>UV280</span><span>0.642 AU</span><span class="table-status" data-en="In range" data-zh="正常">In range</span></div>
+                    <div class="table-row" role="row"><span>10:24:28</span><span>pH Probe</span><span>pH</span><span>7.23</span><span class="table-status" data-en="In range" data-zh="正常">In range</span></div>
+                    <div class="table-row" role="row"><span>10:24:22</span><span>Temp Module</span><span data-en="Temperature" data-zh="温度">Temperature</span><span>37.02 °C</span><span class="table-status" data-en="In range" data-zh="正常">In range</span></div>
+                    <div class="table-row" role="row"><span>10:24:18</span><span>QCM-D</span><span>Δf</span><span>-23.1 Hz</span><span class="table-status" data-en="In range" data-zh="正常">In range</span></div>
+                  </div>
+                </div>
+                <aside class="verification-panel">
+                  <div class="subpanel-heading"><strong data-en="Supervisor verification" data-zh="监督人验证">Supervisor verification</strong><span class="status-pill green"><i data-lucide="badge-check"></i><span data-en="Verified" data-zh="已验证">Verified</span></span></div>
+                  <div class="supervisor"><span class="avatar avatar-sm blue">AR</span><div><strong>Dr. Alan Rivera</strong><small data-en="Principal Investigator" data-zh="首席研究员">Principal Investigator</small></div></div>
+                  <blockquote data-en="Execution plan and data quality are acceptable." data-zh="执行方案与数据质量符合要求。">Execution plan and data quality are acceptable.</blockquote>
+                  <div class="verification-date"><i data-lucide="pen-line"></i><span data-en="Signed May 19, 10:15" data-zh="5 月 19 日 10:15 签署">Signed May 19, 10:15</span></div>
+                  <button class="secondary-button full" type="button" data-go-page="generate"><i data-lucide="sparkles"></i><span data-en="Draft experiment report" data-zh="生成实验报告草稿">Draft experiment report</span></button>
+                </aside>
+              </div>
+              <footer class="provenance-bar"><span><i data-lucide="shield-check"></i><span data-en="Provenance on" data-zh="来源追溯已开启">Provenance on</span></span><span><i data-lucide="history"></i><span data-en="Version history v1.3" data-zh="版本历史 v1.3">Version history v1.3</span></span><span><i data-lucide="user-check"></i><span data-en="Human review enabled" data-zh="人工审核已开启">Human review enabled</span></span><button class="text-button" type="button"><span data-en="Audit trail" data-zh="审计记录">Audit trail</span><i data-lucide="external-link"></i></button></footer>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" data-view="generate" aria-labelledby="generateHeading">
+          <div class="generate-intro panel">
+            <div><span class="section-label violet"><i data-lucide="sparkles"></i><span data-en="AI CREATE" data-zh="AI 智能生成">AI CREATE</span></span><h2 id="generateHeading" data-en="Generate from evidence you own" data-zh="基于你拥有的证据生成内容">Generate from evidence you own</h2><p data-en="Pulse assembles drafts from verified evidence. You review every high-stakes output before it leaves your workspace." data-zh="Pulse 基于已验证证据生成草稿。任何重要内容离开工作区前，都由你审核确认。">Pulse assembles drafts from verified evidence. You review every high-stakes output before it leaves your workspace.</p></div><button class="points-balance" type="button" data-open-points aria-label="Learn how Research Points work" data-aria-en="Learn how Research Points work" data-aria-zh="了解研究积分的使用规则"><span class="points-orb"><i data-lucide="gem"></i></span><div><small data-en="RESEARCH POINTS" data-zh="研究积分">RESEARCH POINTS</small><strong>2,840</strong><span data-en="Spendable credits" data-zh="可用生成额度">Spendable credits</span></div><i class="points-info" data-lucide="info"></i></button>
+          </div>
+
+          <div class="generator-layout">
+            <section class="panel generator-builder">
+              <div class="builder-step"><span class="step-number">1</span><div><h3 data-en="Choose an output" data-zh="选择生成内容">Choose an output</h3><p data-en="Templates adapt to the evidence you select." data-zh="模板会根据你选择的证据自动调整。">Templates adapt to the evidence you select.</p></div></div>
+              <div class="generator-types">
+                <button class="generator-type active" type="button" data-generator="report"><i data-lucide="file-chart-column"></i><strong data-en="Experiment report" data-zh="实验报告">Experiment report</strong><small data-en="Methods, results and decisions" data-zh="方法、结果与决策">Methods, results and decisions</small><span>40 pts</span></button>
+                <button class="generator-type" type="button" data-generator="paper"><i data-lucide="book-open-text"></i><strong data-en="Paper draft" data-zh="论文草稿">Paper draft</strong><small data-en="Structured manuscript starter" data-zh="结构化论文初稿">Structured manuscript starter</small><span>120 pts</span></button>
+                <button class="generator-type" type="button" data-generator="patent"><i data-lucide="lightbulb"></i><strong data-en="Patent draft" data-zh="专利草稿">Patent draft</strong><small data-en="Invention evidence packet" data-zh="发明证据材料包">Invention evidence packet</small><span>160 pts</span></button>
+                <button class="generator-type" type="button" data-generator="application"><i data-lucide="briefcase-business"></i><strong data-en="Application packet" data-zh="申请材料包">Application packet</strong><small data-en="Evidence for grants or jobs" data-zh="用于基金或求职的证据">Evidence for grants or jobs</small><span>60 pts</span></button>
+              </div>
+
+              <div class="builder-step"><span class="step-number">2</span><div><h3 data-en="Select evidence" data-zh="选择证据">Select evidence</h3><p data-en="Only selected items enter the generation context." data-zh="仅选中的内容会进入生成上下文。">Only selected items enter the generation context.</p></div></div>
+              <div class="evidence-selector">
+                <label class="evidence-option selected"><input type="checkbox" checked><span class="evidence-option-icon violet"><i data-lucide="flask-conical"></i></span><span><strong data-en="Stability run 024" data-zh="稳定性实验 024">Stability run 024</strong><small data-en="Experiment · 12 conditions · v1.3" data-zh="实验 · 12 个条件 · v1.3">Experiment · 12 conditions · v1.3</small></span><i data-lucide="badge-check"></i></label>
+                <label class="evidence-option selected"><input type="checkbox" checked><span class="evidence-option-icon blue"><i data-lucide="library"></i></span><span><strong data-en="Four linked citations" data-zh="4 条关联文献">Four linked citations</strong><small data-en="Papers · DOI verified" data-zh="论文 · DOI 已验证">Papers · DOI verified</small></span><i data-lucide="badge-check"></i></label>
+                <label class="evidence-option selected"><input type="checkbox" checked><span class="evidence-option-icon green"><i data-lucide="activity"></i></span><span><strong data-en="Live instrument log" data-zh="实时仪器日志">Live instrument log</strong><small data-en="42 measurements · source-linked" data-zh="42 条测量记录 · 已关联来源">42 measurements · source-linked</small></span><i data-lucide="badge-check"></i></label>
+                <label class="evidence-option"><input type="checkbox"><span class="evidence-option-icon amber"><i data-lucide="message-square-text"></i></span><span><strong data-en="Supervisor notes" data-zh="监督人意见">Supervisor notes</strong><small data-en="2 verified observations" data-zh="2 条已验证观察记录">2 verified observations</small></span><i data-lucide="badge-check"></i></label>
+              </div>
+
+              <div class="generation-consent"><i data-lucide="shield-check"></i><div><strong data-en="Human review is required" data-zh="必须经过人工审核">Human review is required</strong><p data-en="The draft remains private until you approve and export it." data-zh="草稿在你确认并导出前始终保持私密。">The draft remains private until you approve and export it.</p></div><span class="status-pill green" data-en="Enabled" data-zh="已开启">Enabled</span></div>
+              <button class="primary-button generate-button" id="generateButton" type="button"><i data-lucide="sparkles"></i><span data-en="Generate evidence-grounded draft" data-zh="生成基于证据的草稿">Generate evidence-grounded draft</span><span>40 pts</span></button>
+            </section>
+
+            <aside class="panel output-preview" id="outputPreview">
+              <div class="empty-output" id="emptyOutput"><span class="empty-output-icon"><i data-lucide="file-text"></i></span><h3 data-en="Your draft will appear here" data-zh="生成的草稿将显示在这里">Your draft will appear here</h3><p data-en="Every statement will link back to the experiment, source or verification that supports it." data-zh="每项陈述都会关联至对应实验、来源或验证记录。">Every statement will link back to the experiment, source or verification that supports it.</p><div class="source-legend"><span><i data-lucide="link"></i><span data-en="Source-linked" data-zh="来源关联">Source-linked</span></span><span><i data-lucide="badge-check"></i><span data-en="Verified" data-zh="已验证">Verified</span></span><span><i data-lucide="user-check"></i><span data-en="Human reviewed" data-zh="人工审核">Human reviewed</span></span></div></div>
+              <div class="generated-output" id="generatedOutput" hidden>
+                <div class="generated-head"><div><span class="status-pill violet"><i data-lucide="sparkles"></i><span data-en="DRAFT" data-zh="草稿">DRAFT</span></span><h3 data-en="Stability Run 024 · Experiment Report" data-zh="稳定性实验 024 · 实验报告">Stability Run 024 · Experiment Report</h3><p data-en="Generated from 3 verified evidence sets" data-zh="基于 3 组已验证证据生成">Generated from 3 verified evidence sets</p></div><button class="icon-button subtle" type="button" aria-label="More draft actions" data-aria-en="More draft actions" data-aria-zh="更多草稿操作"><i data-lucide="more-horizontal"></i></button></div>
+                <div class="draft-document">
+                  <h4 data-en="Objective" data-zh="实验目标">Objective</h4><p><span data-en="Evaluate the effect of ionic strength on long-term interfacial stability under accelerated aging conditions." data-zh="评估离子强度在加速老化条件下对长期界面稳定性的影响。">Evaluate the effect of ionic strength on long-term interfacial stability under accelerated aging conditions.</span><sup>1</sup></p>
+                  <h4 data-en="Method" data-zh="实验方法">Method</h4><p><span data-en="A 12-condition design-of-experiments matrix was executed at 37 °C for 14 days with continuous QCM-D and periodic impedance measurements." data-zh="采用 12 条件实验设计矩阵，在 37 °C 下运行 14 天，并持续进行 QCM-D 与周期性阻抗测量。">A 12-condition design-of-experiments matrix was executed at 37 °C for 14 days with continuous QCM-D and periodic impedance measurements.</span><sup>2</sup></p>
+                  <h4 data-en="Preliminary finding" data-zh="初步发现">Preliminary finding</h4><p><span data-en="The 10–20 mM range retained the strongest signal stability through day 10. This remains a preliminary result pending completion and supervisor review." data-zh="10–20 mM 范围在第 10 天仍保持最佳信号稳定性。该结论仍属初步结果，需待实验完成及监督人审核。">The 10–20 mM range retained the strongest signal stability through day 10. This remains a preliminary result pending completion and supervisor review.</span><sup>3</sup></p>
+                </div>
+                <div class="draft-sources"><strong data-en="Evidence map" data-zh="证据映射">Evidence map</strong><button type="button"><span>1</span><span data-en="Hypothesis v1.0" data-zh="假设 v1.0">Hypothesis v1.0</span></button><button type="button"><span>2</span><span data-en="Execution plan v1.3" data-zh="执行方案 v1.3">Execution plan v1.3</span></button><button type="button"><span>3</span><span data-en="Instrument log · live" data-zh="仪器日志 · 实时">Instrument log · live</span></button></div>
+                <div class="draft-actions"><button class="secondary-button" type="button"><i data-lucide="pencil-line"></i><span data-en="Review draft" data-zh="审核草稿">Review draft</span></button><button class="primary-button" type="button"><i data-lucide="download"></i><span data-en="Approve & export" data-zh="确认并导出">Approve & export</span></button></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" data-view="community" aria-labelledby="communityHeading">
+          <div class="community-hero panel"><div><span class="section-label violet"><i data-lucide="users"></i><span data-en="PULSE COMMONS" data-zh="PULSE 研究社区">PULSE COMMONS</span></span><h2 id="communityHeading" data-en="A community built around research artifacts" data-zh="以研究成果为中心的社区">A community built around research artifacts</h2><p data-en="Follow researchers, discuss evidence, reuse protocols and build trusted relationships around real work." data-zh="关注研究者、讨论证据、复用实验方案，并围绕真实研究建立可信关系。">Follow researchers, discuss evidence, reuse protocols and build trusted relationships around real work.</p></div><div class="community-hero-actions"><button class="secondary-button message-launch-button" type="button" data-open-messages><i data-lucide="message-circle"></i><span data-en="Messages" data-zh="消息">Messages</span><b>2</b></button><button class="primary-button" type="button" id="shareArtifactButton"><i data-lucide="plus"></i><span data-en="Share an artifact" data-zh="分享研究成果">Share an artifact</span></button></div></div>
+
+          <div class="community-layout">
+            <section class="community-feed">
+              <div class="feed-filters panel"><button class="chip active" type="button" data-en="For you" data-zh="为你推荐">For you</button><button class="chip" type="button" data-en="Following" data-zh="关注">Following</button><button class="chip" type="button" data-en="Protocols" data-zh="实验方案">Protocols</button><button class="chip" type="button" data-en="Questions" data-zh="问答">Questions</button><button class="chip" type="button" data-en="Results" data-zh="研究结果">Results</button></div>
+
+              <article class="community-post panel">
+                <header><span class="avatar avatar-sm blue">MC</span><div><strong>Dr. Mira Chen</strong><span data-en="Perovskite Commons · 2h" data-zh="钙钛矿社区 · 2 小时前">Perovskite Commons · 2h</span></div><div class="post-author-actions"><button class="message-person-button" type="button" data-message-person="mira" aria-label="Message Dr. Mira Chen" data-aria-en="Message Dr. Mira Chen" data-aria-zh="给陈米拉博士发消息"><i data-lucide="message-circle"></i></button><button class="follow-button" type="button" data-en="Follow" data-zh="关注">Follow</button></div></header>
+                <p data-en="We have published v2.1 of our one-sun J–V measurement protocol. The largest change is an explicit stabilization window before each sweep." data-zh="我们发布了单日照 J–V 测量实验方案 v2.1。最大改动是在每次扫描前加入明确的稳定等待时间。">We have published v2.1 of our one-sun J–V measurement protocol. The largest change is an explicit stabilization window before each sweep.</p>
+                <div class="artifact-embed protocol-embed"><span class="artifact-icon"><i data-lucide="notebook-tabs"></i></span><div><span class="status-pill violet" data-en="PROTOCOL" data-zh="实验方案">PROTOCOL</span><h3 data-en="Perovskite Solar Cell · One-sun J–V Measurement" data-zh="钙钛矿太阳能电池 · 单日照 J–V 测量">Perovskite Solar Cell · One-sun J–V Measurement</h3><p data-en="18 steps · 12 instruments · v2.1" data-zh="18 个步骤 · 12 台仪器 · v2.1">18 steps · 12 instruments · v2.1</p></div><button class="secondary-button use-protocol" type="button"><span data-en="Use protocol" data-zh="使用方案">Use protocol</span></button></div>
+                <footer><button class="social-button" type="button" data-social="beat" aria-label="Send a Beat" data-aria-en="Send a Beat" data-aria-zh="送出一个 Beat"><i data-lucide="heart-pulse"></i><span>128</span><small>Beats</small></button><button class="social-button" type="button" data-social="comment"><i data-lucide="message-circle"></i><span>23</span></button><button class="social-button" type="button"><i data-lucide="git-fork"></i><span>37</span></button><button class="social-button social-share" type="button"><i data-lucide="share-2"></i><span data-en="Share" data-zh="分享">Share</span></button></footer>
+                <div class="comment-composer" hidden><input type="text" data-placeholder-en="Add an evidence-aware comment…" data-placeholder-zh="发表基于证据的评论…" placeholder="Add an evidence-aware comment…"><button class="primary-button" type="button" data-en="Post" data-zh="发布">Post</button></div>
+              </article>
+
+              <article class="community-post panel">
+                <header><span class="avatar avatar-sm coral">AR</span><div><strong>Alex Rivera</strong><span data-en="Solid-State Batteries · 5h" data-zh="固态电池 · 5 小时前">Solid-State Batteries · 5h</span></div><div class="post-author-actions"><button class="message-person-button" type="button" data-message-person="alex" aria-label="Message Alex Rivera" data-aria-en="Message Alex Rivera" data-aria-zh="给 Alex Rivera 发消息"><i data-lucide="message-circle"></i></button><button class="follow-button following" type="button" data-en="Following" data-zh="已关注">Following</button></div></header>
+                <p data-en="A failed run exposed a useful humidity threshold. Sharing the failure packet because the leak signature may help other labs detect this earlier." data-zh="一次失败实验揭示了一个有用的湿度阈值。现分享失败实验材料包，其中的泄漏特征或许能帮助其他实验室更早发现问题。">A failed run exposed a useful humidity threshold. Sharing the failure packet because the leak signature may help other labs detect this earlier.</p>
+                <div class="artifact-embed failure-embed"><span class="artifact-icon"><i data-lucide="refresh-cw"></i></span><div><span class="status-pill red" data-en="FAILED RUN · LEARNING" data-zh="失败实验 · 经验">FAILED RUN · LEARNING</span><h3 data-en="Vacuum leak signature during deposition" data-zh="沉积过程中的真空泄漏特征">Vacuum leak signature during deposition</h3><p data-en="Verified log · Root cause recorded · Reusable checklist" data-zh="已验证日志 · 已记录根因 · 可复用检查清单">Verified log · Root cause recorded · Reusable checklist</p></div><button class="secondary-button" type="button"><span data-en="View evidence" data-zh="查看证据">View evidence</span></button></div>
+                <footer><button class="social-button beat-active" type="button" data-social="beat" aria-pressed="true" aria-label="Remove Beat" data-aria-en="Remove Beat" data-aria-zh="取消 Beat"><i data-lucide="heart-pulse"></i><span>84</span><small>Beats</small></button><button class="social-button" type="button" data-social="comment"><i data-lucide="message-circle"></i><span>17</span></button><button class="social-button" type="button"><i data-lucide="bookmark"></i><span data-en="Saved" data-zh="已保存">Saved</span></button><button class="social-button social-share" type="button"><i data-lucide="share-2"></i><span data-en="Share" data-zh="分享">Share</span></button></footer>
+                <div class="comment-composer" hidden><input type="text" data-placeholder-en="Add an evidence-aware comment…" data-placeholder-zh="发表基于证据的评论…" placeholder="Add an evidence-aware comment…"><button class="primary-button" type="button" data-en="Post" data-zh="发布">Post</button></div>
+              </article>
+            </section>
+
+            <aside class="community-sidebar">
+              <article class="panel network-panel">
+                <div class="panel-heading compact"><div><span class="section-label violet"><i data-lucide="users-round"></i><span data-en="YOUR NETWORK" data-zh="你的研究网络">YOUR NETWORK</span></span><h3 data-en="Researchers around your work" data-zh="与你的研究相关的人">Researchers around your work</h3></div><button class="icon-button subtle" type="button" data-open-network aria-label="Open research network" data-aria-en="Open research network" data-aria-zh="打开研究网络"><i data-lucide="arrow-up-right"></i></button></div>
+                <div class="network-stats"><button type="button" data-open-network data-network-tab="followers"><strong>1,248</strong><span data-en="Followers" data-zh="关注者">Followers</span></button><button type="button" data-open-network data-network-tab="following"><strong data-following-total>386</strong><span data-en="Following" data-zh="正在关注">Following</span></button><button type="button" data-open-network data-network-tab="suggested"><strong>42</strong><span data-en="Shared labs" data-zh="共同实验室">Shared labs</span></button></div>
+                <div class="network-suggestions"><div class="network-suggestion"><span class="avatar avatar-sm green">PS</span><span><strong>Dr. Priya Shah</strong><small data-en="Interface chemistry · 18 mutuals" data-zh="界面化学 · 18 位共同联系人">Interface chemistry · 18 mutuals</small></span><button class="follow-button" type="button" data-en="Follow" data-zh="关注">Follow</button></div><div class="network-suggestion"><span class="avatar avatar-sm blue">JL</span><span><strong>Jian Li</strong><small data-en="XPS methods · 9 mutuals" data-zh="XPS 方法 · 9 位共同联系人">XPS methods · 9 mutuals</small></span><button class="follow-button" type="button" data-en="Follow" data-zh="关注">Follow</button></div></div>
+                <button class="text-button" type="button" data-open-network data-network-tab="suggested"><span data-en="Discover researchers" data-zh="发现研究者">Discover researchers</span><i data-lucide="arrow-right"></i></button>
+              </article>
+              <article class="panel points-panel"><span class="points-orb"><i data-lucide="gem"></i></span><div><small data-en="YOUR RESEARCH POINTS" data-zh="你的研究积分">YOUR RESEARCH POINTS</small><strong>2,840</strong><p data-en="Spendable credits from accepted contributions—not from Beats" data-zh="来自被采纳的贡献，可用于生成服务；不由 Beats 兑换">Spendable credits from accepted contributions—not from Beats</p></div><button class="text-button" type="button" data-open-points><span data-en="How points work" data-zh="了解积分规则">How points work</span><i data-lucide="arrow-right"></i></button></article>
+              <article class="panel trending-panel"><div class="panel-heading compact"><h3 data-en="Trending communities" data-zh="热门研究社区">Trending communities</h3></div><button type="button"><span class="community-mark violet">PS</span><span><strong data-en="Perovskite Science" data-zh="钙钛矿科学">Perovskite Science</strong><small data-en="8.4k researchers" data-zh="8,400 名研究者">8.4k researchers</small></span><i data-lucide="chevron-right"></i></button><button type="button"><span class="community-mark cyan">SS</span><span><strong data-en="Solid-State Batteries" data-zh="固态电池">Solid-State Batteries</strong><small data-en="6.1k researchers" data-zh="6,100 名研究者">6.1k researchers</small></span><i data-lucide="chevron-right"></i></button><button type="button"><span class="community-mark green">OS</span><span><strong data-en="Open Science Methods" data-zh="开放科学方法">Open Science Methods</strong><small data-en="3.7k researchers" data-zh="3,700 名研究者">3.7k researchers</small></span><i data-lucide="chevron-right"></i></button></article>
+              <article class="panel reputation-panel"><h3 data-en="Artifact-based reputation" data-zh="基于成果的声誉">Artifact-based reputation</h3><div><span><strong>27</strong><small data-en="Artifacts shared" data-zh="成果分享">Artifacts shared</small></span><span><strong>95%</strong><small data-en="Reproducibility" data-zh="可复现性">Reproducibility</small></span><span><strong>12</strong><small data-en="Endorsements" data-zh="同行认可">Endorsements</small></span></div><p><i data-lucide="shield-check"></i><span data-en="Reputation is tied to traceable work, not popularity alone." data-zh="声誉来自可追溯的研究工作，而非单纯的人气。">Reputation is tied to traceable work, not popularity alone.</span></p></article>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" data-view="opportunities" aria-labelledby="opportunitiesHeading">
+          <div class="opportunities-hero panel"><div><span class="section-label amber"><i data-lucide="briefcase-business"></i><span data-en="OPPORTUNITIES" data-zh="研究机会">OPPORTUNITIES</span></span><h2 id="opportunitiesHeading" data-en="Where your verified work can take you" data-zh="让已验证的研究成果带你走向下一步">Where your verified work can take you</h2><p data-en="Roles, internships and industry challenges matched against evidence in your Passport—not keyword claims." data-zh="岗位、实习与行业挑战均根据研究护照中的真实证据匹配，而非仅依赖关键词。">Roles, internships and industry challenges matched against evidence in your Passport—not keyword claims.</p></div><div class="opportunity-summary"><div><strong>24</strong><span data-en="New matches" data-zh="新匹配">New matches</span></div><div><strong>5</strong><span data-en="Saved" data-zh="已收藏">Saved</span></div><div><strong>3</strong><span data-en="Applications" data-zh="申请中">Applications</span></div></div></div>
+
+          <div class="opportunity-layout">
+            <aside class="opportunity-filters panel">
+              <div class="list-search"><i data-lucide="search"></i><input type="search" data-placeholder-en="Search opportunities" data-placeholder-zh="搜索机会" placeholder="Search opportunities"></div>
+              <div class="filter-group"><strong data-en="Opportunity type" data-zh="机会类型">Opportunity type</strong><label><input type="checkbox" checked><span data-en="Jobs & fellowships" data-zh="岗位与研究员项目">Jobs & fellowships</span><small>12</small></label><label><input type="checkbox" checked><span data-en="Research challenges" data-zh="研究挑战">Research challenges</span><small>8</small></label><label><input type="checkbox" checked><span data-en="Industry competitions" data-zh="行业研究竞赛">Industry competitions</span><small>7</small></label><label><input type="checkbox"><span data-en="Collaborations" data-zh="合作项目">Collaborations</span><small>16</small></label><label><input type="checkbox" checked><span data-en="Internships" data-zh="实习">Internships</span><small>5</small></label></div>
+              <div class="filter-group"><strong data-en="Evidence match" data-zh="证据匹配度">Evidence match</strong><label><input type="radio" name="match" checked><span data-en="80% and above" data-zh="80% 及以上">80% and above</span></label><label><input type="radio" name="match"><span data-en="60% and above" data-zh="60% 及以上">60% and above</span></label><label><input type="radio" name="match"><span data-en="Show all" data-zh="显示全部">Show all</span></label></div>
+              <button class="secondary-button full" type="button"><i data-lucide="sliders-horizontal"></i><span data-en="Refine Passport matching" data-zh="优化护照匹配条件">Refine Passport matching</span></button>
+            </aside>
+
+            <section class="opportunity-results">
+              <div class="results-heading"><p><strong>24</strong> <span data-en="matches based on your evidence" data-zh="项基于研究证据的匹配">matches based on your evidence</span></p><button class="sort-button" type="button"><span data-en="Best match" data-zh="最佳匹配">Best match</span><i data-lucide="chevron-down"></i></button></div>
+
+              <article class="opportunity-card panel" data-opportunity="postdoc">
+                <div class="opportunity-logo violet">SU</div>
+                <div class="opportunity-main"><div class="opportunity-title-row"><div><span class="status-pill violet" data-en="TOP MATCH" data-zh="最佳匹配">TOP MATCH</span><h3 data-en="Postdoctoral Research Fellow" data-zh="博士后研究员">Postdoctoral Research Fellow</h3><p data-en="Solid-State Batteries · Stanford University" data-zh="固态电池 · 斯坦福大学">Solid-State Batteries · Stanford University</p></div><button class="save-button" type="button" aria-label="Save opportunity"><i data-lucide="bookmark"></i></button></div><div class="opportunity-meta"><span><i data-lucide="map-pin"></i>Palo Alto, CA</span><span><i data-lucide="clock-3"></i><span data-en="Posted 2 days ago" data-zh="2 天前发布">Posted 2 days ago</span></span><span><i data-lucide="briefcase-business"></i><span data-en="Full time" data-zh="全职">Full time</span></span></div><div class="tag-row"><span data-en="Solid-state" data-zh="固态电解质">Solid-state</span><span data-en="Characterization" data-zh="材料表征">Characterization</span><span data-en="In situ" data-zh="原位分析">In situ</span></div><div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="37 linked synthesis artifacts" data-zh="关联 37 项合成成果">37 linked synthesis artifacts</span></span><span><i data-lucide="badge-check"></i><span data-en="XPS credential verified" data-zh="XPS 资质已验证">XPS credential verified</span></span><span><i data-lucide="badge-check"></i><span data-en="9 first-author papers" data-zh="9 篇第一作者论文">9 first-author papers</span></span></div></div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:94"><strong>94%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="primary-button" type="button" data-view-opportunity="postdoc"><span data-en="View opportunity" data-zh="查看机会">View opportunity</span></button></div>
+              </article>
+
+              <article class="opportunity-card panel" data-opportunity="bounty">
+                <div class="opportunity-logo amber">SB</div>
+                <div class="opportunity-main"><div class="opportunity-title-row"><div><span class="status-pill amber" data-en="RESEARCH BOUNTY" data-zh="研究悬赏">RESEARCH BOUNTY</span><h3 data-en="Reproducibility Challenge: Humidity Drift" data-zh="可复现性挑战：湿度漂移">Reproducibility Challenge: Humidity Drift</h3><p data-en="Solid Battery Research Institute" data-zh="固态电池研究院">Solid Battery Research Institute</p></div><button class="save-button saved" type="button" aria-label="Save opportunity"><i data-lucide="bookmark"></i></button></div><div class="opportunity-meta"><span><i data-lucide="coins"></i>$5,000</span><span><i data-lucide="users"></i><span data-en="Team or individual" data-zh="团队或个人">Team or individual</span></span><span><i data-lucide="calendar-days"></i><span data-en="18 days left" data-zh="剩余 18 天">18 days left</span></span></div><div class="tag-row"><span data-en="Humidity" data-zh="湿度">Humidity</span><span data-en="Reproducibility" data-zh="可复现性">Reproducibility</span><span data-en="Open data" data-zh="开放数据">Open data</span></div><div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="Failed-run evidence is relevant" data-zh="失败实验记录高度相关">Failed-run evidence is relevant</span></span><span><i data-lucide="badge-check"></i><span data-en="Protocol contribution history" data-zh="拥有实验方案贡献记录">Protocol contribution history</span></span></div></div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:91"><strong>91%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="secondary-button" type="button" data-view-opportunity="bounty"><span data-en="View challenge" data-zh="查看挑战">View challenge</span></button></div>
+              </article>
+
+              <article class="opportunity-card panel" data-opportunity="scientist">
+                <div class="opportunity-logo cyan">QS</div>
+                <div class="opportunity-main"><div class="opportunity-title-row"><div><span class="status-pill cyan" data-en="STRONG MATCH" data-zh="高度匹配">STRONG MATCH</span><h3 data-en="Research Scientist · Energy Materials" data-zh="研究科学家 · 能源材料">Research Scientist · Energy Materials</h3><p>QuantumScape</p></div><button class="save-button" type="button" aria-label="Save opportunity"><i data-lucide="bookmark"></i></button></div><div class="opportunity-meta"><span><i data-lucide="map-pin"></i>San Jose, CA</span><span><i data-lucide="clock-3"></i><span data-en="Posted 5 days ago" data-zh="5 天前发布">Posted 5 days ago</span></span><span><i data-lucide="briefcase-business"></i><span data-en="Full time" data-zh="全职">Full time</span></span></div><div class="tag-row"><span data-en="Electrochemistry" data-zh="电化学">Electrochemistry</span><span data-en="Scale-up" data-zh="规模化">Scale-up</span><span data-en="Analytics" data-zh="分析">Analytics</span></div><div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="52 characterization artifacts" data-zh="52 项材料表征成果">52 characterization artifacts</span></span><span><i data-lucide="circle-alert"></i><span data-en="Scale-up evidence is limited" data-zh="规模化证据较少">Scale-up evidence is limited</span></span></div></div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:87"><strong>87%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="secondary-button" type="button" data-view-opportunity="scientist"><span data-en="View opportunity" data-zh="查看机会">View opportunity</span></button></div>
+              </article>
+
+              <article class="opportunity-card panel" data-opportunity="internship">
+                <div class="opportunity-logo green">NC</div>
+                <div class="opportunity-main">
+                  <div class="opportunity-title-row"><div><span class="status-pill green" data-en="PAID INTERNSHIP" data-zh="带薪实习">PAID INTERNSHIP</span><h3 data-en="Advanced Materials R&D Internship" data-zh="先进材料研发实习">Advanced Materials R&D Internship</h3><p data-en="NovaCell Energy · Summer research cohort" data-zh="NovaCell Energy · 暑期研发项目">NovaCell Energy · Summer research cohort</p></div><button class="save-button" type="button" aria-label="Save internship" data-aria-en="Save internship" data-aria-zh="收藏实习机会"><i data-lucide="bookmark"></i></button></div>
+                  <div class="opportunity-meta"><span><i data-lucide="map-pin"></i><span data-en="Shenzhen, China" data-zh="中国深圳">Shenzhen, China</span></span><span><i data-lucide="banknote"></i><span data-en="¥8,000 / month" data-zh="每月 8,000 元">¥8,000 / month</span></span><span><i data-lucide="calendar-days"></i><span data-en="12 weeks · Lab mentor" data-zh="12 周 · 配备实验导师">12 weeks · Lab mentor</span></span></div>
+                  <div class="tag-row"><span data-en="Battery interfaces" data-zh="电池界面">Battery interfaces</span><span data-en="Hands-on lab" data-zh="实验操作">Hands-on lab</span><span data-en="XPS" data-zh="XPS">XPS</span></div>
+                  <div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="Verified 412 XPS instrument hours" data-zh="已验证 412 小时 XPS 仪器经验">Verified 412 XPS instrument hours</span></span><span><i data-lucide="badge-check"></i><span data-en="Supervisor-endorsed safety record" data-zh="导师认可的实验安全记录">Supervisor-endorsed safety record</span></span></div>
+                </div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:86"><strong>86%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="secondary-button" type="button" data-view-opportunity="internship"><span data-en="View internship" data-zh="查看实习">View internship</span></button></div>
+              </article>
+
+              <article class="opportunity-card panel invited-opportunity" data-opportunity="competition">
+                <div class="opportunity-logo coral">AM</div>
+                <div class="opportunity-main">
+                  <div class="opportunity-title-row"><div><span class="status-pill coral"><i data-lucide="mail-check"></i><span data-en="INDUSTRY INVITE" data-zh="企业定向邀请">INDUSTRY INVITE</span></span><h3 data-en="Next-Generation Interface Materials Challenge" data-zh="下一代界面材料挑战赛">Next-Generation Interface Materials Challenge</h3><p data-en="Aurora Materials Group · Open innovation program" data-zh="曙光材料集团 · 开放创新计划">Aurora Materials Group · Open innovation program</p></div><button class="save-button saved" type="button" aria-label="Save competition" data-aria-en="Save competition" data-aria-zh="收藏竞赛"><i data-lucide="bookmark"></i></button></div>
+                  <div class="opportunity-meta"><span><i data-lucide="trophy"></i><span data-en="$30,000 award + pilot access" data-zh="30,000 美元奖金 + 中试验证机会">$30,000 award + pilot access</span></span><span><i data-lucide="users"></i><span data-en="Teams of 1–4" data-zh="1–4 人团队">Teams of 1–4</span></span><span><i data-lucide="calendar-days"></i><span data-en="Proposal due Aug 18" data-zh="提案截止 8 月 18 日">Proposal due Aug 18</span></span></div>
+                  <div class="tag-row"><span data-en="Interface chemistry" data-zh="界面化学">Interface chemistry</span><span data-en="Industry scale-up" data-zh="产业化放大">Industry scale-up</span><span data-en="Proposal" data-zh="研究提案">Proposal</span></div>
+                  <div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="Invited from your verified interface portfolio" data-zh="基于已验证的界面材料成果获邀">Invited from your verified interface portfolio</span></span><span><i data-lucide="badge-check"></i><span data-en="3 reusable protocols match the brief" data-zh="3 项可复用实验方案符合任务要求">3 reusable protocols match the brief</span></span></div>
+                </div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:89"><strong>89%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="primary-button" type="button" data-view-opportunity="competition"><span data-en="Open invitation" data-zh="打开邀请">Open invitation</span></button></div>
+              </article>
+
+              <article class="opportunity-card panel" data-opportunity="researchcup">
+                <div class="opportunity-logo indigo">NM</div>
+                <div class="opportunity-main">
+                  <div class="opportunity-title-row"><div><span class="status-pill violet" data-en="INDUSTRY RESEARCH CUP" data-zh="行业研究竞赛">INDUSTRY RESEARCH CUP</span><h3 data-en="Circular Battery Interface Research Cup" data-zh="循环电池界面研究杯">Circular Battery Interface Research Cup</h3><p data-en="Northstar Mobility · University–industry competition" data-zh="北辰出行 · 产学研联合竞赛">Northstar Mobility · University–industry competition</p></div><button class="save-button" type="button" aria-label="Save research competition" data-aria-en="Save research competition" data-aria-zh="收藏研究竞赛"><i data-lucide="bookmark"></i></button></div>
+                  <div class="opportunity-meta"><span><i data-lucide="trophy"></i><span data-en="¥100,000 total awards" data-zh="总奖金 10 万元">¥100,000 total awards</span></span><span><i data-lucide="microscope"></i><span data-en="Finalists receive instrument time" data-zh="入围团队可获得仪器使用时长">Finalists receive instrument time</span></span><span><i data-lucide="calendar-days"></i><span data-en="36 days left" data-zh="剩余 36 天">36 days left</span></span></div>
+                  <div class="tag-row"><span data-en="Circularity" data-zh="循环利用">Circularity</span><span data-en="Failure datasets" data-zh="失败数据集">Failure datasets</span><span data-en="Team challenge" data-zh="团队挑战">Team challenge</span></div>
+                  <div class="match-reasons"><span><i data-lucide="badge-check"></i><span data-en="63 structured failed runs add rare evidence" data-zh="63 次结构化失败实验形成稀缺证据">63 structured failed runs add rare evidence</span></span><span><i data-lucide="circle-alert"></i><span data-en="Add one lifecycle-analysis collaborator" data-zh="建议增加一名生命周期分析合作者">Add one lifecycle-analysis collaborator</span></span></div>
+                </div>
+                <div class="opportunity-match"><div class="match-ring" style="--value:84"><strong>84%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span><button class="secondary-button" type="button" data-view-opportunity="researchcup"><span data-en="View competition" data-zh="查看竞赛">View competition</span></button></div>
+              </article>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Primary navigation">
+      <button class="active" type="button" data-page="home"><i data-lucide="house"></i><span data-en="Home" data-zh="首页">Home</span></button>
+      <button type="button" data-page="passport"><i data-lucide="globe-2"></i><span data-en="Passport" data-zh="护照">Passport</span></button>
+      <button type="button" data-page="experiments"><i data-lucide="flask-conical"></i><span data-en="Experiments" data-zh="实验">Experiments</span></button>
+      <button type="button" data-page="generate"><i data-lucide="sparkles"></i><span data-en="Generate" data-zh="生成">Generate</span></button>
+      <button type="button" data-page="community"><i data-lucide="users"></i><span data-en="Community" data-zh="社区">Community</span></button>
+      <button type="button" data-page="opportunities"><i data-lucide="briefcase-business"></i><span data-en="Opportunities" data-zh="机会">Opportunities</span></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+
+  <dialog class="demo-dialog" id="captureDialog" aria-labelledby="captureTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="section-label cyan"><i data-lucide="scan-line"></i><span data-en="QUICK CAPTURE" data-zh="快速采集">QUICK CAPTURE</span></span><h2 id="captureTitle" data-en="Add evidence to your Passport" data-zh="将证据添加到研究护照">Add evidence to your Passport</h2></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="capture-types"><button type="button" class="capture-type active"><i data-lucide="file-text"></i><strong data-en="Paper or report" data-zh="论文或报告">Paper or report</strong><small data-en="PDF, DOI or URL" data-zh="PDF、DOI 或链接">PDF, DOI or URL</small></button><button type="button" class="capture-type"><i data-lucide="camera"></i><strong data-en="Notebook scan" data-zh="实验记录扫描">Notebook scan</strong><small data-en="Photo or image" data-zh="照片或图片">Photo or image</small></button><button type="button" class="capture-type"><i data-lucide="activity"></i><strong data-en="Instrument log" data-zh="仪器日志">Instrument log</strong><small data-en="File or live source" data-zh="文件或实时来源">File or live source</small></button><button type="button" class="capture-type"><i data-lucide="award"></i><strong data-en="Achievement" data-zh="成果或资质">Achievement</strong><small data-en="Credential or award" data-zh="资质或奖项">Credential or award</small></button></div>
+      <label class="upload-zone"><input type="file"><i data-lucide="upload-cloud"></i><strong data-en="Drop a file here or browse" data-zh="拖放文件到此处，或浏览选择">Drop a file here or browse</strong><span data-en="Pulse will suggest metadata, sensitivity and evidence links before saving." data-zh="保存前，Pulse 会建议元数据、敏感级别与证据关联。">Pulse will suggest metadata, sensitivity and evidence links before saving.</span></label>
+      <div class="dialog-privacy"><i data-lucide="lock-keyhole"></i><span><strong data-en="Private by default" data-zh="默认私密">Private by default</strong><small data-en="Nothing is shared until you choose an audience." data-zh="只有在你选择分享对象后，内容才会公开。">Nothing is shared until you choose an audience.</small></span></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel" data-en="Cancel" data-zh="取消">Cancel</button><button class="primary-button" value="default" id="saveCaptureButton"><span data-en="Save evidence" data-zh="保存证据">Save evidence</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog privacy-dialog" id="privacyDialog" aria-labelledby="privacyTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="section-label green"><i data-lucide="shield-check"></i><span data-en="DATA & SHARING" data-zh="数据与分享">DATA & SHARING</span></span><h2 id="privacyTitle" data-en="You control every evidence object" data-zh="每项研究证据都由你掌控">You control every evidence object</h2></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="privacy-overview"><span class="privacy-overview-icon"><i data-lucide="lock-keyhole"></i></span><div><strong data-en="Private by default" data-zh="默认私密">Private by default</strong><p data-en="Your Passport is visible only to you. You can share individual items without exposing private details." data-zh="你的研究护照默认仅自己可见。你可以单独分享某项内容，而无需公开其他私密信息。">Your Passport is visible only to you. You can share individual items without exposing private details.</p></div></div>
+      <div class="privacy-settings"><label><span><strong data-en="Show verified credentials" data-zh="展示已验证资质">Show verified credentials</strong><small data-en="Public Passport viewers can see credential names and issuers." data-zh="公开护照访问者可查看资质名称和颁发机构。">Public Passport viewers can see credential names and issuers.</small></span><input type="checkbox" checked></label><label><span><strong data-en="Show contribution counts" data-zh="展示贡献数量">Show contribution counts</strong><small data-en="Display totals without exposing private artifact details." data-zh="仅显示汇总数量，不公开私密成果详情。">Display totals without exposing private artifact details.</small></span><input type="checkbox" checked></label><label><span><strong data-en="Opportunity matching" data-zh="机会匹配">Opportunity matching</strong><small data-en="Use Passport evidence locally to calculate matches." data-zh="在本地使用护照证据计算匹配度。">Use Passport evidence locally to calculate matches.</small></span><input type="checkbox" checked></label><label><span><strong data-en="Contribute to governed research commons" data-zh="参与受治理的研究数据共享">Contribute to governed research commons</strong><small data-en="Off. Rights-cleared participation requires separate consent." data-zh="当前关闭。参与经授权的数据共享需要另行同意。">Off. Rights-cleared participation requires separate consent.</small></span><input type="checkbox"></label></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel" data-en="Cancel" data-zh="取消">Cancel</button><button class="primary-button" value="default" id="savePrivacyButton"><span data-en="Save controls" data-zh="保存设置">Save controls</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog network-dialog" id="networkDialog" aria-labelledby="networkTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="section-label violet"><i data-lucide="users-round"></i><span data-en="RESEARCH NETWORK" data-zh="研究网络">RESEARCH NETWORK</span></span><h2 id="networkTitle" data-en="People connected to your work" data-zh="与你的研究成果相连的人">People connected to your work</h2><p data-en="Following shapes your research feed. It does not grant access to private Passport evidence." data-zh="关注关系会影响你的研究动态，但不会授予任何私密护照证据的访问权限。">Following shapes your research feed. It does not grant access to private Passport evidence.</p></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="network-dialog-stats"><span><strong>1,248</strong><small data-en="Followers" data-zh="关注者">Followers</small></span><span><strong data-following-total>386</strong><small data-en="Following" data-zh="正在关注">Following</small></span><span><strong>84</strong><small data-en="Mutual researchers" data-zh="共同研究者">Mutual researchers</small></span></div>
+      <div class="network-dialog-tabs" role="tablist" aria-label="Research network lists" data-aria-en="Research network lists" data-aria-zh="研究网络列表"><button class="active" type="button" data-network-filter="followers" data-en="Followers" data-zh="关注者">Followers</button><button type="button" data-network-filter="following" data-en="Following" data-zh="正在关注">Following</button><button type="button" data-network-filter="suggested" data-en="Suggested" data-zh="推荐关注">Suggested</button></div>
+      <div class="network-people-list" data-network-group="followers">
+        <div class="network-person-card"><span class="avatar avatar-sm blue">MC</span><span><strong>Dr. Mira Chen <i data-lucide="badge-check"></i></strong><small data-en="Perovskite interfaces · Follows you" data-zh="钙钛矿界面 · 已关注你">Perovskite interfaces · Follows you</small><em data-en="12 mutual researchers" data-zh="12 位共同研究者">12 mutual researchers</em></span><button class="follow-button following" type="button" data-en="Following" data-zh="已关注">Following</button></div>
+        <div class="network-person-card"><span class="avatar avatar-sm green">AR</span><span><strong>Dr. Arun Rao</strong><small data-en="Operando characterization · Follows you" data-zh="工况表征 · 已关注你">Operando characterization · Follows you</small><em data-en="8 mutual researchers" data-zh="8 位共同研究者">8 mutual researchers</em></span><button class="follow-button" type="button" data-en="Follow back" data-zh="回关">Follow back</button></div>
+        <div class="network-person-card"><span class="avatar avatar-sm coral">JS</span><span><strong>Jade Sun</strong><small data-en="Solid-state batteries · Follows you" data-zh="固态电池 · 已关注你">Solid-state batteries · Follows you</small><em data-en="Northbridge University" data-zh="北桥大学">Northbridge University</em></span><button class="follow-button following" type="button" data-en="Following" data-zh="已关注">Following</button></div>
+      </div>
+      <div class="network-people-list" data-network-group="following" hidden>
+        <div class="network-person-card"><span class="avatar avatar-sm coral">AR</span><span><strong>Alex Rivera</strong><small data-en="Failure datasets · You follow each other" data-zh="失败数据集 · 已互相关注">Failure datasets · You follow each other</small><em data-en="Solid-State Battery Commons" data-zh="固态电池社区">Solid-State Battery Commons</em></span><button class="follow-button following" type="button" data-en="Following" data-zh="已关注">Following</button></div>
+        <div class="network-person-card"><span class="avatar avatar-sm violet">PL</span><span><strong>Prof. Liu</strong><small data-en="Your instructor · Verified supervisor" data-zh="你的导师 · 已验证监督人">Your instructor · Verified supervisor</small><em data-en="Northbridge University" data-zh="北桥大学">Northbridge University</em></span><button class="follow-button following" type="button" data-en="Following" data-zh="已关注">Following</button></div>
+      </div>
+      <div class="network-people-list" data-network-group="suggested" hidden>
+        <div class="network-person-card"><span class="avatar avatar-sm green">PS</span><span><strong>Dr. Priya Shah</strong><small data-en="Interface chemistry · 18 mutuals" data-zh="界面化学 · 18 位共同联系人">Interface chemistry · 18 mutuals</small><em data-en="Shares 6 protocols with your network" data-zh="与你的网络共享 6 项实验方案">Shares 6 protocols with your network</em></span><button class="follow-button" type="button" data-en="Follow" data-zh="关注">Follow</button></div>
+        <div class="network-person-card"><span class="avatar avatar-sm blue">JL</span><span><strong>Jian Li</strong><small data-en="XPS methods · 9 mutuals" data-zh="XPS 方法 · 9 位共同联系人">XPS methods · 9 mutuals</small><em data-en="Verified by South China Materials Lab" data-zh="华南材料实验室已验证">Verified by South China Materials Lab</em></span><button class="follow-button" type="button" data-en="Follow" data-zh="关注">Follow</button></div>
+      </div>
+      <div class="opportunity-note network-note"><i data-lucide="shield-check"></i><p data-en="Follower counts show network reach, not scientific quality. Private artifacts remain private until shared item by item." data-zh="关注者数量仅反映网络触达范围，不代表科研质量。私密成果只有在逐项授权后才会分享。">Follower counts show network reach, not scientific quality. Private artifacts remain private until shared item by item.</p></div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog messages-dialog" id="messagesDialog" aria-labelledby="messagesTitle">
+    <form method="dialog">
+      <div class="messages-dialog-head"><div><span class="section-label violet"><i data-lucide="messages-square"></i><span data-en="DIRECT MESSAGES" data-zh="私信">DIRECT MESSAGES</span></span><h2 id="messagesTitle" data-en="Research conversations" data-zh="研究对话">Research conversations</h2></div><div><button class="icon-button subtle" type="button" data-message-settings aria-label="Message settings" data-aria-en="Message settings" data-aria-zh="消息设置"><i data-lucide="settings-2"></i></button><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div></div>
+      <div class="messages-layout">
+        <aside class="conversation-list">
+          <label class="message-search"><i data-lucide="search"></i><input type="search" data-placeholder-en="Search messages" data-placeholder-zh="搜索消息" placeholder="Search messages"></label>
+          <button class="message-request-card" type="button" data-message-thread="aurora"><span class="conversation-avatar industry">AM</span><span><strong data-en="1 message request" data-zh="1 条消息请求">1 message request</strong><small data-en="Aurora Materials · Industry" data-zh="曙光材料 · 企业">Aurora Materials · Industry</small></span><i data-lucide="chevron-right"></i></button>
+          <div class="conversation-label" data-en="CONVERSATIONS" data-zh="对话">CONVERSATIONS</div>
+          <button class="conversation-item active" type="button" data-message-thread="mira"><span class="conversation-avatar blue">MC</span><span><strong>Dr. Mira Chen</strong><small data-en="I added two notes to your report…" data-zh="我在你的报告中添加了两条意见……">I added two notes to your report…</small></span><time>09:42</time><b>2</b></button>
+          <button class="conversation-item" type="button" data-message-thread="liu"><span class="conversation-avatar green">PL</span><span><strong data-en="Prof. Liu" data-zh="刘教授">Prof. Liu</strong><small data-en="Your review is in my queue." data-zh="你的审核任务已进入我的队列。">Your review is in my queue.</small></span><time data-en="Tue" data-zh="周二">Tue</time></button>
+          <button class="conversation-item" type="button" data-message-thread="alex"><span class="conversation-avatar coral">AR</span><span><strong>Alex Rivera</strong><small data-en="Join our reproducibility roundtable?" data-zh="愿意参加我们的可复现性圆桌讨论吗？">Join our reproducibility roundtable?</small></span><time data-en="Mon" data-zh="周一">Mon</time></button>
+        </aside>
+        <section class="chat-pane">
+          <div class="chat-person-head"><span class="conversation-avatar blue" id="chatAvatar">MC</span><span><strong id="chatName">Dr. Mira Chen</strong><small id="chatRole">Perovskite Commons · Verified researcher</small></span><div><button class="icon-button subtle" type="button" aria-label="View shared evidence" data-aria-en="View shared evidence" data-aria-zh="查看共享证据"><i data-lucide="folder-lock"></i></button><button class="icon-button subtle" type="button" aria-label="More conversation options" data-aria-en="More conversation options" data-aria-zh="更多对话选项"><i data-lucide="more-horizontal"></i></button></div></div>
+          <div class="message-history" id="messageHistory" aria-live="polite"></div>
+          <div class="message-request-actions" id="messageRequestActions" hidden><p data-en="This organization cannot see your Passport. Accepting only opens a conversation." data-zh="该企业无法查看你的研究护照。接受请求只会开启对话。">This organization cannot see your Passport. Accepting only opens a conversation.</p><div><button class="secondary-button" type="button" id="declineMessageRequest"><span data-en="Decline" data-zh="拒绝">Decline</span></button><button class="primary-button" type="button" id="acceptMessageRequest"><span data-en="Accept request" data-zh="接受请求">Accept request</span></button></div></div>
+          <div class="message-composer"><button class="icon-button subtle" type="button" aria-label="Attach shared evidence" data-aria-en="Attach shared evidence" data-aria-zh="附加共享证据"><i data-lucide="paperclip"></i></button><input id="messageInput" type="text" data-placeholder-en="Message this researcher…" data-placeholder-zh="给这位研究者发消息……" placeholder="Message this researcher…"><button class="primary-button" type="button" id="sendMessageButton"><i data-lucide="send"></i><span data-en="Send" data-zh="发送">Send</span></button></div>
+          <div class="message-privacy-line"><i data-lucide="shield-check"></i><span data-en="People you follow can message you directly. Others arrive as requests." data-zh="你关注的人可以直接发消息，其他联系人将进入消息请求。">People you follow can message you directly. Others arrive as requests.</span></div>
+        </section>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog points-dialog" id="pointsDialog" aria-labelledby="pointsTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="section-label violet"><i data-lucide="gem"></i><span data-en="RESEARCH POINTS" data-zh="研究积分">RESEARCH POINTS</span></span><h2 id="pointsTitle" data-en="Credits for useful research contributions" data-zh="奖励有价值研究贡献的可用额度">Credits for useful research contributions</h2><p data-en="Research Points are in-product credits: earn them when a contribution is accepted, then spend them on evidence-grounded generation tools." data-zh="研究积分是 Pulse 平台内的可用额度：贡献被采纳后获得，可用于基于证据的智能生成工具。">Research Points are in-product credits: earn them when a contribution is accepted, then spend them on evidence-grounded generation tools.</p></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="points-system-grid">
+        <article><span class="points-system-icon green"><i data-lucide="badge-check"></i></span><strong data-en="Earn" data-zh="获取">Earn</strong><p data-en="Accepted protocols, verified replications, evidence-backed reviews and reusable failure packets." data-zh="被采纳的实验方案、已验证复现、基于证据的评审，以及可复用的失败实验材料包。">Accepted protocols, verified replications, evidence-backed reviews and reusable failure packets.</p></article>
+        <article><span class="points-system-icon violet"><i data-lucide="sparkles"></i></span><strong data-en="Spend" data-zh="使用">Spend</strong><p data-en="Reports, application packets, paper drafts and patent drafts generated from your own evidence." data-zh="使用自己的证据生成实验报告、申请材料包、论文草稿与专利草稿。">Reports, application packets, paper drafts and patent drafts generated from your own evidence.</p></article>
+        <article><span class="points-system-icon coral"><i data-lucide="heart-pulse"></i></span><strong data-en="Separate from Beats" data-zh="与 Beats 分开">Separate from Beats</strong><p data-en="Beats show influence. They are not spendable and never convert directly into Research Points." data-zh="Beats 反映影响力，不可消费，也不会直接兑换成研究积分。">Beats show influence. They are not spendable and never convert directly into Research Points.</p></article>
+      </div>
+      <div class="points-ledger">
+        <div class="points-ledger-head"><strong data-en="Illustrative earning examples" data-zh="积分获取示例">Illustrative earning examples</strong><span data-en="Accepted contributions only" data-zh="仅限被采纳的贡献">Accepted contributions only</span></div>
+        <div class="points-ledger-row"><span><i data-lucide="notebook-tabs"></i><span><strong data-en="Reusable protocol accepted" data-zh="可复用实验方案被采纳">Reusable protocol accepted</strong><small data-en="Quality and reuse determine the final award" data-zh="最终积分取决于质量与复用价值">Quality and reuse determine the final award</small></span></span><b>+80–200</b></div>
+        <div class="points-ledger-row"><span><i data-lucide="repeat-2"></i><span><strong data-en="Independent replication verified" data-zh="独立复现通过验证">Independent replication verified</strong><small data-en="Must link methods, data and outcome" data-zh="需关联方法、数据与结果">Must link methods, data and outcome</small></span></span><b>+40–120</b></div>
+        <div class="points-ledger-row"><span><i data-lucide="message-square-text"></i><span><strong data-en="Evidence-backed peer review accepted" data-zh="基于证据的同行评审被采纳">Evidence-backed peer review accepted</strong><small data-en="Helpful, specific and source-linked" data-zh="需具体、有帮助并关联来源">Helpful, specific and source-linked</small></span></span><b>+10–30</b></div>
+        <div class="points-ledger-row"><span><i data-lucide="file-warning"></i><span><strong data-en="Structured failure packet reused" data-zh="结构化失败材料包被复用">Structured failure packet reused</strong><small data-en="Root cause and learning must be documented" data-zh="需记录根因与可复用经验">Root cause and learning must be documented</small></span></span><b>+40–100</b></div>
+      </div>
+      <div class="points-spend-row"><span><small data-en="Experiment report" data-zh="实验报告">Experiment report</small><strong>40 pts</strong></span><span><small data-en="Application packet" data-zh="申请材料包">Application packet</small><strong>60 pts</strong></span><span><small data-en="Paper draft" data-zh="论文草稿">Paper draft</small><strong>120 pts</strong></span><span><small data-en="Patent draft" data-zh="专利草稿">Patent draft</small><strong>160 pts</strong></span></div>
+      <div class="opportunity-note points-note"><i data-lucide="shield-check"></i><p data-en="No points for logins, raw upload volume or likes alone. Awards use contribution acceptance, evidence quality and verified reuse to reduce gaming." data-zh="仅登录、批量上传或获得点赞不会产生积分。积分奖励依据贡献采纳、证据质量与已验证复用，以降低刷分风险。">No points for logins, raw upload volume or likes alone. Awards use contribution acceptance, evidence quality and verified reuse to reduce gaming.</p></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel"><span data-en="Close" data-zh="关闭">Close</span></button><button class="primary-button" value="cancel" data-go-page="generate"><i data-lucide="sparkles"></i><span data-en="Use Research Points" data-zh="使用研究积分">Use Research Points</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog beats-dialog" id="beatsDialog" aria-labelledby="beatsTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="section-label coral"><i data-lucide="heart-pulse"></i><span data-en="BEATS BREAKDOWN" data-zh="BEATS 明细">BEATS BREAKDOWN</span></span><h2 id="beatsTitle" data-en="Influence you can trace to real work" data-zh="可追溯到真实研究成果的影响力">Influence you can trace to real work</h2><p data-en="Beats measure how verified work travels through the research network." data-zh="Beats 用于衡量已验证研究成果在研究网络中的传播与影响。">Beats measure how verified work travels through the research network.</p></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="beats-dialog-total"><span class="signal-icon coral"><i data-lucide="heart-pulse"></i></span><span><strong data-beat-total>4,860</strong><b>Beats</b><small data-en="Lifetime verified influence" data-zh="累计已验证影响力">Lifetime verified influence</small></span></div>
+      <div class="beats-breakdown-list">
+        <button type="button"><span class="breakdown-icon violet"><i data-lucide="download"></i></span><span><strong data-en="Artifact use" data-zh="成果使用">Artifact use</strong><small data-en="Downloads, citations and approved reuse" data-zh="下载、引用与经授权复用">Downloads, citations and approved reuse</small></span><b>2,140</b><i data-lucide="chevron-right"></i></button>
+        <button type="button"><span class="breakdown-icon cyan"><i data-lucide="repeat-2"></i></span><span><strong data-en="Independent replications" data-zh="独立复现">Independent replications</strong><small data-en="Evidence-linked protocol and result replications" data-zh="与证据关联的方案与结果复现">Evidence-linked protocol and result replications</small></span><b>1,180</b><i data-lucide="chevron-right"></i></button>
+        <button type="button"><span class="breakdown-icon coral"><i data-lucide="heart"></i></span><span><strong data-en="Peer Beats" data-zh="同行 Beats">Peer Beats</strong><small data-en="Unique, independence-weighted reactions" data-zh="按独立性加权的真实同行认可">Unique, independence-weighted reactions</small></span><b>940</b><i data-lucide="chevron-right"></i></button>
+        <button type="button"><span class="breakdown-icon green"><i data-lucide="badge-check"></i></span><span><strong data-en="Verified recognition" data-zh="已验证认可">Verified recognition</strong><small data-en="Instructor reviews, awards and industry invitations" data-zh="导师审核、奖项与企业邀请">Instructor reviews, awards and industry invitations</small></span><b>600</b><i data-lucide="chevron-right"></i></button>
+      </div>
+      <div class="opportunity-note beats-note"><i data-lucide="shield-check"></i><p data-en="Beats are an influence signal only. They never replace the multidimensional capability map, and every contribution is evidence-linked, independence-weighted and checked for unusual activity." data-zh="Beats 仅代表影响力，不会取代多维能力画像。每项贡献都关联证据，并按独立性加权，同时接受异常活动检测。">Beats are an influence signal only. They never replace the multidimensional capability map, and every contribution is evidence-linked, independence-weighted and checked for unusual activity.</p></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel"><span data-en="Close" data-zh="关闭">Close</span></button><button class="primary-button" value="cancel" data-go-page="community"><i data-lucide="users"></i><span data-en="Explore your influence" data-zh="查看我的社区影响">Explore your influence</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog class="demo-dialog opportunity-dialog" id="opportunityDialog" aria-labelledby="opportunityDialogTitle">
+    <form method="dialog">
+      <div class="dialog-head"><div><span class="status-pill violet" id="opportunityDialogType">TOP MATCH</span><h2 id="opportunityDialogTitle">Postdoctoral Research Fellow</h2><p id="opportunityDialogOrg">Stanford University · Solid-State Batteries</p></div><button class="icon-button subtle" value="cancel" aria-label="Close" data-aria-en="Close" data-aria-zh="关闭"><i data-lucide="x"></i></button></div>
+      <div class="opportunity-dialog-grid"><div><h3 data-en="Why this matches" data-zh="匹配原因">Why this matches</h3><div class="dialog-match-list" id="dialogMatchList"></div></div><div class="dialog-score"><div class="match-ring" style="--value:94"><strong id="dialogMatchScore">94%</strong></div><span data-en="Evidence match" data-zh="证据匹配度">Evidence match</span></div></div>
+      <div class="opportunity-note"><i data-lucide="shield-check"></i><p data-en="Pulse shares nothing with the organization until you explicitly submit an application packet." data-zh="只有在你明确提交申请材料包后，Pulse 才会向该机构分享信息。">Pulse shares nothing with the organization until you explicitly submit an application packet.</p></div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel"><i data-lucide="bookmark"></i><span data-en="Save" data-zh="收藏">Save</span></button><button class="primary-button" value="default" id="prepareApplicationButton"><i data-lucide="sparkles"></i><span data-en="Prepare application packet" data-zh="准备申请材料包">Prepare application packet</span></button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><i data-lucide="circle-check"></i><span id="toastMessage">Saved</span></div>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
